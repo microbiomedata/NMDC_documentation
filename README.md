@@ -1,2 +1,2 @@
 # NMDC_documentation
-Document workflows, schemas, and portal
+Compile documentation for NMDC workflows, schemas/ metadata, and portal
