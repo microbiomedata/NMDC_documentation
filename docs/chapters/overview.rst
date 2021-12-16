@@ -13,9 +13,6 @@ Four national laboratories are working together to produce the NMDC:
  - Pacific Northwest National Laboratory
 
 
-NMDC Workflows
---------------
-
 General Guidelines
 --------------------
 

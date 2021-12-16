@@ -244,7 +244,7 @@ Sankey diagram
 On the environment page, the Sankey diagram displays the environments that NMDC-linked samples were isolated from. This visualization is based on the GOLD ecosystem classification path, and the diagram is fully interactive, so environments of interest can be chosen at descending levels of specificity. This will then limit your search to samples that came from that selected environment.
 
 Download
---------
+^^^^^^^^
 
 *Individual file*
 ^^^^^^^^^^^^^^^^^^^^^
