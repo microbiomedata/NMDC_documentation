@@ -6,14 +6,8 @@ Welcome to NMDC Workflows's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   chapters/overview.rst
-   chapters/1_RQC_index.rst
-   chapters/2_ReadAnalysis_index.rst
-   chapters/3_MetaGAssemly_index.rst
-   chapters/4_MetaGAnnotation_index.rst
-   chapters/5_MAG_index.rst
-   chapters/6_MetaT_index.rst
-   chapters/7_Metaproteomics_index.rst
-   chapters/8_Metabolomics_index.rst
-   chapters/9_NOM_index.rst
-   chapters/10_portal_guide.rst
+   chapters/Overview.rst
+   chapters/2_Workflows.rst
+   chapters/3_Portal_guide.rst
+   
+
