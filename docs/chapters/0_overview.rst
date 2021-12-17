@@ -1,32 +1,4 @@
-Overview
+NMDC Overview
 ==================
 
-NMDC
-----
-The National Microbiome Data Collaborative (NMDC) is a new initiative, launched in July 2019 and funded by the Department of Energy’s (DOE) Office of Science, Biological and Environmental Research program, that aims to empower the research community to more effectively harness microbiome data. The NMDC is building an open-source, integrated data science ecosystem aimed at leveraging existing efforts in the microbiome research space, including data standards, quality, integration, and access, to create a linked data discovery portal. Read the `Nature Reviews Microbiology Comment <https://www.nature.com/articles/s41579-020-0377-0>`_ on the NMDC or visit the `NMDC website <https://microbiomedata.org/>`_.
-
-Four national laboratories are working together to produce the NMDC:
-
- - Lawrence Berkeley National Laboratory
- - Los Alamos National Laboratory
- - Oak Ridge National Laboratory
- - Pacific Northwest National Laboratory
-
-
-General Guidelines
---------------------
-
-NMDC aims to integrate existing open-source bioinformatics tools into standardized workflows for processing raw multi-omics data to produce interoperable and reusable annotated data products. Any commercial software are optional alternatives and not required.
-
-Execution Evironment
---------------------
-
-Two common ways to install and run the NMDC workflows:
-
- - Native installation
- - Containers
-
-The NMDC workflows have been written in WDL and require a WDL-capable Workflow Execution Tool (i.e., Cromwell). To ease the native installation, Docker images have been created for the third-party tools for all of the workflows as well. The workflows use the corresponding Docker images to run the required third-party tools. Databases must be downloaded and installed for most of the workflows.
- 
-
-The NMDC workflows are also available as a web application called `NMDC EDGE <https://nmdc-edge.org/home>`_ . The application has only the NMDC workflows integrated into an updated framework for `EDGE Bioinformatics <https://edgebioinformatics.org/>`_ ; this provides the workflows, third-party software, and requisite databases within a platform with a user-friendly interface. NMDC EDGE is provided as a web application especially for users who are not comfortable with running command line tools or without the computational resources to run the command line/ Docker versions.
+The National Microbiome Data Collaborative (NMDC) is a new US-based pilot initiative launched in June 2019 to support microbiome data exploration and discovery through a collaborative, integrative data science ecosystem. The primary goal is to democratize microbiome data science by providing access to multi-omics microbiome data to support reproducible, cross-study analyses aligned with the FAIR data principles. To demonstrate the utility of linking across multi-omics microbiome data, the NMDC team has initially focused on projects funded through the Facilities Integrating Collaborations for User Science (FICUS) Program, a partnership between two DOE User Facilities, the JGI at LBNL and EMSL at PNNL. These projects span diverse terrestrial and aquatic environments, and address questions related to microbially-mediated carbon transformations, biogeochemical cycling, and plant-microbiome interactions. Currently, metagenome and metatranscriptome data are made available through maintained resources at the JGI, including the JGI Genome Portal (https://genome.jgi.doe.gov/portal), the Genomes OnLine Database (GOLD, (https://gold.jgi.doe.gov)), and the Integrated Microbial Genomes and Microbiomes (IMG/M, (https://img.jgi.doe.gov)). Metaproteome, metabolome and natural organic characterization data generated at EMSL are made available through the MyEMSL/NEXUS system (https://search.emsl.pnnl.gov). While the primary research teams are aware of data generated for their own projects across these two User Facilities, challenges exist for the broader research community to search associated data and link complementary data derived from the same biosample or project. Further, publications resulting from data generated at the JGI and EMSL reference a suite of repositories (e.g., PRIDE, MetaboLights, INSDC) where data is dispersed across resources that renders meta-analyses difficult for multi-omics data.
