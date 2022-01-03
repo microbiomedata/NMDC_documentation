@@ -6,8 +6,8 @@ Welcome to NMDC Workflows's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   Workflows
-   ---------
+   chapters/0_overview.rst
+   chapters/1_Standards.rst
    chapters/2_Workflows.rst
-   
+   chapters/3_Portal_guide.rst
 
