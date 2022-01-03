@@ -1,4 +1,4 @@
 .. toctree::
    :maxdepth: 2
 
-   chapters/portal_guide.rst
+   portal_guide/portal_guide.rst
