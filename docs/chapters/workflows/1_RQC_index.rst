@@ -1,7 +1,7 @@
 Reads QC Workflow (v1.0.2)
 =============================
 
-.. image:: ../_static/images/1_RQC_rqc_workflow.png
+.. image:: ../../_static/images/1_RQC_rqc_workflow.png
    :align: center
    :scale: 50%
 

@@ -1,5 +1,44 @@
+NMDC Workflows
+==============
+
+
+
+Overview
+--------
+
+NMDC
+^^^^
+The National Microbiome Data Collaborative (NMDC) is a new initiative, launched in July 2019 and funded by the Department of Energy’s (DOE) Office of Science, Biological and Environmental Research program, that aims to empower the research community to more effectively harness microbiome data. The NMDC is building an open-source, integrated data science ecosystem aimed at leveraging existing efforts in the microbiome research space, including data standards, quality, integration, and access, to create a linked data discovery portal. Read the `Nature Reviews Microbiology Comment <https://www.nature.com/articles/s41579-020-0377-0>`_ on the NMDC or visit the `NMDC website <https://microbiomedata.org/>`_.
+
+Four national laboratories are working together to produce the NMDC:
+
+ - Lawrence Berkeley National Laboratory
+ - Los Alamos National Laboratory
+ - Oak Ridge National Laboratory
+ - Pacific Northwest National Laboratory
+
+
+General Guidelines
+^^^^^^^^^^^^^^^^^^
+
+NMDC aims to integrate existing open-source bioinformatics tools into standardized workflows for processing raw multi-omics data to produce interoperable and reusable annotated data products. Any commercial software are optional alternatives and not required.
+
+Execution Evironment
+^^^^^^^^^^^^^^^^^^^^
+
+Two common ways to install and run the NMDC workflows:
+
+ - Native installation
+ - Containers
+
+The NMDC workflows have been written in WDL and require a WDL-capable Workflow Execution Tool (i.e., Cromwell). To ease the native installation, Docker images have been created for the third-party tools for all of the workflows as well. The workflows use the corresponding Docker images to run the required third-party tools. Databases must be downloaded and installed for most of the workflows.
+ 
+
+The NMDC workflows are also available as a web application called `NMDC EDGE <https://nmdc-edge.org/home>`_ . The application has only the NMDC workflows integrated into an updated framework for `EDGE Bioinformatics <https://edgebioinformatics.org/>`_ ; this provides the workflows, third-party software, and requisite databases within a platform with a user-friendly interface. NMDC EDGE is provided as a web application especially for users who are not comfortable with running command line tools or without the computational resources to run the command line/ Docker versions.
+
+
 Reads QC Workflow (v1.0.2)
-=============================
+--------------------------
 
 .. image:: ../_static/images/1_RQC_rqc_workflow.png
    :align: center
@@ -7,7 +46,7 @@ Reads QC Workflow (v1.0.2)
 
 
 Workflow Overview
------------------
+^^^^^^^^^^^^^^^^^
 
 This workflow utilizes the program “rqcfilter2” from BBTools to perform quality control on raw Illumina reads. The workflow performs quality trimming, artifact removal, linker trimming, adapter trimming, and spike-in removal (using BBDuk), and performs human/cat/dog/mouse/microbe removal (using BBMap).
 
@@ -34,14 +73,14 @@ The following parameters are used for "rqcfilter2" in this workflow::
 
  
 Workflow Availability
----------------------
+
 
 The workflow from GitHub uses all the listed docker images to run all third-party tools.
 The workflow is available in GitHub: https://github.com/microbiomedata/ReadsQC; the corresponding
 Docker image is available in DockerHub: https://hub.docker.com/r/microbiomedata/bbtools.
 
 Requirements for Execution 
---------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 (recommendations are in **bold**) 
 
@@ -49,14 +88,14 @@ Requirements for Execution
 - Container Runtime that can load Docker images (**Docker v2.1.0.3 or higher**) 
 
 Hardware Requirements
----------------------
+^^^^^^^^^^^^^^^^^^^^^
 
 - Disk space: 106 GB for the RQCFilterData database 
 - Memory: >40 GB RAM
 
 
 Workflow Dependencies
----------------------
+^^^^^^^^^^^^^^^^^^^^^
 
 Third party software (This is included in the Docker image.)  
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -76,7 +115,7 @@ The following commands will download the database::
     rm RQCFilterData.tar	
 
 Sample dataset(s)
------------------
+^^^^^^^^^^^^^^^^^
 
 - small dataset: `Ecoli 10x <https://portal.nersc.gov/cfs/m3408/test_data/ReadsQC_small_test_data.tgz>`_ . You can find input/output in the downloaded tar gz file.
 
@@ -94,7 +133,7 @@ Sample dataset(s)
 For testing purposes and for the following examples, we used a 10% sub-sampling of the above dataset: `SRR7877884-int-0.1.fastq.gz <https://portal.nersc.gov/cfs/m3408/test_data/SRR7877884-int-0.1.fastq.gz>`_. This dataset is already interleaved.
 
 Inputs
-------
+^^^^^^
 
 A JSON file containing the following information: 
 
@@ -132,7 +171,7 @@ An example input JSON file is shown below:
 
 
 Output
-------
+^^^^^^
 
 A directory named with the prefix of the FASTQ input file will be created and multiple output files are generated; the main QC FASTQ output is named prefix.anqdpht.fastq.gz. Using the dataset above as an example, the main output would be named SRR7877884-int-0.1.anqdpht.fastq.gz. Other files include statistics on the quality of the data; what was trimmed, detected, and filtered in the data; a status log, and a shell script documenting the steps implemented so the workflow can be reproduced.
 
@@ -197,31 +236,34 @@ synth2.fq.gz                          detected synthetic molecule (short contami
 
 
 Version History
----------------
+^^^^^^^^^^^^^^^
 
 - 1.0.2 (release date **04/09/2021**; previous versions: 1.0.1)
 
 
 Point of contact
-----------------
+^^^^^^^^^^^^^^^^
 
 - Original author: Brian Bushnell <bbushnell@lbl.gov>
 
 - Package maintainer: Chienchi Lo <chienchi@lanl.gov>
 
+
+
+
 The Read-based Taxonomy Classification (v1.0.1)
-================================================
+-----------------------------------------------
 
 .. image:: ../_static/images/2_ReadAnalysis_readbased_analysis_workflow.png
    :align: center
    :scale: 50%
 
 Workflow Overview
------------------
+^^^^^^^^^^^^^^^^^
 The pipeline takes in sequencing files (single- or paired-end) and profiles them using multiple taxonomic classification tools with the Cromwell as the workflow manager.
 
 Workflow Availability
----------------------
+^^^^^^^^^^^^^^^^^^^^^
 The workflow is available in GitHub: https://github.com/microbiomedata/ReadbasedAnalysis; the corresponding Docker image is available in DockerHub: https://hub.docker.com/r/microbiomedata/nmdc_taxa_profilers
 
 Requirements for Execution:  
@@ -238,7 +280,7 @@ Hardware Requirements:
 - 60 GB RAM
 
 Workflow Dependencies
----------------------
+^^^^^^^^^^^^^^^^^^^^^
 
 Third party software:
 ~~~~~~~~~~~~~~~~~~~~~
@@ -365,23 +407,25 @@ kraken2/SRR7877884.krona.html             Kraken2 krona plot HTML file
 
 
 Version History
----------------
+^^^^^^^^^^^^^^^
 
 1.0.1 (release date 01/14/2021; previous versions: 1.0.0)
 
 Point of contact
-----------------
+^^^^^^^^^^^^^^^^
 
 Package maintainer: Po-E Li <po-e@lanl.gov>
+
+
 Metagenome Assembly Workflow (v1.0.2)
-========================================
+-------------------------------------
 
 .. image:: ../_static/images/3_MetaGAssemly_workflow_assembly.png
    :scale: 60%
    :alt: Metagenome assembly workflow dependencies
    
 Workflow Overview
------------------
+^^^^^^^^^^^^^^^^^
 
 This workflow takes in paired-end Illumina reads in interleaved format and performs error correction, then reformats the interleaved file into two FASTQ files for downstream tasks using bbcms (BBTools). The corrected reads are assembled using metaSPAdes. After assembly, the reads are mapped back to contigs by bbmap (BBTools) for coverage information. The .wdl (Workflow Description Language) file includes five tasks, *bbcms*, *assy*, *create_agp*, *read_mapping_pairs*, and *make_output*.
 
@@ -392,13 +436,13 @@ This workflow takes in paired-end Illumina reads in interleaved format and perfo
 5. The final *make_output* task adds all output files into the specified directory.
 
 Workflow Availability
----------------------
+^^^^^^^^^^^^^^^^^^^^^
 
 The workflow from GitHub uses all the listed docker images to run all third-party tools.
 The workflow is available in GitHub: https://github.com/microbiomedata/metaAssembly; the corresponding Docker images are available in DockerHub: https://hub.docker.com/r/microbiomedata/spades and https://hub.docker.com/r/microbiomedata/bbtools
 
 Requirements for Execution
---------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 (recommendations are in **bold**)  
 
@@ -406,7 +450,7 @@ Requirements for Execution
 - Container Runtime that can load Docker images (**Docker v2.1.0.3 or higher**) 
 
 Hardware Requirements
----------------------
+^^^^^^^^^^^^^^^^^^^^^
 
 - Memory: >40 GB RAM
 
@@ -422,7 +466,7 @@ The memory requirement depends on the input complexity. Here is a simple estimat
 
 
 Workflow Dependencies
----------------------
+^^^^^^^^^^^^^^^^^^^^^
 
 Third party software:  (This is included in the Docker image.)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -431,7 +475,7 @@ Third party software:  (This is included in the Docker image.)
 - `BBTools:38.94 <https://jgi.doe.gov/data-and-tools/bbtools/>`_ (License: `BSD-3-Clause-LBNL <https://bitbucket.org/berkeleylab/jgi-bbtools/src/master/license.txt>`_)
 
 Sample dataset(s)
------------------
+^^^^^^^^^^^^^^^^^
 
 - small dataset: `Ecoli 10x (287M) <https://portal.nersc.gov/cfs/m3408/test_data/metaAssembly_small_test_data.tgz>`_ . You can find input/output in the downloaded tar gz file.
 
@@ -443,7 +487,7 @@ For testing purposes and for the following examples, we used a 10% sub-sampling 
 
 
 Input
------
+^^^^^
 
 A JSON file containing the following information:
 
@@ -470,7 +514,7 @@ An example input JSON file is shown below::
     }
 
 Output
-------
+^^^^^^
 
 The output directory will contain following files::
 
@@ -597,46 +641,48 @@ mapping/                                            stdout.background           
 =================================================== ================================= ===============================================================
 
 Version History
----------------
+^^^^^^^^^^^^^^^
 
 - 1.0.2 (release date **03/12/2021**; previous versions: 1.0.1)
 
 Point of contact
-----------------
+^^^^^^^^^^^^^^^^
 
 - Original author: Brian Foster <bfoster@lbl.gov>
 
 - Package maintainer: Chienchi Lo <chienchi@lanl.gov>
+
+
 Metagenome Annotation Workflow (v1.0.0)
-=======================================
+---------------------------------------
 
 .. image:: ../_static/images/4_MetaGAnnotation_annotation.png
 
 Workflow Overview
------------------
+^^^^^^^^^^^^^^^^^
 This workflow takes assembled metagenomes and generates structural and functional annotations. The workflow uses a number of open-source tools and databases to generate the structural and functional annotations. 
 
 The input assembly is first split into 10MB splits to be processed in parallel. Depending on the workflow engine configuration, the split can be processed in parallel. Each split is first structurally annotated, then those results are used for the functional annotation. The structural annotation uses tRNAscan_se, RFAM, CRT, Prodigal and GeneMarkS. These results are merged to create a consensus structural annotation. The resulting GFF is the input for functional annotation which uses multiple protein family databases (SMART, COG, TIGRFAM, SUPERFAMILY, Pfam and Cath-FunFam) along with custom HMM models. The functional predictions are created using Last and HMM. These annotations are also merged into a consensus GFF file. Finally, the respective split annotations are merged together to generate a single structural annotation file and single functional annotation file. In addition, several summary files are generated in TSV format.
 
 
 Workflow Availability
----------------------
+^^^^^^^^^^^^^^^^^^^^^
 The workflow is available in GitHub: https://github.com/microbiomedata/mg_annotation/ and the corresponding Docker image is available in DockerHub: https://hub.docker.com/r/microbiomedata/mg-annotation.
 
 Requirements for Execution (recommendations are in bold):  
----------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - WDL-capable Workflow Execution Tool **(Cromwell)**
 - Container Runtime that can load Docker images **(Docker v2.1.0.3 or higher)**
 
 Hardware Requirements: 
-----------------------
+^^^^^^^^^^^^^^^^^^^^^^
 - Disk space: 106 GB for the reference databases
 - Memory: >100 GB RAM
 
 
 Workflow Dependencies
----------------------
+^^^^^^^^^^^^^^^^^^^^^
 
 - Third party software (This is included in the Docker image.)  
    - Conda (3-clause BSD)
@@ -652,7 +698,7 @@ Workflow Dependencies
 
 
 Sample datasets
----------------
+^^^^^^^^^^^^^^^
 https://raw.githubusercontent.com/microbiomedata/mg_annotation/master/example.fasta
 
 
@@ -715,13 +761,13 @@ of the full metadata JSON file.
 **Version History:** 1.0.0 (release data)
 
 Point of contact
-----------------
+^^^^^^^^^^^^^^^^
 
 * Package maintainer: Shane Canon <scanon@lbl.gov>
 
 
 Metagenome Assembled Genomes Workflow (v1.0.2)
-=============================================
+----------------------------------------------
 
 .. image:: ../_static/images/5_MAG_MAG_workflow.png
    :scale: 40%
@@ -729,20 +775,20 @@ Metagenome Assembled Genomes Workflow (v1.0.2)
 
 
 Workflow Overview
------------------
+^^^^^^^^^^^^^^^^^
 
 
 The workflow is based on `IMG metagenome binning pipeline <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6323987/>`_ and has been modified specifically for the `NMDC project <https://www.nature.com/articles/s41579-020-0377-0>`_. For all processed metagenomes, it classifies contigs into bins using MetaBat2. Next, the bins are refined using the functional Annotation file (GFF) from the Metagenome Annotation workflow and optional contig lineage information. The completeness of and the contamination present in the bins are evaluated by CheckM and bins are assigned a quality level (High Quality (HQ), Medium Quality (MQ), Low Quality (LQ)) based on `MiMAG standards <https://www.nature.com/articles/nbt.3893#Tab1>`_.  In the end, GTDB-Tk is used to assign lineage for HQ and MQ bins.
 
 Workflow Availability
----------------------
+^^^^^^^^^^^^^^^^^^^^^
 
 The workflow from GitHub uses all the listed docker images to run all third-party tools.
 The workflow is available in GitHub: https://github.com/microbiomedata/metaMAGs 
 The corresponding Docker image is available in DockerHub: https://hub.docker.com/r/microbiomedata/nmdc_mbin
 
 Requirements for Execution
---------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 (recommendations are in **bold**):
   
@@ -750,13 +796,13 @@ Requirements for Execution
 - Container Runtime that can load Docker images (**Docker v2.1.0.3 or higher**) 
 
 Hardware Requirements
----------------------
+^^^^^^^^^^^^^^^^^^^^^
 
 - Disk space: > 27 GB for the CheckM and GTDB-Tk databases 
 - Memory: ~120GB memory for GTDB-tk.
 
 Workflow Dependencies
----------------------
+^^^^^^^^^^^^^^^^^^^^^
 
 Third party software (These are included in the Docker image.)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
@@ -786,7 +832,7 @@ The GTDB-Tk database must be downloaded and installed. The CheckM database inclu
     rm gtdbtk_r89_data.tar.gz
 
 Sample dataset(s)
------------------
+^^^^^^^^^^^^^^^^^
 
 
 The following test datasets include an assembled contigs file, a BAM file, and a functional annotation file:
@@ -798,7 +844,7 @@ The following test datasets include an assembled contigs file, a BAM file, and a
 
 
 Input
------ 
+^^^^^
 
 A JSON file containing the following: 
 
@@ -832,7 +878,7 @@ An example JSON file is shown below::
 
 
 Output
-------
+^^^^^^
 
 The workflow creates several output directories with many files. The main output files, the binned contig files from HQ and MQ bins, are in the *hqmq-metabat-bins* directory; the corresponding lineage results for the HQ and MQ bins are in the *gtdbtk_output* directory.
 
@@ -923,21 +969,23 @@ complete.mbin                                       the dummy file to indicate t
 
 
 Version History
----------------
+^^^^^^^^^^^^^^^
 
 - 1.0.2 (release date **02/24/2021**; previous versions: 1.0.1)
 
 Point of contact
-----------------
+^^^^^^^^^^^^^^^^
 
 - Original author: Neha Varghese <njvarghese@lbl.gov>
 
 - Package maintainer: Chienchi Lo <chienchi@lanl.gov>
+
+
 Metatranscriptome Workflow (v0.0.2)
-=====================================
+-----------------------------------
 
 Summary
--------
+^^^^^^^
 
 MetaT is a workflow designed to analyze metatranscriptomes, building on top of already existing NMDC workflows for processing input. The metatranscriptoimics workflow takes in raw data and starts by quality filtering the reads using the `RQC worfklow <https://github.com/microbiomedata/ReadsQC>`__. With filtered reads, the workflow filters out rRNA reads (and separates the interleaved file into separate files for the pairs) using bbduk (BBTools). After the filtering steps, reads are assembled into transcripts and using MEGAHIT and annotated using the `Metagenome Anotation Workflow <https://github.com/microbiomedata/mg_annotation>`_; producing GFF funtional annotation files. Features are counted with `Subread's featureCounts <http://subread.sourceforge.net/>`_ which assigns mapped reads to genomic features and generating RPKMs for each feature in a GFF file for sense and antisense reads. 
 
@@ -945,26 +993,28 @@ MetaT is a workflow designed to analyze metatranscriptomes, building on top of a
 
 
 Workflow Diagram
-------------------
+^^^^^^^^^^^^^^^^
 
 .. image:: ../_static/images/6_MetaT_metaT_figure.png
    :scale: 25%
    :alt: Metatranscriptome workflow
 
 Workflow Availability
----------------------
+^^^^^^^^^^^^^^^^^^^^^
+
 The workflow uses the listed docker images to run all third-party tools.
 The workflow is available in GitHub: 
 https://github.com/microbiomedata/metaT; and the corresponding Docker images that have all the required dependencies are available in following DockerHub (https://hub.docker.com/r/microbiomedata/bbtools, https://hub.docker.com/r/microbiomedata/meta_t, and https://hub.docker.com/r/intelliseqngs/hisat2)
 
 
 Requirements for Execution (recommendations are in bold):  
---------------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 1. WDL-capable Workflow Execution Tool (**Cromwell**)
 2. Container Runtime that can load Docker images (**Docker v2.1.0.3 or higher**)
 
 Workflow Dependencies
----------------------
+^^^^^^^^^^^^^^^^^^^^^
+
 Third-party software (These are included in the Docker images.)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 1. `BBTools v38.94 <https://jgi.doe.gov/data-and-tools/bbtools/>`_. (License: `BSD-3-Clause-LBNL <https://bitbucket.org/berkeleylab/jgi-bbtools/src/master/license.txt>`_.)
@@ -989,7 +1039,8 @@ The RQCFilterData Database must be downloaded and installed. This is a 106 GB ta
 
 
 Sample dataset(s)
-------------------
+^^^^^^^^^^^^^^^^^
+
 The following files are provided with the GitHub download in the test_data folder:
 
 1. Raw reads: test_data/test_interleave.fastq.gz (output from ReadsQC workflow)
@@ -1103,18 +1154,23 @@ Below is an example of the output directory files with descriptions to the right
 
 
 Version History 
----------------
+^^^^^^^^^^^^^^^
+
 - 0.0.2 (release date 01/14/2021; previous versions: 0.0.1)
 - 0.0.3 (release date 07/28/2021; previous versions: 0.0.2)
+
 Points of contact
------------------
+^^^^^^^^^^^^^^^^^
 - Author: Migun Shakya <migun@lanl.gov>
 
+
+
 Metaproteomic Workflow (v2.0.0)
-==============================
+-------------------------------
 
 Summary
--------
+^^^^^^^
+
 The metaproteomics workflow/pipeline is an end-to-end data processing workflow for protein identification and characterization using MS/MS data. Briefly, mass spectrometry instrument generated data files(.RAW) are converted to mzML, an open data format, using MSConvert. Peptide identification is achieved using MSGF+ and the associated metagenomic information in the FASTA (protein sequences) file format. Intensity information for identified species is extracted using MASIC and combined with protein information.
 
 -  **Processing components:**
@@ -1173,12 +1229,12 @@ The metaproteomics workflow/pipeline is an end-to-end data processing workflow f
          identified in each sample analyzed.
 
 Workflow Diagram
-------------------
+^^^^^^^^^^^^^^^^
 
 .. image:: ../_static/images/7_Metaproteomics_detailed_workflow_diagram.png
 
 Workflow Dependencies
----------------------
+^^^^^^^^^^^^^^^^^^^^^
 
 Third party software
 ~~~~~~~~~~~~~~~~~~~~
@@ -1192,8 +1248,9 @@ Third party software
     | MASIC                      | v3.0.7235                                |
     | sqlite-netFx-full-source   | 1.0.111.0                                |
 
+
 Workflow Availability
----------------------
+^^^^^^^^^^^^^^^^^^^^^
 
 The workflow is available in GitHub:
 https://github.com/microbiomedata/metaPro
@@ -1267,25 +1324,27 @@ Outputs
 - resultant_file
 
 Requirements for Execution
---------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Docker or other Container Runtime
 
 Version History
----------------
+^^^^^^^^^^^^^^^
 
 - 1.0.0
 - 2.0.0
 
 Point of contact
-----------------
+^^^^^^^^^^^^^^^^
 
 Package maintainer: Anubhav <anubhav@pnnl.gov>
+
+
 Metabolomics Workflow
-==============================
+---------------------
 
 Summary
--------
+^^^^^^^
 
 The gas chromatography-mass spectrometry (GC-MS) based metabolomics workflow (metaMS) has been developed by leveraging PNNL's CoreMS software framework.
 The current software design allows for the orchestration of the metabolite characterization pipeline, i.e., signal noise reduction, m/z based Chromatogram Peak Deconvolution,
@@ -1293,13 +1352,13 @@ abundance threshold calculation, peak picking, spectral similarity calculation a
 
 
 Workflow Diagram
-------------------
+^^^^^^^^^^^^^^^^
 
 .. image:: ../_static/images/8_Metabolomics_metamsworkflow.png
 
 
 Workflow Dependencies
----------------------
+^^^^^^^^^^^^^^^^^^^^^
 
 Third party software
 ~~~~~~~~~~~~~~~~~~~~
@@ -1312,7 +1371,7 @@ Database
 - PNNL Metabolomics GC-MS Spectral Database
 
 Workflow Availability
----------------------
+^^^^^^^^^^^^^^^^^^^^^
 
 The workflow is available in GitHub:
 https://github.com/microbiomedata/metaMS
@@ -1327,12 +1386,12 @@ The databases are available by request.
 Please contact NMDC (support@microbiomedata.org) for access.
 
 Test datasets
--------------
+^^^^^^^^^^^^^
 https://github.com/microbiomedata/metaMS/blob/master/data/GCMS_FAMES_01_GCMS-01_20191023.cdf
 
 
 Execution Details
----------------------
+^^^^^^^^^^^^^^^^^
 
 Please refer to: 
 
@@ -1360,7 +1419,7 @@ Outputs
     - JSON
 
 Requirements for Execution
---------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Docker Container Runtime
   
@@ -1370,30 +1429,32 @@ Requirements for Execution
 
 
 Version History
----------------
+^^^^^^^^^^^^^^^
 
 - 2.1.3
 
 Point of contact
-----------------
+^^^^^^^^^^^^^^^^
 
 Package maintainer: Yuri E. Corilo <corilo@pnnl.gov>
+
+
 Natural Organic Matter Workflow
-================================
+-------------------------------
 
 Summary
--------
+^^^^^^^
 
 Direct Infusion Fourier Transform mass spectrometry (DI FT-MS) data undergoes signal processing and molecular formula assignment leveraging EMSL’s CoreMS framework. Raw time domain data is transformed into the m/z domain using Fourier Transform and Ledford equation. Data is denoised followed by peak picking, recalibration using an external reference list of known compounds, and searched against a dynamically generated molecular formula library with a defined molecular search space. The confidence scores for all the molecular formula candidates are calculated based on the mass accuracy and fine isotopic structure, and the best candidate assigned as the highest score.
 
 Workflow Diagram
-------------------
+^^^^^^^^^^^^^^^^
 
 .. image:: ../_static/images/9_NOM_enviromsworkflow.png
 
 
 Workflow Dependencies
----------------------
+^^^^^^^^^^^^^^^^^^^^^
 
 Third party software
 ~~~~~~~~~~~~~~~~~~~~
@@ -1406,7 +1467,7 @@ Database
 - CoreMS dynamic molecular database search and generator
 
 Workflow Availability
----------------------
+^^^^^^^^^^^^^^^^^^^^^
 
 The workflow is available in GitHub:
 https://github.com/microbiomedata/enviroMS
@@ -1421,12 +1482,12 @@ The databases are available by request.
 Please contact NMDC (support@microbiomedata.org) for access.
 
 Test datasets
--------------
+^^^^^^^^^^^^^
 https://github.com/microbiomedata/enviroMS/tree/master/data
 
 
 Execution Details
----------------------
+^^^^^^^^^^^^^^^^^
 
 Please refer to: 
 
@@ -1456,7 +1517,7 @@ Outputs
     - JSON
 
 Requirements for Execution
---------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Docker Container Runtime
   or 
@@ -1466,11 +1527,11 @@ Requirements for Execution
 
 
 Version History
----------------
+^^^^^^^^^^^^^^^
 
 - 4.1.5
 
 Point of contact
-----------------
+^^^^^^^^^^^^^^^^
 
 Package maintainer: Yuri E. Corilo <corilo@pnnl.gov>

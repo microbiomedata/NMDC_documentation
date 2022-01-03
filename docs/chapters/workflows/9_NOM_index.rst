@@ -9,7 +9,7 @@ Direct Infusion Fourier Transform mass spectrometry (DI FT-MS) data undergoes si
 Workflow Diagram
 ------------------
 
-.. image:: ../_static/images/9_NOM_enviromsworkflow.png
+.. image:: ../../_static/images/9_NOM_enviromsworkflow.png
 
 
 Workflow Dependencies

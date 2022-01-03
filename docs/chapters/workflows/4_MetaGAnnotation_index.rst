@@ -1,7 +1,7 @@
 Metagenome Annotation Workflow (v1.0.0)
 =======================================
 
-.. image:: ../_static/images/4_MetaGAnnotation_annotation.png
+.. image:: ../../_static/images/4_MetaGAnnotation_annotation.png
 
 Workflow Overview
 -----------------

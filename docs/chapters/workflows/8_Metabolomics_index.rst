@@ -12,7 +12,7 @@ abundance threshold calculation, peak picking, spectral similarity calculation a
 Workflow Diagram
 ------------------
 
-.. image:: ../_static/images/8_Metabolomics_metamsworkflow.png
+.. image:: ../../_static/images/8_Metabolomics_metamsworkflow.png
 
 
 Workflow Dependencies

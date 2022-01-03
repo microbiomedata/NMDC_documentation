@@ -1,7 +1,7 @@
 Metagenome Assembly Workflow (v1.0.2)
 ========================================
 
-.. image:: ../_static/images/3_MetaGAssemly_workflow_assembly.png
+.. image:: ../../_static/images/3_MetaGAssemly_workflow_assembly.png
    :scale: 60%
    :alt: Metagenome assembly workflow dependencies
    

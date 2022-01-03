@@ -1,7 +1,7 @@
 Metagenome Assembled Genomes Workflow (v1.0.2)
 =============================================
 
-.. image:: ../_static/images/5_MAG_MAG_workflow.png
+.. image:: ../../_static/images/5_MAG_MAG_workflow.png
    :scale: 40%
    :alt: Metagenome assembled genomes generation 
 
