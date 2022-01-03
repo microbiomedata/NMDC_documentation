@@ -8,7 +8,7 @@ Welcome to NMDC Workflows's documentation!
 
    chapters/0_overview.rst
    chapters/1_Standards.rst
-   chapters/2_Workflows.rst
+   chapters/workflows/index.rst
    chapters/3_Portal_guide.rst
    
 
