@@ -11,8 +11,8 @@ Welcome to NMDC Workflows's documentation!
    chapters/3_Portal_guide.rst
 
 .. toctree::
-   :maxdepth: 1
-   :caption: Contents:
+   :maxdepth: 3
+   :caption: Workflows:
 
    chapters/2_Workflows.rst
 
