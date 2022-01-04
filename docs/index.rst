@@ -6,7 +6,7 @@ Welcome to NMDC Workflows's documentation!
    :maxdepth: 2
    :caption: NMDC Overview:
 
-   chapters/0_overview.rst
+   chapters/overview/0_overview.rst
 
 .. toctree::
    :maxdepth: 2
@@ -19,7 +19,6 @@ Welcome to NMDC Workflows's documentation!
    :caption: NMDC Workflows:
 
    chapters/2_Workflows.rst
-
 
 .. toctree::
    :maxdepth: 2
