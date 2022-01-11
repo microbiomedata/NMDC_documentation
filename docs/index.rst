@@ -10,6 +10,7 @@ Welcome to National Microbiome Data Collaborative (NMDC) Documentation!
 
 .. toctree::
    :maxdepth: 2
+   :caption: Standards:
 
   .. mdinclude:: chapters/standards/home.md
   .. mdinclude:: chapters/standards/Metadata_Documentation_Overview.md 
