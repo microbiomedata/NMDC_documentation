@@ -10,9 +10,13 @@ Welcome to National Microbiome Data Collaborative (NMDC) Documentation!
 
 .. toctree::
    :maxdepth: 2
-   :caption: NMDC Standards:
 
-   chapters/1_Standards.rst
+  .. mdinclude:: standards/home.md
+  .. mdinclude:: standards/Metadata_Documentation_Overview.md 
+  .. mdinclude:: standards/schema-validation.md
+  .. mdinclude:: standards/identifiers.md
+  .. mdinclude:: standards/NMDC_MIxS_Soil_documentation.md
+  .. mdinclude:: standards/credits.md  
 
 .. toctree::
    :maxdepth: 2
