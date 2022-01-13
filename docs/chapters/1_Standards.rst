@@ -1,9 +1,9 @@
 .. toctree::
    :maxdepth: 2
 
-  standards/home.md
-  standards/Metadata_Documentation_Overview.md 
-  standards/schema-validation.md
-  standards/identifiers.md
-  standards/NMDC_MIxS_Soil_documentation.md
-  standards/credits.md  
+  standards/home.rst
+  standards/Metadata_Documentation_Overview.rst 
+  standards/schema-validation.rst
+  standards/identifiers.rst
+  standards/NMDC_MIxS_Soil_documentation.rst
+  standards/credits.rst  
