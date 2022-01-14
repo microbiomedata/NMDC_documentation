@@ -1,8 +1,7 @@
 .. toctree::
    :maxdepth: 2
 
-  standards/home.rst
-  standards/schema.rst
+  standards/schema_index.rst
   standards/Metadata_Documentation_Overview.rst 
   standards/schema-validation.rst
   standards/identifiers.rst
