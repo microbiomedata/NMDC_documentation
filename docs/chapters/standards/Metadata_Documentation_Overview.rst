@@ -48,10 +48,10 @@ team can be found on the NMDC website at:
 `https://microbiomedata.org/metadata/ <https://microbiomedata.org/metadata/>`__
 
 Standards and Ontologies used by the NMDC
-=========================================
+-----------------------------------------
 
 Sample Metadata
----------------
+^^^^^^^^^^^^^^^
 
 GSC Minimum Information about any (x) Sequence (MIxS)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -204,35 +204,6 @@ classification*
 Review a step-by-step example of how to assign EnvO terms to an
 oligotrophic lake sediment sample below.
 
-.. raw:: html
-
-   <table>
-
-.. raw:: html
-
-   <tbody>
-
-.. raw:: html
-
-   <tr class="odd">
-
-.. raw:: html
-
-   <td width="35%" valign="top">
-
-.. raw:: html
-
-   <p>
-
-env_broad_scale (Biome)
-
-.. raw:: html
-
-   </p>
-
-.. raw:: html
-
-   <p>
 
 Using EnvO biome categories, aquatic is appropriate. However, since the
 EnvO is a hierarchical system, the aquatic biome has two sub-categories:
@@ -243,7 +214,7 @@ biome category.
 
 .. image:: ../../_static/images/NMDC_metadata_img3.png
    :align: center
-   :scale: 100%
+   :scale: 70%
 
 Next, we describe the local environmental feature in the vicinity of and
 likely having a strong causal influence on the sample. Using the EnvO
@@ -253,7 +224,7 @@ oligotrophic lake.
 
 .. image:: ../../_static/images/NMDC_metadata_img4.png
    :align: center
-   :scale: 100%
+   :scale: 70%
 
 Finally, since the sample is oligotrophic lake sediment, the EnvO
 environmental material could be assigned sediment. But because the EnvO
@@ -262,7 +233,7 @@ material will be assigned lake sediment.
 
 .. image:: ../../_static/images/NMDC_metadata_img5.png
    :align: center
-   :scale: 50%
+   :scale: 70%
 
 Therefore, the EnvO triad for *oligotrophic lake sediment* is:
 
@@ -273,7 +244,7 @@ Therefore, the EnvO triad for *oligotrophic lake sediment* is:
    **Env_medium**: lake sediment [ENVO_00000546]
 
 Classifying samples with GOLD and MIxS/EnvO
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------------
 
 The five-level GOLD ecosystem classification path and EnvO triad each
 have unique advantages in describing the environmental context of a
