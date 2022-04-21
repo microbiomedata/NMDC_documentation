@@ -1,41 +1,45 @@
 
-NMDC
-====
+NMDC Documentation
+==================
 
 .. toctree::
    :maxdepth: 2
    :caption: NMDC Overview:
 
-   chapters/overview/0_overview.rst
+   overview/nmdc_overview.rst
 
 .. toctree::
    :maxdepth: 2
-   :caption: Standards:
+   :caption: Tutorials:
 
-   chapters/standards/schema_index.rst
-   chapters/standards/Metadata_Documentation_Overview.rst 
-   chapters/standards/schema-validation.rst
-   chapters/standards/identifiers.rst
-   chapters/standards/NMDC_MIxS_Soil_documentation.rst
-   chapters/standards/credits.rst  
+   Preparing your metadata <./tutorials/prepare_metadata.md>
+   Using the Submission Portal <./tutorials/submission_portal.md>
+   Running the Workflows <./tutorials/run_workflows>
+   Navigating the Data Portal <./tutorials/nav_data_portal>
 
 .. toctree::
    :maxdepth: 2
-   :caption: NMDC Workflows:
+   :caption: How-To Guides:
 
-   chapters/workflows/overview.rst
-   chapters/workflows/1_RQC_index.rst
-   chapters/workflows/2_ReadAnalysis_index.rst
-   chapters/workflows/3_MetaGAssemly_index.rst
-   chapters/workflows/4_MetaGAnnotation_index.rst
-   chapters/workflows/5_MAG_index.rst
-   chapters/workflows/6_MetaT_index.rst
-   chapters/workflows/7_Metaproteomics_index.rst
-   chapters/workflows/8_Metabolomics_index.rst
-   chapters/workflows/9_NOM_index.rst
+   Creating a Data Mgt. Plan <./howto_guides/data_plan.md>
+   Submitting to NMDC <./howto_guides/submit2nmdc.md>
+   Running the Workflows <./howto_guides/run_workflows.md>
+   Navigating the Data Portal <./howto_guides/portal_guide.md>
+
 
 .. toctree::
    :maxdepth: 2
-   :caption: NMDC Portal:
+   :caption: Reference:
 
-   chapters/portal_guide/portal_guide.rst
+   NMDC Metadata <./reference/metadata/combined_schema_docs.md>
+   NMDC Workflows <./reference/combined_workflow_docs.rst>
+   NMDC Data Portal <./reference/data_portal.md>
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Explanation:
+
+   FAIR Data <./explanation/fair_data.md>
+   IDEA <./explanation/idea.md>
+   Community Conversations <./explanation/community_conversations.md>
+   Publications <./explanation/publications.md>
