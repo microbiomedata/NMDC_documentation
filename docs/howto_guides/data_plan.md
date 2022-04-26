@@ -18,8 +18,7 @@ In partnership with the University of California Curation Center of the Californ
 
 All of the sections below are laid out in the NMDC DMPTool template. This is a living document and the NMDC team welcomes community feedback on this resource. 
 
-![](../_static/images/other/construction_5_kindpng_2708235.png)
-
+![](../_static/images/howto_guides/data_mgt/data_mgt_list.png)
 
 ### For more information 
 You can find more information about [Data Management Best Practices](https://microbiomedata.org/data-management/) on the NMDC website.
