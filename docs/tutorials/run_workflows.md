@@ -11,8 +11,7 @@
 >
 >Task 1:  Create an NMDC EDGE account with either your email address or your ORCiD account.
 >
->Task 2: Download the small interleaved [data file listed here.](
-https://nmdc-edge.org/publicdata/test_data/SRR7877884-int-0.1.fastq.gz) Upload the file to NMDC EDGE.
+>Task 2: Download the small interleaved [data file](https://nmdc-edge.org/publicdata/test_data/SRR7877884-int-0.1.fastq.gz) listed here. (Note: This is paired-end data with the pairs interleaved together into a single file.) Upload the file to NMDC EDGE.
 >
 >Task 3: Click the user icon (in the top right corner with your initials) and under “Files”, click on “Manage Uploads”. Verify that the file you uploaded is there. (Note: Later you can delete uploads that are no longer needed.)
 >
@@ -47,7 +46,8 @@ https://nmdc-edge.org/publicdata/test_data/SRR7877884-int-0.1.fastq.gz) Upload t
 
 >NMDC EDGE Metagenome Read-based Taxonomy Classification Tutorial Practice 
 >
->Task: Log into NMDC EDGE and run the Metagenome Read-based Taxonomy Classification workflow with all three taxonomy classification tools. (Note: All three tools are selected by default. While a user can opt to turn off one or two tools, it is recommended to run all three.) Use the clean data output file from the project run in the ReadsQC Tutorial (the file ending in .anqdpht.fq.gz). In this case, the file will be treated as single-end reads.
+>Task:
+run the Metagenome Read-based Taxonomy Classification workflow with all three taxonomy classification tools. (Note: All three tools are selected by default. While a user can opt to turn off one or two tools, it is recommended to run all three.) Use the clean data output file from the project run in the ReadsQC Tutorial (the file ending in .anqdpht.fq.gz). In this case, the file will be treated as single-end reads.
 >
 >&nbsp;&nbsp;&nbsp;&nbsp;Question 1:  How many of the Top 10 species are called by more than one tool?
 >
@@ -134,7 +134,19 @@ https://nmdc-edge.org/publicdata/test_data/SRR7877884-int-0.1.fastq.gz) Upload t
 
 >NMDC EDGE Metatranscriptomics Tutorial Practics
 >
->Task: 
+>Task 1: Download the small interleaved [data file](https://nmdc-edge.org/publicdata/metaT/test_smaller_interleave.fastq.gz) listed here. (Note: This is paired-end data with the pairs interleaved together into a single file.) 
+>
+>Task 2: Log into NMDC EDGE and upload the file. 
+>
+>Task 3: Click the user icon (in the top right corner with your initials) and under “Files”, click on “Manage Uploads”. Verify that the file you uploaded is there. (Note: Later you can delete uploads that are no longer needed.)
+>
+>Task 4: Run the MetaT single workflow with this dataset in your upload folder. When the analysis is complete, the Top_features summary table under Metatranscriptome Result tab shows the proteins assigned to transcripts with the highest rpkm values. The full results (rpkm_sorted_features.tsv) can be downloaded from the metat_output folder under the Browser/Download output tab. The assembled transcripts and the annotation fules can also be downloaded from the respective folders under the Browser/Download output tab.
+>
+>&nbsp;&nbsp;&nbsp;&nbsp;Question 1: What product (protein) is assigned to the transcript with the highest rpkm value? (Note: Scroll to the far right to see these results.)
+>
+>&nbsp;&nbsp;&nbsp;&nbsp;Question 2: Download the contigs.fa (transcripts) file.  How many transcripts were assembled?
+>
+>&nbsp;&nbsp;&nbsp;&nbsp;Question 3: Download the rpkm_sorted_features.tsv file.  How many transcripts were assigned a product (protein) that is **not hypothetical**?
 
 
 
