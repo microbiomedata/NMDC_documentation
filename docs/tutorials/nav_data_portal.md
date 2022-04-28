@@ -39,7 +39,7 @@
 
 
 ## Answers to Tutorial Questions
->Task 2, Question 1: 108 metagenomes have been collected near Corvallis, OR.
+>Task 2, Question 1: 108 metagenomes have been collected near Corvallis, Oregon.
 >
 >Task 3, Question 1: The DOI for this study and dataset is https://doi.org/10.46936/10.25585/60000017
 >

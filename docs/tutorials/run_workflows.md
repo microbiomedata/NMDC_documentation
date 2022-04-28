@@ -70,7 +70,7 @@ run the Metagenome Read-based Taxonomy Classification workflow with all three ta
 >
 >&nbsp;&nbsp;&nbsp;&nbsp;Question 2:  How many scaffolds were generated from the assembly?
 >
->&nbsp;&nbsp;&nbsp;&nbsp;Question 3:  From the covstats.txt file, what percentage of the reads map back to the assembled contigs?
+>&nbsp;&nbsp;&nbsp;&nbsp;Question 3:  Download the covstats.txt file. From the top of the file, what percentage of the reads map back to the assembled contigs?
 
 ### Annotation
 
@@ -170,6 +170,7 @@ https://nmdc-edge.org/publicdata/test_data/SRR7877884-int-0.1.fastq.gz) Upload t
 >Question 1: 3,196 contigs were assembled.
 >
 >Question 2: 3,141 scaffolds were created.
+>
 >Question 3: 
 
 ### Metegenomics Annotation
