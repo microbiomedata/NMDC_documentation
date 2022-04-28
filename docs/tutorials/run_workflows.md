@@ -53,7 +53,7 @@ run the Metagenome Read-based Taxonomy Classification workflow with all three ta
 >
 >&nbsp;&nbsp;&nbsp;&nbsp;Question 2:  List the **genera** that are called by all three tools in the Top 10.
 >
->&nbsp;&nbsp;&nbsp;&nbsp;Question 3:  Open a full window of the Krona plot at **species level** from the taxonomy classification tool Centrifuge. What percentage of the sample is estimated to be _Pseudomonas aeruginosa_? 
+>&nbsp;&nbsp;&nbsp;&nbsp;Question 3:  From the Krona plot shown from the taxonomy classification tool Centrifuge results at **species level**, what percentage of the sample is estimated to be _Pseudomonas aeruginosa_? 
 
 ### Assembly
 
@@ -100,7 +100,7 @@ run the Metagenome Read-based Taxonomy Classification workflow with all three ta
 >
 >Task: Log into NMDC EDGE and run the Metagenome MAGs workflow. Use the assebled contigs and the read mapping file which are output from the project run in the Assembly Tutorial (assembled_contigs.fna and pairedMapped_sorted.bam) and the combined functional annotation file fromt he Annotation Tutorial (the file ending in fuctional_annotation.gff)
 >
->&nbsp;&nbsp;&nbsp;&nbsp;Question 1:  What percentage of the contigs were binned?
+>&nbsp;&nbsp;&nbsp;&nbsp;Question 1:  Calculate the percentage of the contigs were binned.
 >
 >&nbsp;&nbsp;&nbsp;&nbsp;Question 2:  How many bins were determined to be high quality (HQ)? How many bins were determined to be medium quality (MQ)?
 >
@@ -150,4 +150,38 @@ https://nmdc-edge.org/publicdata/test_data/SRR7877884-int-0.1.fastq.gz) Upload t
 
 
 
-  
+## Answers to Tutorial Questions
+
+### Metegenomics ReadsQC
+>Question 1: Input contained 4,496,774 reads and 674,516,100 bases.
+>
+>Question 2: Output contained 3,353,438 reads and 487,250,239 bases.
+>
+>Question 3: For this project, the clean, filtered data is in the output file called SRR7877884-int-0.1.anqdpht.fastq.gz.
+
+### Metegenomics Read-based Taxonomy Classification
+>Question 1: There are seven species called by more than one taxonomy tool: *Pseudomonas aeruginosa, Salmonella enterica, Listeria monocytogenes, Enterococcus faecalis, Lactobacillus fermentum, Bacillus subtilis, and Escherichia coli.*
+>
+>Question 2: There are four genera called by all three taxonomy classification tools: *Pseudomonas, Bacillus, Enterococcus, and Lactobacillus.*
+>
+>Question 3: The Krona plot shows that Centrifuge estimates that 12% of the sample is *Pseudomonas aeruginosa."
+
+### Metegenomics Assembly
+>Question 1: 3,196 contigs were assembled.
+>
+>Question 2: 3,141 scaffolds were created.
+>Question 3: 
+
+### Metegenomics Annotation
+>Question 1: 3,031 contigs had genes called.
+>
+>Question 2: 2,495 CDS (coding sequences or genes) were called by GeneMark and 936 CDS were called by Prodigal.
+>
+>Question 3: The coding density of the metagenome is 89.15%.
+
+### Metagenome MAGs 
+>Question 1: 24% of the contigs were binned.
+>
+>Question 2: One bin was determined to be high quality and five bins were determined to be medium quality.
+>
+>Question 3: The organism called by gtdbtk for the highest quality bin is *Bacillus marinus.*
