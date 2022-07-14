@@ -16,5 +16,6 @@ jobs:
           args: --config ./lychee.toml --no-progress --verbose ./docs
           format: markdown
           jobSummary: true
+          fail: true
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
