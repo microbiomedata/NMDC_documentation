@@ -1,0 +1,6 @@
+max_retries = 3
+max_concurrency = 64
+exclude_mail = true
+insecure = true
+exclude = ['https://microbiomedata']
+headers = ['Accept=text/html,*/*']
