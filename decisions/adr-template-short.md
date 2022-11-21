@@ -1,7 +1,7 @@
 ---
-status: {proposed | rejected | accepted | deprecated | … | superseded by [ADR-0005](0005-example.md)}
-date: {YYYY-MM-DD when the decision was last updated}
-deciders: {list everyone involved in the decision}
+status: {proposed}
+date: {2022-11-17 }
+deciders: {Emiley, Shane, Bin, Alicia}
 consulted: {list everyone whose opinions are sought (typically subject-matter experts); and with whom there is a two-way communication}
 informed: {list everyone who is kept up-to-date on progress; and with whom there is a one-way communication}
 ---
