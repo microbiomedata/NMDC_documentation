@@ -66,7 +66,7 @@ organizations. We have adopted the Genomic Standards Consortium (GSC)
 Minimum Information about any (x) Sequence (MIxS) templates (3). This
 provides a standard data dictionary of sample descriptors (e.g.,
 location, biome, altitude, depth) organized into seventeen environmental
-packages (<https://gensc.org/mixs>) for sequence data. The NMDC team has
+packages (<https://www.gensc.org/pages/standards-intro.html>) for sequence data. The NMDC team has
 mapped fields used to describe samples in the GOLD database to MIxS
 version 5 (v5) elements. In addition, we are adopting the MIxS standards
 for sequence data types (e.g., sequencing method, pcr primers and
