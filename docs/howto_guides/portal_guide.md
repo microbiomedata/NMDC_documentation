@@ -82,7 +82,7 @@ Metabolomics Standards Initiative (5) for mass spectrometry data types
 The GSC has developed standards for describing genomic and metagenomic
 sequences, and the environment from which a biological sample
 originates. These "[Minimum Information about any (x)
-Sequence](https://gensc.org/mixs/)" (MIxS) packages provides
+Sequence](https://www.gensc.org/pages/standards-intro.html)" (MIxS) packages provides
 standardized sample descriptors (e.g., location, environment, elevation,
 altitude, depth, etc.) for 17 different sample environments.
 
