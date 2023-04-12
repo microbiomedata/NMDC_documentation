@@ -12,8 +12,6 @@ NMDC Documentation
    :maxdepth: 2
    :caption: Tutorials:
 
-   Preparing your metadata <./tutorials/prepare_metadata.md>
-   Using the Submission Portal <./tutorials/submission_portal.md>
    Running the Workflows <./tutorials/run_workflows>
    Navigating the Data Portal <./tutorials/nav_data_portal>
 
