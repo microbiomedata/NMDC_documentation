@@ -1,3 +1,6 @@
 # Using the Submission Portal
 
-![](../_static/images/other/construction_4_kindpng_1353982.png)
+<div align="center">
+    <video src="https://nmdc-edge.org/docs/videos/Sub_portal_video_v1.mp4" width="80%" height="80%" controls />
+</div>
+<br><br>
