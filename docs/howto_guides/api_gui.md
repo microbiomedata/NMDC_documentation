@@ -40,9 +40,11 @@ The [Find endpoints](https://api.microbiomedata.org/docs#/find:~:text=Find%20NMD
 4. Click **Execute**
 5. View the results in a json format, available to download by clicking **Download** or copy the results by clicking the clipboard icon in the bottom right corner of the response. In this case two studies were retrieved.
 
+[Add picutures or docs or something visual]
+
 #### ___Metadata___ Endpoints
 
-The ![NMDC Metadata endpoints!](../_static/images/howto_guides/api_gui/metadata_endpoints.png)
+![NMDC Metadata endpoints!](../_static/images/howto_guides/api_gui/metadata_endpoints.png)
 
 Include a list of collection names with nmdc schema links.
 
