@@ -31,6 +31,8 @@ Add an overview of the Find Endpoints. Put in link to Find Endpoints (in header 
 
 #### ___Metadata___ Endpoints
 
+The ![NMDC Metadata endpoints!](../_static/images/howto_guides/api_gui/metadata_endpoints.png)
+
 Include a list of collection names with nmdc schema links.
 
 
