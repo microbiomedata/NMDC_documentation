@@ -34,7 +34,7 @@ The [Find endpoints](https://api.microbiomedata.org/docs#/find:~:text=Find%20NMD
 
 ##### Example: get all studies that have EMSL (Environmental Molecular Sciences Laboratory) related funding
 
-1. Click on the drop down arrow to the right side of the desired find endpoint to expand the **`GET /studies`** endpoint
+1. Click on the drop down arrow to the right side of the **`GET /studies`** endpoint
 2. Click **Try it out** in the upper right of the expanded endpoint box
 3. Enter in parameters. In this case, we will input `funding_sources.search:EMSL` into the **filter** parameter. The `.search` performs a regex search to find studies with `funding_sources' that have the word "EMSL" in its value.
 4. Click **Execute**
