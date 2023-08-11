@@ -13,13 +13,12 @@ The [Find endpoints](https://api.microbiomedata.org/docs#/find:~:text=Find%20NMD
 Each endpoint is unique and requires the applicable attribute names to be known in order to structure a query in a meaningful way.   
 
 ![find get studies](../_static/images/howto_guides/api_gui/find_get_studies.png)
-*The `GET /studies` endpoint retrieves NMDC studies based on the parameters provided. Studies can be filtered and sorted based on the applicable [Study attributes](https://nmdc-documentation.readthedocs.io/en/latest/reference/metadata/Study.html).*   
+*The `GET /studies` endpoint retrieves NMDC studies based on the parameters provided. Studies can be filtered and sorted based on the applicable [Study attributes](https://nmdc-documentation.readthedocs.io/en/latest/reference/metadata/Study.html).* <br/>
+  
+![find get studies by study_id](../_static/images/howto_guides/api_gui/find_get_studies_study_id.png)
+*If the NMDC Study ID is known, a study can be retrieved directly using the `GET /studies{study_id}`. Note that only one study can be retrieved at a time, using this method.*<br/>
   
 
-![find get studies by study_id](../_static/images/howto_guides/api_gui/find_get_studies_study_id.png)
-*If the NMDC Study ID is known, a study can be retrieved directly using the `GET /studies{study_id}`. Note that only one study can be retrieved at a time, using this method.*
-  
-  
 The applicable parameters to the ___find___ endpoints, with acceptable syntax and examples are in the table below.
 
 | Parameter | Description | Syntax | Example |
