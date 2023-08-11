@@ -2,7 +2,7 @@
 
 ## Retrieving and Submitting Metadata using the ___Find___ and ___Metadata___ API Endpoints
 
-Metadata describing NMDC data (e.g. studies, biosamples, data objects, etc.) may be retrieved or submittied with GET and POST requests, respectively, using the **[NMDC API Graphical User Interface (GUI)](https://api.microbiomedata.org/docs#/)**. The API GUI provides an user interface for programmatic access to the NMDC data portal without needing to use the Command Line.
+Metadata describing NMDC data (e.g. studies, biosamples, data objects, etc.) may be retrieved or submittied with GET and POST requests, respectively, using the **[NMDC API Graphical User Interface (GUI)](https://api.microbiomedata.org/docs#/)** The API GUI provides an user interface for programmatic access to the NMDC data portal without needing to use the Command Line.
 
 Requests can include various parameters to filter, sort, and organize the requested information. Attribute names in the parameters will vary depending on the collection. The required syntax of the paramters will also vary, depending on if it is a ___find___ or a ___metadata___ endpoint. ___Find___ endpoints are designed to use more compact syntax (for example, filtering biosamples for an "Ecosystem Category" of "Plants" would look like `ecosystem_category:Plants` using the `GET /biosamples` endpoint). While ___metadata___ endpoints use [MongoDB-language querying](https://www.mongodb.com/docs/manual/tutorial/query-documents/) (e.g. the same filter would look like `{"ecosystem_category": "Plants"}` using the `GET /nmdcshema/{collection_name}` endpoint with `collection_name` set to `biosample_set`.)
 
@@ -10,15 +10,46 @@ Requests can include various parameters to filter, sort, and organize the reques
 
 The [Find endpoints](https://api.microbiomedata.org/docs#/find:~:text=Find%20NMDC-,metadata,-entities.) are provided with NMDC metadata entites already specified - where metadata about studies, biosamples, data objects, and activities can be retrieved using the GET requests. [add info. about POST requests for pipeline_search and pipeline_search_form] 
 
-Each endpoint is unique and requires the applicable attribute names to be known in order to structure a query in a meaningful way.   
+Each endpoint is unique and requires the applicable attribute names to be known in order to structure a query in a meaningful way.<br/>
+<br/>
 
 ![find get studies](../_static/images/howto_guides/api_gui/find_get_studies.png)
-*The `GET /studies` endpoint retrieves NMDC studies based on the parameters provided. Studies can be filtered and sorted based on the applicable [Study attributes](https://nmdc-documentation.readthedocs.io/en/latest/reference/metadata/Study.html).* <br/>
+*The `GET /studies` endpoint is a general purpose way to retrieve NMDC studies based on parameters provided by the user. Studies can be filtered and sorted based on the applicable [Study attributes](https://microbiomedata.github.io/nmdc-schema/Study/).* <br/>
 <br/>
 
 ![find get studies by study_id](../_static/images/howto_guides/api_gui/find_get_studies_study_id.png)
-*If the NMDC Study ID is known, a study can be retrieved directly using the `GET /studies{study_id}`. Note that only one study can be retrieved at a time, using this method.*<br/>
+*If the Study identifier is known, a study can be retrieved directly using the `GET /studies{study_id}` endpoint. Note that only one study can be retrieved at a time using this method.*<br/>
 <br/> 
+
+![find get biosamples](../_static/images/howto_guides/api_gui/find_get_biosamples.png)
+*The `GET /biosamples` endpoint is a general purpose way to retrieve biosample metadata using user-provided filter and sort criteria. Please see the applicable [Biosample attributes](https://microbiomedata.github.io/nmdc-schema/Biosample/).*<br/>
+<br/>
+
+![find get biosamples by sample_id](../_static/images/howto_guides/api_gui/find_get_biosamples_sample_id.png)
+*If the biosample identifier is known, a biosample can be retrieved directly using the `GET /biosamples/{sample_id}`. Note that only one biosample metadata record can be retrieved at a time using this method*<br/>
+<br/>
+
+![find get data objects](../_static/images/howto_guides/api_gui/find_get_data_objects.png)
+*To retrieve metadata about NMDC data objects (such as files, records, or omics data) the `GET /data_objects` endpoint may be used along with various parameters. Please see the applicable [Data Object attributes](https://microbiomedata.github.io/nmdc-schema/DataObject/)*<br/>
+<br/>
+
+![find get data objects by study](../_static/images/howto_guides/api_gui/find_get_data_objects_study.png)
+*Use the `GET /data_objects/study/{study_id}` find endpoint to fetch the metadata for **all** data objects, such as omics processing record metadata, based on the study identifier. Note that only one study_id may be input at a time.*<br/>
+<br/>
+
+![find get data objects by data object_id](../_static/images/howto_guides/api_gui/find_data_objects_data_object_id.png)
+*If the data object identifier is known, the metadata can be retrieved using the `GET /data_objects/{data_object_id}` endpoint. Note that only one data object metadata record may be retrieved at one time using this method*<br/>
+<br/>
+
+![find get activities](../_static/images/howto_guides/api_gui/find_get_activities.png)
+*The `GET /activities` endpoint is a general way to fetch metadata about various activities (e.g. metagenome assembly, natural organic matter analysis, etc). Any "slot" (aka attribute) for [WorkflowExecutionActivty](https://microbiomedata.github.io/nmdc-schema/WorkflowExecutionActivity/) may be used in the filter and sort parameters, including attributes for subclasses of `WorkflowExecutionActvity`, such as slots used in the `MetabolomicsAnalysisActivity` class among others.*<br/>
+<br/>
+
+![find get activities by activity id](../_static/images/howto_guides/api_gui/find_get_activities_activity_id.png)
+*If the activity identifier is known, the activity metadata can be retrieved using the `GET /activiites/activity_id` endpoint. Note that only one metadata record for an activity may be returned at a time using this method*<br/>
+<br/>
+
+[Finish adding last for endpoints: /search, /pipeline_search, POST /pipeline_search, POST /pipeline_search_form]
 
 The applicable parameters to the ___find___ endpoints, with acceptable syntax and examples are in the table below.
 
@@ -26,12 +57,14 @@ The applicable parameters to the ___find___ endpoints, with acceptable syntax an
 | :---: | :-----------: | :-------: | :---: |
 | filter | Allows conditions to be set as part of the query, returning only results that satisfy the conditions | Comma separated string of attribute:value pairs. Can include comparison operators like >=, <=, <, and >. May use a `.search` after the attribute name to search for part of a value. e.g. `attribute:value,attribute.search:value` | `ecosystem_category:Plants, lat_lon.latitude:>35.0, funding_sources.search:Department of Energy` |
 | search | Not yet implemented | Coming Soon | Not yet implemented |
-| sort | Specifies the order in which the query returns the matching documents | Comma separated string of attribute:value pairs, Where value can be empty, asc, or desc (for ascending or descending order) e.g. `attribute` or `attribute:asc` or `attribute:desc`| `depth.has_numeric_value:desc, ecosystem_type`
-| page | Specifies the desired page number among the paginated results | Integer | `3`
+| sort | Specifies the order in which the query returns the matching documents | Comma separated string of attribute:value pairs, Where value can be empty, asc, or desc (for ascending or descending order) e.g. `attribute` or `attribute:asc` or `attribute:desc`| `depth.has_numeric_value:desc, ecosystem_type` |
+| page | Specifies the desired page number among the paginated results | Integer | `3` |
 | per_page | Specifies the number of results returned per page. Maximum allowed is 200 | Integer | `50` |
 | cursor |
 | group_by | Not yet implemented | Coming Soon | Not yet implmented |
-| study_id | The identifier of a study | curie | `gold:Gs0114675`
+| study_id | The unique identifier of a study | curie e.g. `prefix:identifier` | `gold:Gs0114675` |
+| sample_id | The unique identifier of a biosample | curie e.g. `prefix:identifier` | `nmdc:bsm-11-w43vsm21` |
+| data_oject_id | The unique identifer of a data object | curie e.g. `prefix:identifier` | `jgi:55a9caff0d87852b2150891e` |
 
 ##### Example: get all studies that have EMSL (Environmental Molecular Sciences Laboratory) related funding
 
