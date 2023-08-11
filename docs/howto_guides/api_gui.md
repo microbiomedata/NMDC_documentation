@@ -64,7 +64,8 @@ The applicable parameters to the ___find___ endpoints, with acceptable syntax an
 | group_by | Not yet implemented | Coming Soon | Not yet implmented |
 | study_id | The unique identifier of a study | curie e.g. `prefix:identifier` | `gold:Gs0114675` |
 | sample_id | The unique identifier of a biosample | curie e.g. `prefix:identifier` | `nmdc:bsm-11-w43vsm21` |
-| data_oject_id | The unique identifer of a data object | curie e.g. `prefix:identifier` | `jgi:55a9caff0d87852b2150891e` |
+| data_object_id | The unique identifer of a data object | curie e.g. `prefix:identifier` | `jgi:55a9caff0d87852b2150891e` |
+| activity_id | The unique identifier for an nmdc workflow execution acitivty | curie e.g. `prefix:identifier` | `nmdc:ce4bb2d2e89a4114a0d940740b039822` |
 
 ##### Example: get all studies that have EMSL (Environmental Molecular Sciences Laboratory) related funding
 
