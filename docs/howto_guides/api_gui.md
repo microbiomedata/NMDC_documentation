@@ -10,11 +10,11 @@ Requests can include various parameters to filter, sort, and organize the reques
 
 The [Find endpoints](https://api.microbiomedata.org/docs#/find:~:text=Find%20NMDC-,metadata,-entities.) are provided with NMDC metadata entites already specified - where metadata about studies, biosamples, data objects, and activities can be retrieved using the GET requests. [add info. about POST requests for pipeline_search and pipeline_search_form] 
 
-Each endpoint is unique and requires the applicable attribute names to be known in order to structure a query in a meaningful way.
-<br>
+Each endpoint is unique and requires the applicable attribute names to be known in order to structure a query in a meaningful way.   
+
 ![find get studies](../_static/images/howto_guides/api_gui/find_get_studies.png)
-*The `GET /studies` endpoint retrieves NMDC studies based on the parameters provided. Studies can be filtered and sorted based on the applicable [Study attributes](https://nmdc-documentation.readthedocs.io/en/latest/reference/metadata/Study.html).*
-<br>
+*The `GET /studies` endpoint retrieves NMDC studies based on the parameters provided. Studies can be filtered and sorted based on the applicable [Study attributes](https://nmdc-documentation.readthedocs.io/en/latest/reference/metadata/Study.html).*   
+
 ![find get studies by study_id](../_static/images/howto_guides/api_gui/find_get_studies_study_id.png)
 *If the NMDC Study ID is known, a study can be retrieved directly using the `GET /studies{study_id}`. Note that only one study can be retrieved at a time, using this method.*
 
