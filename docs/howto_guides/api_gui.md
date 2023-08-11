@@ -14,11 +14,11 @@ The [Find endpoints](https://api.microbiomedata.org/docs#/find:~:text=Find%20NMD
 
 The applicable parameters to the ___find___ endpoints, with acceptable syntax and examples are in the table below.
 
-| Parameter | Description | Syntax | Example Endpoint | Example parameter
-| :---: | :-----------: | :-------: | :---: | :---: |
-| filter | Allows conditions to be set as part of the query, returning only results that satisfy the conditions | Comma separated string of field:value pairs. Can include comparison operators like >=, <=, <, and >. May use a `.search` after the field name to search for string portion a value. e.g. `field:value` or `field.search:string` | ![NMDC Get Biosamples Find Endpoint!](../_static/images/howto_guides/api_gui/get_biosamples_endpoint.png) |`ecosystem_category:Plants, part_of:gold:Gs0103573, lat_lon.latitude:>35.0` |
-| search | Not yet implemented | Coming Soon | Not yet implemented | Coming Soon |
-| sort | Specifies the order in which the query returns the matching documents | Comma separated string of field:value pairs, Where value can be empty, asc, or desc (for ascending or descending order) e.g. `field` or `field:asc` or `field:desc` | ![NMDC Get Activities Find Endpoint!](../_static/images/howto_guides/api_gui/get_activities_endpoint.png) | `started_at_time:desc`
+| Parameter | Description | Syntax | Example |
+| :---: | :-----------: | :-------: | :---: |
+| filter | Allows conditions to be set as part of the query, returning only results that satisfy the conditions | Comma separated list of field:value pairs. Can include comparison operators like >=, <=, <, and >. May use a `.search` after the field name to search for part of a value. | `ecosystem_category:Plants, part_of:gold:Gs0103573, lat_lon.latitude:>35.0` `{"part_of": "gold:Gs0114663"}` |
+| search | Not yet implemented | Coming Soon | Not yet implemented |
+| sort | Specifies the order in which the query returns the matching documents | Comma separated list of field:value pairs, Where value can be empty, asc, or desc (for ascending or descending order) | `depth.has_numeric_value:desc, ecosystem_type`
 | page | Specifies the desired page number among the paginated results | Integer | `3`
 | per_page | Specifies the number of results returned per page. Maximum allowed is 200 | Integer | `50` |
 | cursor |
