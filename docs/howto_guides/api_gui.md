@@ -86,9 +86,7 @@ Note that a curl request and request url are provided as well for command line u
 
 #### ___Metadata___ Endpoints
 
-![NMDC Metadata endpoints!](../_static/images/howto_guides/api_gui/metadata_endpoints.png)
-
-Include a list of collection names with nmdc schema links.
+Include a list of collection names with nmdc schema links?
 
 
 
