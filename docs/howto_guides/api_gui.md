@@ -82,7 +82,7 @@ For more information and to see more examples of __find__ endpoints outside of t
 ![find example step 5](../_static/images/howto_guides/api_gui/find_example_step5.png)<b/>
 <b/>
 
-Note that a curl request and request url are provided as well for command line usage:
+- Note that a curl request and request url are provided as well for command line usage:
 ![find example note](../_static/images/howto_guides/api_gui/find_example_note.png)
 
 #### ___Metadata___ Endpoints
