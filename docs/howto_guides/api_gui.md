@@ -75,7 +75,7 @@ For more information and to see more examples of __find__ endpoints outside of t
 ![find example step 1](../_static/images/howto_guides/api_gui/find_example_step1.png)
 2. Click **Try it out** in the upper right of the expanded endpoint box
 ![find example step 2](../_static/images/howto_guides/api_gui/find_example_step2.png)
-3. Enter in parameters. In this case, we will input `funding_sources.search:EMSL` into the **filter** parameter. The `.search` performs a full text search to find studies with `funding_sources' that have the word "EMSL" in its value.
+3. Enter in parameters. In this case, we will input `funding_sources.search:EMSL` into the **filter** parameter. The `.search` performs a full text search to find studies with `funding_sources` that have the word "EMSL" in its value.
 4. Click **Execute**
 ![find example step 3 and step 4](../_static/images/howto_guides/api_gui/find_example_step3and4.png)
 5. View the results in a json format, available to download by clicking **Download** or copy the results by clicking the clipboard icon in the bottom right corner of the response. In this case two studies were retrieved.
