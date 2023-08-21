@@ -93,10 +93,10 @@ The syntax for the parameters of the __metadata__ endpoints is slightly differen
 
 | Parameter | Description | Syntax | Example |
 | :---: | :-----------: | :-------: | :---: | 
-| collection_name | The name of the collection to be queried. For a list of collection names please see the [Database class](https://microbiomedata.github.io/nmdc-schema/Database/) of the NMDC Schema | string | metatranscriptome_activity_set |
-| filter | Allows conditions to be set as part of the query, returning only results that satisfy the conditions | [MongoDB query language](https://www.mongodb.com/docs/manual/tutorial/query-documents/). All strings should be in double quotation marks. | {"lat_lon.latitude": {"$gt": 45.0}, "ecosystem_category": "Plants"} | 
-| max_page_size | 
-| page_token |
+| collection_name | The name of the collection to be queried. For a list of collection names please see the [Database class](https://microbiomedata.github.io/nmdc-schema/Database/) of the NMDC Schema | String | `biosample_set` |
+| filter | Allows conditions to be set as part of the query, returning only results that satisfy the conditions | [MongoDB query language](https://www.mongodb.com/docs/manual/tutorial/query-documents/). All strings should be in double quotation marks. | `{"lat_lon.latitude": {"$gt": 45.0}, "ecosystem_category": "Plants"}` | 
+| max_page_size | Specifies the maximum number of documents returned at a time | Integer | `25`
+| page_token | Specifies the token of the page to return. If unspecified, the first page is returned. To retrieve a subsequent page, the value received as the `next_page_token` from the bottom of the previous results can be provided as a `page_token`. ![next_page_token](../_static/images/howto_guides/api_gui/metadata_page_token_param.png) | String | `nmdc:sys0ae1sh583`
 | projection | Comma-separated list of fields you want the objects in the response to include | 
 | doc_id |
 
