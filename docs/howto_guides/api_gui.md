@@ -87,7 +87,26 @@ For more information and to see more examples of __find__ endpoints outside of t
 
 #### ___Metadata___ Endpoints
 
-Include a list of collection names with nmdc schema links?
+The [metadata endpoints](https://api.microbiomedata.org/docs#/metadata) can be used to get and filter metadata from collection set types (including studies, biosamples, activites, and data objects as discussed in the __find__ section) and validate and submit metadata to the data portal as a spreadsheet of json file. 
 
+The syntax for the parameters of the __metadata__ endpoints is slightly different than that of the __find__ endpoints using ][MongoDB-language querying](https://www.mongodb.com/docs/manual/tutorial/query-documents/) instead of the compact syntax the __find__ endpoint parameters use. The applicable parameters of the __metadata__ endpoints, with acceptable syntax and examples are in the table below.
+
+| Parameter | Description | Syntax | Example |
+| :---: | :-----------: | :-------: | :---: | 
+| collection_name | The name of the collection to be queried. For a list of collection names please see the [Database class](https://microbiomedata.github.io/nmdc-schema/Database/) of the NMDC Schema | string | metatranscriptome_activity_set |
+| filter | Allows conditions to be set as part of the query, returning only results that satisfy the conditions | [MongoDB query language](https://www.mongodb.com/docs/manual/tutorial/query-documents/). All strings should be in double quotation marks. | {"lat_lon.latitude": {"$gt": 45.0}, "ecosystem_category": "Plants"} | 
+| max_page_size | 
+| page_token |
+| projection | Comma-separated list of fields you want the objects in the response to include | 
+| doc_id |
+
+
+collection_name endpoint: can only get once collection at a time
+
+example: get all biosamples part of a study
+
+example: use regex for full text search: eg.g. {"geo_loc_name.has_raw_value": {"$regex": "Colorado"}} ?
+
+Add example to netadata endpoint to get dataset curies from study - see new projection parameter 
 
 
