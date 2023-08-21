@@ -89,7 +89,7 @@ For more information and to see more examples of __find__ endpoints outside of t
 
 The [metadata endpoints](https://api.microbiomedata.org/docs#/metadata) can be used to get and filter metadata from collection set types (including studies, biosamples, activites, and data objects as discussed in the __find__ section) and validate and submit metadata to the data portal as a spreadsheet of json file. 
 
-The syntax for the parameters of the __metadata__ endpoints is slightly different than that of the __find__ endpoints using[MongoDB-language querying](https://www.mongodb.com/docs/manual/tutorial/query-documents/) for filter parameters instead of the compact syntax the __find__ endpoints use. The applicable parameters of the __metadata__ endpoints, with acceptable syntax and examples are in the table below.
+The syntax for the parameters of the __metadata__ endpoints is slightly different than that of the __find__ endpoints using [MongoDB-language querying](https://www.mongodb.com/docs/manual/tutorial/query-documents/) for filtering parameters instead of the compact syntax the __find__ endpoints use. The applicable parameters of the __metadata__ endpoints, with acceptable syntax and examples are in the table below.
 
 | Parameter | Description | Syntax | Example |
 | :---: | :-----------: | :-------: | :---: | 
@@ -97,7 +97,7 @@ The syntax for the parameters of the __metadata__ endpoints is slightly differen
 | filter | Allows conditions to be set as part of the query, returning only results that satisfy the conditions | [MongoDB query language](https://www.mongodb.com/docs/manual/tutorial/query-documents/). All strings should be in double quotation marks. | `{"lat_lon.latitude": {"$gt": 45.0}, "ecosystem_category": "Plants"}` | 
 | max_page_size | Specifies the maximum number of documents returned at a time | Integer | `25`
 | page_token | Specifies the token of the page to return. If unspecified, the first page is returned. To retrieve a subsequent page, the value received as the `next_page_token` from the bottom of the previous results can be provided as a `page_token`. ![next_page_token](../_static/images/howto_guides/api_gui/metadata_page_token_param.png) | String | `nmdc:sys0ae1sh583`
-| projection | Indicates the fields you want the objects in the response to include. Helpful for trimming down the returned results | Comma separated string of field names that correspond to a `collection_name` | `name, ecosystem_type` |
+| projection | Indicates the desired fields to be included in the response. Helpful for trimming down the returned results | Comma separated string of field names that correspond to a `collection_name` | `name, ecosystem_type` |
 | doc_id |
 
 
