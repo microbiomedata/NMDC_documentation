@@ -105,7 +105,7 @@ The __metadata__ endpoints allow users to retrieve metadata from the data portal
 <br/>
 
 ![metadata post changesheets validate](../_static/images/howto_guides/api_gui/metadata_post_changesheets_validate.png)
-A csv or tsv file can be validated against the NMDC schema using the `POST /metadata/changesheets:validate` endpoint. Please see an [example changesheet](https://github.com/microbiomedata/nmdc-runtime/blob/main/metadata-translation/notebooks/data/changesheet-without-separator3.tsv). The file should include four columns:
+A csv or tsv file can be validated against the NMDC schema using the `POST /metadata/changesheets:validate` endpoint in order ot update an already existing record in the portal. Please see an [example changesheet](https://github.com/microbiomedata/nmdc-runtime/blob/main/metadata-translation/notebooks/data/changesheet-without-separator3.tsv). The file should include four columns:
 1. `id`: the identifier of the metadata object to be updated
 2. `action`: the type of update to be performed. There are four actions:
     - `insert`: inserts a new value
@@ -115,15 +115,27 @@ A csv or tsv file can be validated against the NMDC schema using the `POST /meta
 3. `attribute`: the attribute (or field/slot) that will be updated (e.g. `name` or `ecosystem_category`, etc.)
 4. `value`: the new value that will be inserted or that will replace the old value.
 
-Please note that if changes are made to multivalued attributes that have a "structured" value, e.g. [air_temp_regm](https://microbiomedata.github.io/nmdc-schema/air_temp_regm/) has a range of [TextValue](https://microbiomedata.github.io/nmdc-schema/TextValue/), set the `value` to a variable, then set the `id` of the next line with the `value` set to what will get populated. See [example](https://github.com/microbiomedata/nmdc-runtime/issues/284#issuecomment-1686825159).<br/>
+Please note that if changes are made to multivalued attributes that have a "structured" value, e.g. [air_temp_regm](https://microbiomedata.github.io/nmdc-schema/air_temp_regm/) has a range of [TextValue](https://microbiomedata.github.io/nmdc-schema/TextValue/), set the `value` to a variable, then set the `id` of the next line to the variable with the `value` set to what will get populated. See [example](https://github.com/microbiomedata/nmdc-runtime/issues/284#issuecomment-1686825159). For more information, please see [Authoring Changesheets](https://microbiomedata.github.io/nmdc-runtime/howto-guides/author-changesheets/)<br/>
 <br/>
 
 ![metadata post json validate](../_static/images/howto_guides/api_gui/metadata_post_json_validate.png)
-If submitting data to the portal, the metadata may be represented in a JSON format which can be posted in the body of the request and validated against the NMDC schema using the `POST /metatdata/json:validate` endpoint before final submission to the portal.<br/>
+Metadata may also be validated in a JSON format, which can be posted in the body of the request and validated against the NMDC schema using the `POST /metatdata/json:validate` endpoint before final submission to the portal.<br/>
 <br/>
 
 ![metadata post json validate urls file](../_static/images/howto_guides/api_gui/metadata_post_validate_urls_file.png)
 A text file of urls that point to a JSON object may be supplied using the `POST /metadata/json:validate_urls_file` endpoint. This is helpful for validation of very large JSON metadata or if a user has a link to a JSON file but is not in an environment where it is convenient to download the file and then upload it to validate.<br/>
+<br/>
+
+![metadata get nmdcshema version](../_static/images/howto_guides/api_gui/metadata_get_nmdcschema_version.png)
+To view the [NMDC Schema](https://microbiomedata.github.io/nmdc-schema/) the database is currently using, try executing the `GET /nmdcschema/version` endpoint<br/>
+<br/>
+
+![metadata get collection stats](../_static/images/howto_guides/api_gui/metadata_get_collection_stats.png)
+To get the NMDC Database collection statistics, like the total count of records in a collection or the size, try executing the `GET /nmdcschema/collection_stats` endpoint<br/>
+<br/>
+
+![metadata get collection name](../_static/images/howto_guides/api_gui/metadata_get_collection_name.png)
+The `GET /nmdcschema/{collection_name}` endpoint is a general purpose way to retrieve metadata about a specified collection given user-provided filter and projection criteria. Please see the [Collection Names](https://microbiomedata.github.io/nmdc-schema/Database/) that may be retrieved.
 
 
 collection_name endpoint: can only get once collection at a time
@@ -132,8 +144,8 @@ example: get all biosamples part of a study
 
 example: use regex for full text search: eg.g. {"geo_loc_name.has_raw_value": {"$regex": "Colorado"}} ?
 
-Add example to netadata endpoint to get dataset curies from study - see new projection parameter 
+Add example to netadata endpoint to get dataset curies from study - see new projection parameter  
 
-double check white space between comma separated projections. 
+Add example json validation. What does the structure look like? What does the response look like/mean?
 
 
