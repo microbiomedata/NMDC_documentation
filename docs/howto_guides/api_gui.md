@@ -114,6 +114,8 @@ A csv or tsv file can be validated against the NMDC schema using the `POST /meta
     - `delete`: removes the attribute entirely from the metadata document
 3. `attribute`: the attribute (or field/slot) that will be updated (e.g. `name` or `ecosystem_category`, etc.)
 4. `value`: the new value that will be inserted or that will replace the old value.<br/>
+<br/>
+
 Please note that if changes are being made to multivalued attributes that have a "structured" value, e.g. [air_temp_regm](https://microbiomedata.github.io/nmdc-schema/air_temp_regm/) has a range of [TextValue](https://microbiomedata.github.io/nmdc-schema/TextValue/), use the `update` action to set the attribute to a value of some variable followed by the `insert` action to with the id is the variable with its value set to what will get populated.<br/>
 <br/>
 
