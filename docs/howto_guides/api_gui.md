@@ -78,7 +78,7 @@ For more information and to see more examples of __find__ endpoints outside of t
 3. Enter in parameters. In this case, we will input `funding_sources.search:EMSL` into the **filter** parameter. The `.search` performs a full text search to find studies with `funding_sources` that have the word "EMSL" in its value.
 4. Click **Execute**
 ![find example step 3 and step 4](../_static/images/howto_guides/api_gui/find_example_step3and4.png)
-5. View the results in a json format, available to download by clicking **Download** or copy the results by clicking the clipboard icon in the bottom right corner of the response. In this case two studies were retrieved.
+5. View the results in a json format, available to download by clicking **Download**, or copy the results by clicking the clipboard icon in the bottom right corner of the response. In this case two studies were retrieved.
 ![find example step 5](../_static/images/howto_guides/api_gui/find_example_step5.png)<b/>
 <b/>
 
@@ -87,9 +87,9 @@ For more information and to see more examples of __find__ endpoints outside of t
 
 #### ___Metadata___ Endpoints
 
-The [metadata endpoints](https://api.microbiomedata.org/docs#/metadata) can be used to get and filter metadata from collection set types (including studies, biosamples, activites, and data objects as discussed in the __find__ section) and validate and submit metadata to the data portal as a spreadsheet of json file. 
+The [metadata endpoints](https://api.microbiomedata.org/docs#/metadata) can be used to get and filter metadata from collection set types (including studies, biosamples, activites, and data objects as discussed in the __find__ section), as well as validate and submit metadata to the data portal as a spreadsheet or json file. 
 
-The syntax for the parameters of the __metadata__ endpoints is slightly different than that of the __find__ endpoints using [MongoDB-language querying](https://www.mongodb.com/docs/manual/tutorial/query-documents/) for filtering parameters instead of the compact syntax the __find__ endpoints use. The applicable parameters of the __metadata__ endpoints, with acceptable syntax and examples are in the table below.
+The syntax for the filter parameter of the __metadata__ endpoints is slightly different than that of the __find__ endpoints using [MongoDB-language querying](https://www.mongodb.com/docs/manual/tutorial/query-documents/) instead of the compact syntax the __find__ endpoints use. The applicable parameters of the __metadata__ endpoints, with acceptable syntax and examples are in the table below.
 
 | Parameter | Description | Syntax | Example |
 | :---: | :-----------: | :-------: | :---: | 
@@ -98,7 +98,22 @@ The syntax for the parameters of the __metadata__ endpoints is slightly differen
 | max_page_size | Specifies the maximum number of documents returned at a time | Integer | `25`
 | page_token | Specifies the token of the page to return. If unspecified, the first page is returned. To retrieve a subsequent page, the value received as the `next_page_token` from the bottom of the previous results can be provided as a `page_token`. ![next_page_token](../_static/images/howto_guides/api_gui/metadata_page_token_param.png) | String | `nmdc:sys0ae1sh583`
 | projection | Indicates the desired fields to be included in the response. Helpful for trimming down the returned results | Comma separated string of field names that correspond to a `collection_name`. Note that `id` must be included if the `max_page_size` is smaller than the total number of documents returned. Note that there should be no white spaces between the comma-separated field names.  | `name,ecosystem_type` |
-| doc_id | The unique identifier of the item being requested. For example, the identifier of a biosample or an extraction | Curie e.g. `prefix:identifier` | `gold:Gb0115231` |
+| doc_id | The unique identifier of the item being requested. For example, the identifier of a biosample or an extraction | Curie e.g. `prefix:identifier` | `gold:Gb0115231` |<br/>
+<br/>
+
+The __metadata__ endpoints allow users to retrieve metadata from the data portal using the various `GET` endpoints that are slightly different than the __find__ endpoints, but some can be used similarily. They also include the ability to `POST` metadata to the data portal by allowing the validation and submission of change sheets. Change sheets are spreadsheets that specify changes to be made to existing metadata in the portal, like updating, removing, or inserting values.<br/>
+<br/>
+
+![metadata post changesheets validate](../_static/images/howto_guides/api_gui/metadata_post_changesheets_validate.png)
+A csv or tsv file can be validated against the NMDC schema using the `POST /metadata/changesheets:validate` endpoint. Please see an [example changesheet](https://github.com/microbiomedata/nmdc-runtime/blob/main/metadata-translation/notebooks/data/changesheet-without-separator3.tsv). The file should include four columns: 
+1. `id`: the identifier of the metadata object to be updated
+2. `action`: the type of update to be performed. There are four actions:
+    - `insert`: inserts a new value
+    - `remove item`: removes the value from a specified attribute.
+    - `update`: replace the existing value with a new value 
+    - `delete`: removes the attribute entirely from the metadata document
+3. `attribute`: the attribute, or field that will be updated (e.g. `name` or `ecosystem_category`, etc.)
+4. `value`: the new value that will be inserted or replace the old value.
 
 
 collection_name endpoint: can only get once collection at a time
