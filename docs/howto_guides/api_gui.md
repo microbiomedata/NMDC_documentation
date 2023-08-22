@@ -115,15 +115,15 @@ A csv or tsv file can be validated against the NMDC schema using the `POST /meta
 3. `attribute`: the attribute (or field/slot) that will be updated (e.g. `name` or `ecosystem_category`, etc.)
 4. `value`: the new value that will be inserted or that will replace the old value.
 
-Please note that if changes are made to multivalued attributes that have a "structured" value, e.g. [air_temp_regm](https://microbiomedata.github.io/nmdc-schema/air_temp_regm/) has a range of [TextValue](https://microbiomedata.github.io/nmdc-schema/TextValue/), set the `value` to a variable, then set the `id` of the next line with the `value` set to what will get populated. See [example](https://github.com/microbiomedata/nmdc-runtime/issues/284#issuecomment-1686825159).
+Please note that if changes are made to multivalued attributes that have a "structured" value, e.g. [air_temp_regm](https://microbiomedata.github.io/nmdc-schema/air_temp_regm/) has a range of [TextValue](https://microbiomedata.github.io/nmdc-schema/TextValue/), set the `value` to a variable, then set the `id` of the next line with the `value` set to what will get populated. See [example](https://github.com/microbiomedata/nmdc-runtime/issues/284#issuecomment-1686825159).<br/>
 <br/>
 
 ![metadata post json validate](../_static/images/howto_guides/api_gui/metadata_post_json_validate.png)
-If submitting data to the portal, the metadata may be represented in a JSON format which can be posted in the body of the request and validated against the NMDC schema using the `POST /metatdata/json:validate` endpoint before final submission to the portal.
+If submitting data to the portal, the metadata may be represented in a JSON format which can be posted in the body of the request and validated against the NMDC schema using the `POST /metatdata/json:validate` endpoint before final submission to the portal.<br/>
 <br/>
 
 ![metadata post json validate urls file](../_static/images/howto_guides/api_gui/metadata_post_validate_urls_file.png)
-A text file of urls that point to a JSON object may be supplied using the `POST /metadata/json:validate_urls_file` endpoint. This is helpful for validation of very large JSON metadata or if a user has a link to a JSON file but is not in an environment where it is convenient to download the file and then upload it to validate.
+A text file of urls that point to a JSON object may be supplied using the `POST /metadata/json:validate_urls_file` endpoint. This is helpful for validation of very large JSON metadata or if a user has a link to a JSON file but is not in an environment where it is convenient to download the file and then upload it to validate.<br/>
 
 
 collection_name endpoint: can only get once collection at a time
