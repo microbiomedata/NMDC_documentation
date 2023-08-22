@@ -135,10 +135,15 @@ To get the NMDC Database collection statistics, like the total count of records 
 <br/>
 
 ![metadata get collection name](../_static/images/howto_guides/api_gui/metadata_get_collection_name.png)
-The `GET /nmdcschema/{collection_name}` endpoint is a general purpose way to retrieve metadata about a specified collection given user-provided filter and projection criteria. Please see the [Collection Names](https://microbiomedata.github.io/nmdc-schema/Database/) that may be retrieved.
+The `GET /nmdcschema/{collection_name}` endpoint is a general purpose way to retrieve metadata about a specified collection given user-provided filter and projection criteria. Please see the [Collection Names](https://microbiomedata.github.io/nmdc-schema/Database/) that may be retrieved. Please note that only one collection set may be retrieved at a time.<br/>
+<br/>
 
+![metadata get doc_id](../_static/images/howto_guides/api_gui/metadata_get_doc_id.png)
+If the identifier of the record is known, the `GET /nmdcshema/ids/{doc_id}` can be used to retrieve the specified record. Note that only one identifier may be used at a time, and therefore, only one record may be retrieved at a time using this method.<br/>
+<br/>
 
-collection_name endpoint: can only get once collection at a time
+![metadata get collection_name doc_id](../_static/images/howto_guides/api_gui/metadata_get_collection_name_doc_id.png)
+If both the identifier and the collection name of the desired record is known, the `GET /nmdcschema/{collection_name}/{doc_id}` can be used to retrieve the record. The projection parameter is optionally available for this endpoint to retrieve only desired attributes from a record. Please note that only one record can be retrieved at one time using this method.
 
 example: get all biosamples part of a study
 
