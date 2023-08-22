@@ -21,11 +21,11 @@ The applicable parameters of the ___find___ endpoints, with acceptable syntax an
 | per_page | Specifies the number of results returned per page. Maximum allowed is 200 | Integer | `50` |
 | cursor |
 | group_by | Not yet implemented | Coming Soon | Not yet implmented |
-| study_id | The unique identifier of a study | curie e.g. `prefix:identifier` | `gold:Gs0114675` |
-| sample_id | The unique identifier of a biosample | curie e.g. `prefix:identifier` | `nmdc:bsm-11-w43vsm21` |
-| data_object_id | The unique identifer of a data object | curie e.g. `prefix:identifier` | `jgi:55a9caff0d87852b2150891e` |
-| activity_id | The unique identifier for an nmdc workflow execution acitivty | curie e.g. `prefix:identifier` | `nmdc:extrp-11-k5fecy41`|
-
+| study_id | The unique identifier of a study | Curie e.g. `prefix:identifier` | `gold:Gs0114675` |
+| sample_id | The unique identifier of a biosample | Curie e.g. `prefix:identifier` | `nmdc:bsm-11-w43vsm21` |
+| data_object_id | The unique identifer of a data object | Curie e.g. `prefix:identifier` | `jgi:55a9caff0d87852b2150891e` |
+| activity_id | The unique identifier for an nmdc workflow execution acitivty | Curie e.g. `prefix:identifier` | `nmdc:extrp-11-k5fecy41`|<br/>
+<br/>
 
 Each endpoint is unique and requires the applicable attribute names to be known in order to structure a query in a meaningful way.<br/>
 <br/>
