@@ -101,11 +101,11 @@ The syntax for the filter parameter of the __metadata__ endpoints is slightly di
 | doc_id | The unique identifier of the item being requested. For example, the identifier of a biosample or an extraction | Curie e.g. `prefix:identifier` | `gold:Gb0115231` |<br/>
 <br/>
 
-The __metadata__ endpoints allow users to retrieve metadata from the data portal using the various `GET` endpoints that are slightly different than the __find__ endpoints, but some can be used similarily. They also include the ability to `POST` metadata to the data portal by allowing the validation and submission of change sheets. Change sheets are spreadsheets that specify changes to be made to existing metadata in the portal, like updating, removing, or inserting values.<br/>
+The __metadata__ endpoints allow users to retrieve metadata from the data portal using the various `GET` endpoints that are slightly different than the __find__ endpoints, but some can be used similarily. They also include the ability to `POST` metadata to the data portal by allowing the validation and submission of change sheets or JSON files. Change sheets are spreadsheets that specify changes to be made to existing metadata in the portal, like updating, removing, or inserting values.<br/>
 <br/>
 
 ![metadata post changesheets validate](../_static/images/howto_guides/api_gui/metadata_post_changesheets_validate.png)
-A csv or tsv file can be validated against the NMDC schema using the `POST /metadata/changesheets:validate` endpoint. Please see an [example changesheet](https://github.com/microbiomedata/nmdc-runtime/blob/main/metadata-translation/notebooks/data/changesheet-without-separator3.tsv). The file should include four columns: 
+A csv or tsv file can be validated against the NMDC schema using the `POST /metadata/changesheets:validate` endpoint. Please see an [example changesheet](https://github.com/microbiomedata/nmdc-runtime/blob/main/metadata-translation/notebooks/data/changesheet-without-separator3.tsv). The file should include four columns:
 1. `id`: the identifier of the metadata object to be updated
 2. `action`: the type of update to be performed. There are four actions:
     - `insert`: inserts a new value
@@ -114,12 +114,14 @@ A csv or tsv file can be validated against the NMDC schema using the `POST /meta
     - `delete`: removes the attribute entirely from the metadata document
 3. `attribute`: the attribute, or field that will be updated (e.g. `name` or `ecosystem_category`, etc.)
 4. `value`: the new value that will be inserted or that will replace the old value.
-<b/>
+adsfadsfasdf<br/>
 
-![metadata post changesheets submit](../_static/images/howto_guides/api_gui/metadata_post_changesheets_submit.png)
-After a changesheet passes validation (see the previous `POST /metadata/changesheets:validate` endpoint above, a changesheet may be submitted using the `POST /metadata/changesheets/submit`). Please note that this endpoint requires authorization and the appropriate credentials.<b/>
-<b/>
+![metadata post json validate](../_static/images/howto_guides/api_gui/metadata_post_json_validate.png)
+If submitting data to the portal, the metadata may be represented in a JSON format which can be posted in the body of the request and validated against the NMDC schema using the `POST /metatdata/json:validate` endpoint before final submission to the portal.<br/>
+<br/>
 
+![metadata post json validate urls file](../_static/images/howto_guides/api_gui/metadata_post_validate_urls_file.png)
+A text file of urls that point to a json object may be supplied using the `POST /metadata/json:validate_urls_file` endpoint. This is helpful for validation of very large JSON metadata or if a user has a link to a JSON file but is not in an environment where it is convenient to download the file and then upload it to validate.<br/>
 
 
 collection_name endpoint: can only get once collection at a time
