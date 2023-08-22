@@ -97,7 +97,7 @@ The syntax for the filter parameter of the __metadata__ endpoints is slightly di
 | filter | Allows conditions to be set as part of the query, returning only results that satisfy the conditions | [MongoDB-like query language](https://www.mongodb.com/docs/manual/tutorial/query-documents/). All strings should be in double quotation marks. | `{"lat_lon.latitude": {"$gt": 45.0}, "ecosystem_category": "Plants"}` | 
 | max_page_size | Specifies the maximum number of documents returned at a time | Integer | `25`
 | page_token | Specifies the token of the page to return. If unspecified, the first page is returned. To retrieve a subsequent page, the value received as the `next_page_token` from the bottom of the previous results can be provided as a `page_token`. ![next_page_token](../_static/images/howto_guides/api_gui/metadata_page_token_param.png) | String | `nmdc:sys0ae1sh583`
-| projection | Indicates the desired fields to be included in the response. Helpful for trimming down the returned results | Comma separated string of field names that correspond to a `collection_name`. Note that `id` must be included if the `max_page_size` is smaller than the total number of documents returned. Note that there should be no white spaces between the comma-separated field names.  | `name,ecosystem_type` |
+| projection | Indicates the desired fields to be included in the response. Helpful for trimming down the returned results | Comma separated string of field names that correspond to a `collection_name`. | `name, ecosystem_type` |
 | doc_id | The unique identifier of the item being requested. For example, the identifier of a biosample or an extraction | Curie e.g. `prefix:identifier` | `gold:Gb0115231` |<br/>
 <br/>
 
@@ -114,14 +114,15 @@ A csv or tsv file can be validated against the NMDC schema using the `POST /meta
     - `delete`: removes the attribute entirely from the metadata document
 3. `attribute`: the attribute, or field that will be updated (e.g. `name` or `ecosystem_category`, etc.)
 4. `value`: the new value that will be inserted or that will replace the old value.
-adsfadsfasdf<br/>
+Please note that if changes are being made to multivalued attributes that have a "structured" value, e.g. [air_temp_regm](https://microbiomedata.github.io/nmdc-schema/air_temp_regm/) has a range of [TextValue](https://microbiomedata.github.io/nmdc-schema/TextValue/), use the `update` action to set the attribute to a value of some variable followed by the `insert` action to with the id is the variable with its value set to what will get populated.<br/>
+<br/>
 
 ![metadata post json validate](../_static/images/howto_guides/api_gui/metadata_post_json_validate.png)
 If submitting data to the portal, the metadata may be represented in a JSON format which can be posted in the body of the request and validated against the NMDC schema using the `POST /metatdata/json:validate` endpoint before final submission to the portal.<br/>
 <br/>
 
 ![metadata post json validate urls file](../_static/images/howto_guides/api_gui/metadata_post_validate_urls_file.png)
-A text file of urls that point to a json object may be supplied using the `POST /metadata/json:validate_urls_file` endpoint. This is helpful for validation of very large JSON metadata or if a user has a link to a JSON file but is not in an environment where it is convenient to download the file and then upload it to validate.<br/>
+A text file of urls that point to a JSON object may be supplied using the `POST /metadata/json:validate_urls_file` endpoint. This is helpful for validation of very large JSON metadata or if a user has a link to a JSON file but is not in an environment where it is convenient to download the file and then upload it to validate.<br/>
 
 
 collection_name endpoint: can only get once collection at a time
