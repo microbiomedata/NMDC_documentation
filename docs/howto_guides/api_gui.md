@@ -110,10 +110,16 @@ A csv or tsv file can be validated against the NMDC schema using the `POST /meta
 2. `action`: the type of update to be performed. There are four actions:
     - `insert`: inserts a new value
     - `remove item`: removes the value from a specified attribute.
-    - `update`: replace the existing value with a new value 
+    - `update`: replaces the existing value with a new value 
     - `delete`: removes the attribute entirely from the metadata document
 3. `attribute`: the attribute, or field that will be updated (e.g. `name` or `ecosystem_category`, etc.)
-4. `value`: the new value that will be inserted or replace the old value.
+4. `value`: the new value that will be inserted or that will replace the old value.
+<b/>
+
+![metadata post changesheets submit](../_static/images/howto_guides/api_gui/metadata_post_changesheets_submit.png)
+After a changesheet passes validation (see the previous `POST /metadata/changesheets:validate` endpoint above, a changesheet may be submitted using the `POST /metadata/changesheets/submit`). Please note that this endpoint requires authorization and the appropriate credentials.<b/>
+<b/>
+
 
 
 collection_name endpoint: can only get once collection at a time
