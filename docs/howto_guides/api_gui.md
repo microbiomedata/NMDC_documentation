@@ -4,7 +4,7 @@
 
 Metadata describing NMDC data (e.g. studies, biosamples, data objects, etc.) may be retrieved or submittied with GET and POST requests, respectively, using the **[NMDC API Graphical User Interface (GUI)](https://api.microbiomedata.org/docs#/)** The API GUI provides an user interface for programmatic access to the NMDC data portal without needing to use the Command Line.
 
-Requests can include various parameters to filter, sort, and organize the requested information. Attribute names in the parameters will vary depending on the collection. The required syntax of the parameters will also vary, depending on if it is a ___find___ or a ___metadata___ endpoint. ___Find___ endpoints are designed to use more compact syntax (for example, filtering biosamples for an "Ecosystem Category" of "Plants" would look like `ecosystem_category:Plants` using the `GET /biosamples` endpoint). While ___metadata___ endpoints use [MongoDB-language querying](https://www.mongodb.com/docs/manual/tutorial/query-documents/) (e.g. the same filter would look like `{"ecosystem_category": "Plants"}` using the `GET /nmdcshema/{collection_name}` endpoint with `collection_name` set to `biosample_set`.)
+Requests can include various parameters to filter, sort, and organize the requested information. Attribute names in the parameters will vary depending on the collection. The required syntax of the parameters will also vary, depending on if it is a ___find___ or a ___metadata___ endpoint. ___Find___ endpoints are designed to use more compact syntax (for example, filtering biosamples for an "Ecosystem Category" of "Plants" would look like `ecosystem_category:Plants` using the `GET /biosamples` endpoint). While ___metadata___ endpoints use [MongoDB-like language querying](https://www.mongodb.com/docs/manual/tutorial/query-documents/) (e.g. the same filter would look like `{"ecosystem_category": "Plants"}` using the `GET /nmdcshema/{collection_name}` endpoint with `collection_name` set to `biosample_set`.)
 
 #### ___Find___ Endpoints
 
@@ -16,7 +16,7 @@ The applicable parameters of the ___find___ endpoints, with acceptable syntax an
 | :---: | :-----------: | :-------: | :---: |
 | filter | Allows conditions to be set as part of the query, returning only results that satisfy the conditions | Comma separated string of attribute:value pairs. Can include comparison operators like >=, <=, <, and >. May use a `.search` after the attribute name to conduct a full text search of the field that are of type string. e.g. `attribute:value,attribute.search:value` | `ecosystem_category:Plants, lat_lon.latitude:>35.0` |
 | search | Not yet implemented | Coming Soon | Not yet implemented |
-| sort | Specifies the order in which the query returns the matching documents | Comma separated string of attribute:value pairs, Where value can be empty, asc, or desc (for ascending or descending order) e.g. `attribute` or `attribute:asc` or `attribute:desc`| `depth.has_numeric_value:desc, ecosystem_type` |
+| sort | Specifies the order in which the query returns the matching documents | Comma separated string of attribute:value pairs, Where the value can be empty, asc, or desc (for ascending or descending order) e.g. `attribute` or `attribute:asc` or `attribute:desc`| `depth.has_numeric_value:desc, ecosystem_type` |
 | page | Specifies the desired page number among the paginated results | Integer | `3` |
 | per_page | Specifies the number of results returned per page. Maximum allowed is 200 | Integer | `50` |
 | cursor |
@@ -146,7 +146,7 @@ If the identifier of the record is known, the `GET /nmdcshema/ids/{doc_id}` can 
 If both the identifier and the collection name of the desired record is known, the `GET /nmdcschema/{collection_name}/{doc_id}` can be used to retrieve the record. The projection parameter is optionally available for this endpoint to retrieve only desired attributes from a record. Please note that only one record can be retrieved at one time using this method.<br/>
 <br/>
 
-#### Metadata Endpoints Example 1: Get all of the biosamples part of the 1000 Soils Research Campaign Study from Colorado
+#### Metadata Endpoints Example 1: Get all of the biosamples part of the 1000 Soils Research Campaign Study sampled from Colorado
 
 1. Click on the drop down arrow to the right side of the **`GET /nmdcschema/{collection_name}`** endpoint
 ![metadata example step1](../_static/images/howto_guides/api_gui/metadata_example_step1.png)
@@ -154,7 +154,7 @@ If both the identifier and the collection name of the desired record is known, t
 ![metadata example step2](../_static/images/howto_guides/api_gui/metadata_example_step2.png)
 3. In order to enter in the parameters, get the identifier for this study by navigating to the [1000 Soils Research Campaign study page](https://data.microbiomedata.org/details/study/nmdc:sty-11-28tm5d36) in the data portal and copying the `ID`
 ![metadata example step3](../_static/images/howto_guides/api_gui/metadata_example_step3.png)
-4. Enter in the parameters in the **`GET /nmdcschema/{collection_name}`** endpoint. For this example, we will input `biosample_set` into the **collection_name** parameter and `{"part_of": "nmdc:sty-11-28tm5d36", "geo_loc_name.has_raw_value": {"$regex": "Colorado"}}` into the **filter** parameter. See the [Biosample Class](https://microbiomedata.github.io/nmdc-schema/Biosample/) in the NMDC Schema to view the applicable biosample attributes (slots); here they are `part_of` and `geo_loc_name.has_raw_value`. Note that `$regex` conducts a full text search for the word "Colorado" of the `geo_loc_name.has_raw_value` attribute.
+4. Enter in the parameters in the **`GET /nmdcschema/{collection_name}`** endpoint. For this example, we will input `biosample_set` into the **collection_name** parameter and `{"part_of": "nmdc:sty-11-28tm5d36", "geo_loc_name.has_raw_value": {"$regex": "Colorado"}}` into the **filter** parameter. See the [Biosample Class](https://microbiomedata.github.io/nmdc-schema/Biosample/) in the NMDC Schema to view the applicable biosample attributes (slots); for this example, they are `part_of` and `geo_loc_name.has_raw_value`. Note that `$regex` conducts a full text search for the word "Colorado" in the `geo_loc_name.has_raw_value` attribute.
 5. Click **Execute**
 ![metadata example step4](../_static/images/howto_guides/api_gui/metadata_example_step4and5.png)
 6. View the results in a json format, available to download by clicking **Download**, or copy the results by clicking the clipboard icon in the bottom right corner of the response. In this case two studies were retrieved. Note that the curl and request URL are provided as well.
