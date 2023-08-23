@@ -19,7 +19,7 @@ The applicable parameters of the ___find___ endpoints, with acceptable syntax an
 | sort | Specifies the order in which the query returns the matching documents | Comma separated string of attribute:value pairs, Where the value can be empty, asc, or desc (for ascending or descending order) e.g. `attribute` or `attribute:asc` or `attribute:desc`| `depth.has_numeric_value:desc, ecosystem_type` |
 | page | Specifies the desired page number among the paginated results | Integer | `3` |
 | per_page | Specifies the number of results returned per page. Maximum allowed is 200 | Integer | `50` |
-| cursor |
+| cursor | A bookmark for where a query can pick up where it has left off. To use cursor paging, set the `cursor` parameter to `*`. In The results will include a `next_cursor` value in the response's `meta` object that can be used in the `cursor` parameter to retrieve the subsequent results ![next_cursor][../_static/images/howto_guides/api_gui/find_cursor.png] | String | `*` or `nmdc:sys0zr0fbt71` |
 | group_by | Not yet implemented | Coming Soon | Not yet implmented |
 | study_id | The unique identifier of a study | Curie e.g. `prefix:identifier` | `gold:Gs0114675` |
 | sample_id | The unique identifier of a biosample | Curie e.g. `prefix:identifier` | `nmdc:bsm-11-w43vsm21` |
