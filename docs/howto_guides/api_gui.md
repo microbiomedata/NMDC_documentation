@@ -75,8 +75,8 @@ For more information and to see more examples of __find__ endpoints outside of t
 4. Click **Execute**
 ![find example step 3 and step 4](../_static/images/howto_guides/api_gui/find_example_step3and4.png)
 5. View the results in a json format, available to download by clicking **Download**, or copy the results by clicking the clipboard icon in the bottom right corner of the response. In this case two studies were retrieved.
-![find example step 5](../_static/images/howto_guides/api_gui/find_example_step5.png)<b/>
-<b/>
+![find example step 5](../_static/images/howto_guides/api_gui/find_example_step5.png)<br/>
+<br/>
 
 - Note that a curl request and request url are provided as well for command line usage:
 ![find example note](../_static/images/howto_guides/api_gui/find_example_note.png)
