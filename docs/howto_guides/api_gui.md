@@ -18,13 +18,13 @@ The applicable parameters of the ___find___ endpoints, with acceptable syntax an
 | search | Not yet implemented | Coming Soon | Not yet implemented |
 | sort | Specifies the order in which the query returns the matching documents | Comma separated string of attribute:value pairs, Where the value can be empty, asc, or desc (for ascending or descending order) e.g. `attribute` or `attribute:asc` or `attribute:desc`| `depth.has_numeric_value:desc, ecosystem_type` |
 | page | Specifies the desired page number among the paginated results | Integer | `3` |
-| per_page | Specifies the number of results returned per page. Maximum allowed is 200 | Integer | `50` |
+| per_page | Specifies the number of results returned per page. Maximum allowed is 2,000 | Integer | `50` |
 | cursor | A bookmark for where a query can pick up where it has left off. To use cursor paging, set the `cursor` parameter to `*`. In The results will include a `next_cursor` value in the response's `meta` object that can be used in the `cursor` parameter to retrieve the subsequent results ![next_cursor](../_static/images/howto_guides/api_gui/find_cursor.png) | String | `*` or `nmdc:sys0zr0fbt71` |
 | group_by | Not yet implemented | Coming Soon | Not yet implmented |
-| study_id | The unique identifier of a study | Curie e.g. `prefix:identifier` | `gold:Gs0114675` |
+| study_id | The unique identifier of a study | Curie e.g. `prefix:identifier` | `nmdc:sty-11-34xj1150` |
 | sample_id | The unique identifier of a biosample | Curie e.g. `prefix:identifier` | `nmdc:bsm-11-w43vsm21` |
-| data_object_id | The unique identifer of a data object | Curie e.g. `prefix:identifier` | `jgi:55a9caff0d87852b2150891e` |
-| activity_id | The unique identifier for an nmdc workflow execution acitivty | Curie e.g. `prefix:identifier` | `nmdc:extrp-11-k5fecy41`|<br/>
+| data_object_id | The unique identifer of a data object | Curie e.g. `prefix:identifier` | `nmdc:dobj-11-7c6np651` |
+| activity_id | The unique identifier for an nmdc workflow execution acitivty | Curie e.g. `prefix:identifier` | `nmdc:wfmgan-11-hvcnga50.1`|<br/>
 <br/>
 
 Each endpoint is unique and requires the applicable attribute names to be known in order to structure a query in a meaningful way.<br/>
