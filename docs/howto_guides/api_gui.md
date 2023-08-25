@@ -47,7 +47,7 @@ If the biosample identifier is known, a biosample can be retrieved directly usin
 <br/>
 
 ![find get data objects](../_static/images/howto_guides/api_gui/find_get_data_objects.png)
-To retrieve metadata about NMDC data objects (such as files, records, or omics data) the `GET /data_objects` endpoint may be used along with various parameters. Please see the applicable [Data Object attributes](https://microbiomedata.github.io/nmdc-schema/DataObject)/<br/>
+To retrieve metadata about NMDC data objects (such as files, records, or omics data) the `GET /data_objects` endpoint may be used along with various parameters. Please see the applicable [Data Object attributes](https://microbiomedata.github.io/nmdc-schema/DataObject). <br/>
 <br/>
 
 ![find get data objects by study](../_static/images/howto_guides/api_gui/find_get_data_objects_study.png)
