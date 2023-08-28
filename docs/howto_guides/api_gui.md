@@ -144,7 +144,7 @@ If the identifier of the record is known, the `GET /nmdcshema/ids/{doc_id}` can 
 If both the identifier and the collection name of the desired record is known, the `GET /nmdcschema/{collection_name}/{doc_id}` can be used to retrieve the record. The projection parameter is optionally available for this endpoint to retrieve only desired attributes from a record. Please note that only one record can be retrieved at one time using this method.<br/>
 <br/>
 
-#### Metadata Endpoints Example 1: Get all of the biosamples part of the 1000 Soils Research Campaign Study sampled from Colorado
+#### Metadata Endpoints Example 1: Get all of the biosamples that are part of the 1000 Soils Research Campaign Study sampled from Colorado
 
 1. Click on the drop down arrow to the right side of the **`GET /nmdcschema/{collection_name}`** endpoint
 ![metadata example step1](../_static/images/howto_guides/api_gui/metadata_example_step1.png)
