@@ -1,8 +1,8 @@
 # Using the NMDC API Graphical User Interface (GUI)
 
-## Retrieving and Submitting Metadata using the ___Find___ and ___Metadata___ API Endpoints
+## Retrieving Metadata using the ___Find___ and ___Metadata___ API Endpoints
 
-Metadata describing NMDC data (e.g. studies, biosamples, data objects, etc.) may be retrieved or submitted with GET and POST requests, respectively, using the **[NMDC API Graphical User Interface (GUI)](https://api.microbiomedata.org/docs#/)**. The API GUI provides a guided user interface for direct access to the NMDC data portal. It allows for:
+Metadata describing NMDC data (e.g. studies, biosamples, data objects, etc.) may be retrieved with GET requests, using the **[NMDC API Graphical User Interface (GUI)](https://api.microbiomedata.org/docs#/)**. The API GUI provides a guided user interface for direct access to the NMDC data portal. It allows for:
 1. performing highly granular and targeted queries directly. This is especially helpful if a user has a query that may not be supported by the [NMDC Data Portal](https://data.microbiomedata.org/) yet. 
 2. interactive exploration of querying capabilities. It provides code snippets that can be used in scripts for programmatic access, i.e. the request `curl` commands and URLs provided in the responses (please see the examples below).
 
@@ -85,7 +85,7 @@ For more information and to see more examples of __find__ endpoints outside of t
 
 #### ___Metadata___ Endpoints
 
-The [metadata endpoints](https://api.microbiomedata.org/docs#/metadata) can be used to get and filter metadata from collection set types (including studies, biosamples, activites, and data objects as discussed in the __find__ section), as well as validate and submit updates to existing metadata to the data portal as a spreadsheet or json file. 
+The [metadata endpoints](https://api.microbiomedata.org/docs#/metadata) can be used to get and filter metadata from collection set types (including studies, biosamples, activites, and data objects as discussed in the __find__ section). 
 
 The syntax for the filter parameter of the __metadata__ endpoints is slightly different than that of the __find__ endpoints using [MongoDB-like language querying](https://www.mongodb.com/docs/manual/tutorial/query-documents/) instead of the compact syntax the __find__ endpoints use. The applicable parameters of the __metadata__ endpoints, with acceptable syntax and examples, are in the table below.
 
@@ -99,29 +99,7 @@ The syntax for the filter parameter of the __metadata__ endpoints is slightly di
 | doc_id | The unique identifier of the item being requested. For example, the identifier of a biosample or an extraction | Curie e.g. `prefix:identifier` | `nmdc:bsm-11-ha3vfb58` |<br/>
 <br/>
 
-The __metadata__ endpoints allow users to retrieve metadata from the data portal using the various `GET` endpoints that are slightly different than the __find__ endpoints, but some can be used similarily. They also include the ability to `POST` metadata changes to the data portal by allowing the validation and submission of change sheets or JSON files. Change sheets are spreadsheets that specify changes to be made to existing metadata in the portal, like updating, removing, or inserting values. As with the __find__  endpoints, parameters for the __metadata__ endpoints that do not have a red `* required` next to them are optional. <br/>
-<br/>
-
-![metadata post changesheets validate](../_static/images/howto_guides/api_gui/metadata_post_changesheets_validate.png)
-A CSV or TSV file can be validated against the NMDC schema using the `POST /metadata/changesheets:validate` endpoint in order to update an already existing record in the portal. Please see an [example changesheet](https://github.com/microbiomedata/nmdc-runtime/blob/main/metadata-translation/notebooks/data/changesheet-without-separator3.tsv). The file should include four columns:
-1. `id`: the identifier of the metadata object to be updated
-2. `action`: the type of update to be performed. There are four actions:
-    - `insert`: inserts a new value
-    - `remove item`: removes the value from a specified attribute.
-    - `update`: replaces the existing value with a new value 
-    - `delete`: removes the attribute entirely from the metadata document
-3. `attribute`: the attribute (or field/slot) that will be updated (e.g. `name` or `ecosystem_category`, etc.)
-4. `value`: the new value that will be inserted or that will replace the old value.
-
-Please note that if changes are made to multivalued attributes that have a "structured" value, e.g. [air_temp_regm](https://microbiomedata.github.io/nmdc-schema/air_temp_regm/) has a range of [TextValue](https://microbiomedata.github.io/nmdc-schema/TextValue/), set the `value` to a variable, then set the `id` of the next line to the variable with the `value` set to what will get populated. See [example](https://github.com/microbiomedata/nmdc-runtime/issues/284#issuecomment-1686825159). For more information, please see [Authoring Changesheets](https://microbiomedata.github.io/nmdc-runtime/howto-guides/author-changesheets/).<br/>
-<br/>
-
-![metadata post json validate](../_static/images/howto_guides/api_gui/metadata_post_json_validate.png)
-Metadata may also be validated in JSON format, which can be posted in the body of the request and validated against the NMDC schema using the `POST /metatdata/json:validate` endpoint before final submission to the portal.<br/>
-<br/>
-
-![metadata post json validate urls file](../_static/images/howto_guides/api_gui/metadata_post_validate_urls_file.png)
-A text file of URLs that point to a JSON object may be supplied using the `POST /metadata/json:validate_urls_file` endpoint. This is helpful for validation of very large JSON metadata or if a user has a link to a JSON file but is not in an environment where it is convenient to download the file and then upload it to validate.<br/>
+The __metadata__ endpoints allow users to retrieve metadata from the data portal using the various `GET` endpoints that are slightly different than the __find__ endpoints, but some can be used similarily. As with the __find__  endpoints, parameters for the __metadata__ endpoints that do not have a red `* required` next to them are optional. <br/>
 <br/>
 
 ![metadata get nmdcshema version](../_static/images/howto_guides/api_gui/metadata_get_nmdcschema_version.png)
