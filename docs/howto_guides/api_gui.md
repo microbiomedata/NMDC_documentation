@@ -10,7 +10,7 @@ Requests can include various parameters to filter, sort, and organize the reques
 
 #### ___Find___ Endpoints
 
-The [find endpoints](https://api.microbiomedata.org/docs#/find:~:text=Find%20NMDC-,metadata,-entities.) are provided with NMDC metadata entites already specified - where metadata about [studies](https://nmdc-documentation.readthedocs.io/en/latest/reference/metadata/Study.html), [biosamples](https://nmdc-documentation.readthedocs.io/en/latest/reference/metadata/Biosample.html), [data objects](https://nmdc-documentation.readthedocs.io/en/latest/reference/metadata/DataObject.html), and [activities](https://nmdc-documentation.readthedocs.io/en/latest/reference/metadata/Activity.html) can be retrieved using GET requests. 
+The [find endpoints](https://api.microbiomedata.org/docs#/find:~:text=Find%20NMDC-,metadata,-entities.) are provided with NMDC metadata entities already specified - where metadata about [studies](https://nmdc-documentation.readthedocs.io/en/latest/reference/metadata/Study.html), [biosamples](https://nmdc-documentation.readthedocs.io/en/latest/reference/metadata/Biosample.html), [data objects](https://nmdc-documentation.readthedocs.io/en/latest/reference/metadata/DataObject.html), and [activities](https://nmdc-documentation.readthedocs.io/en/latest/reference/metadata/Activity.html) can be retrieved using GET requests. 
 
 The applicable parameters of the ___find___ endpoints, with acceptable syntax and examples, are in the table below.
 
@@ -25,7 +25,7 @@ The applicable parameters of the ___find___ endpoints, with acceptable syntax an
 | group_by | Not yet implemented | Coming Soon | Not yet implemented |
 | study_id | The unique identifier of a study | Curie e.g. `prefix:identifier` | `nmdc:sty-11-34xj1150` |
 | sample_id | The unique identifier of a biosample | Curie e.g. `prefix:identifier` | `nmdc:bsm-11-w43vsm21` |
-| data_object_id | The unique identifer of a data object | Curie e.g. `prefix:identifier` | `nmdc:dobj-11-7c6np651` |
+| data_object_id | The unique identifier of a data object | Curie e.g. `prefix:identifier` | `nmdc:dobj-11-7c6np651` |
 | activity_id | The unique identifier for an NMDC workflow execution activity | Curie e.g. `prefix:identifier` | `nmdc:wfmgan-11-hvcnga50.1`|<br/>
 <br/>
 
@@ -57,7 +57,7 @@ If the data object identifier is known, the metadata can be retrieved using the 
 <br/>
 
 ![find get activities](../_static/images/howto_guides/api_gui/find_get_activities.png)
-The `GET /activities` endpoint is a general way to fetch metadata about various activities (e.g. metagenome assembly, natural organic matter analysis, library preparation, etc.). Any "slot" (a.k.a. attribute) for [WorkflowExecutionActivty](https://microbiomedata.github.io/nmdc-schema/WorkflowExecutionActivity/) or [PlannedProcess](https://microbiomedata.github.io/nmdc-schema/PlannedProcess/) classes may be used in the filter and sort parameters, including attributes for subclasses of `WorkflowExecutionActvity` and `PlannedProcess`. For example, attributes used in subclasses such as, [MetabolomicsAnalysisActivity](https://microbiomedata.github.io/nmdc-schema/MetabolomicsAnalysisActivity/) (subclass of `WorkflowExecutionActivity`) or (Extraction)[https://microbiomedata.github.io/nmdc-schema/Extraction/] (subclass of `PlannedProcess`), can be used as input criteria for the filter and sort parameters of this endpoint.<br/>
+The `GET /activities` endpoint is a general way to fetch metadata about various activities (e.g. metagenome assembly, natural organic matter analysis, library preparation, etc.). Any "slot" (a.k.a. attribute) for [WorkflowExecutionActivity](https://microbiomedata.github.io/nmdc-schema/WorkflowExecutionActivity/) or [PlannedProcess](https://microbiomedata.github.io/nmdc-schema/PlannedProcess/) classes may be used in the filter and sort parameters, including attributes for subclasses of `WorkflowExecutionActivity` and `PlannedProcess`. For example, attributes used in subclasses such as, [MetabolomicsAnalysisActivity](https://microbiomedata.github.io/nmdc-schema/MetabolomicsAnalysisActivity/) (subclass of `WorkflowExecutionActivity`) or (Extraction)[https://microbiomedata.github.io/nmdc-schema/Extraction/] (subclass of `PlannedProcess`), can be used as input criteria for the filter and sort parameters of this endpoint.<br/>
 <br/>
 
 ![find get activities by activity id](../_static/images/howto_guides/api_gui/find_get_activities_activity_id.png)
@@ -85,7 +85,7 @@ For more information and to see more examples of __find__ endpoints outside of t
 
 #### ___Metadata___ Endpoints
 
-The [metadata endpoints](https://api.microbiomedata.org/docs#/metadata) can be used to get and filter metadata from collection set types (including studies, biosamples, activites, and data objects as discussed in the __find__ section). 
+The [metadata endpoints](https://api.microbiomedata.org/docs#/metadata) can be used to get and filter metadata from collection set types (including studies, biosamples, activities, and data objects as discussed in the __find__ section). 
 
 Unlike the compact syntax used in the __find__  endpoints, the syntax for the filter parameter of the metadata endpoints use [MongoDB-like language querying](https://www.mongodb.com/docs/manual/tutorial/query-documents/). The applicable parameters of the __metadata__ endpoints, with acceptable syntax and examples, are in the table below.
 
@@ -99,7 +99,7 @@ Unlike the compact syntax used in the __find__  endpoints, the syntax for the fi
 | doc_id | The unique identifier of the item being requested. For example, the identifier of a biosample or an extraction | Curie e.g. `prefix:identifier` | `nmdc:bsm-11-ha3vfb58` |<br/>
 <br/>
 
-The __metadata__ endpoints allow users to retrieve metadata from the data portal using the various `GET` endpoints that are slightly different than the __find__ endpoints, but some can be used similarily. As with the __find__  endpoints, parameters for the __metadata__ endpoints that do not have a red `* required` next to them are optional. <br/>
+The __metadata__ endpoints allow users to retrieve metadata from the data portal using the various `GET` endpoints that are slightly different than the __find__ endpoints, but some can be used similarly. As with the __find__  endpoints, parameters for the __metadata__ endpoints that do not have a red `* required` next to them are optional. <br/>
 <br/>
 
 ![metadata get nmdcshema version](../_static/images/howto_guides/api_gui/metadata_get_nmdcschema_version.png)
