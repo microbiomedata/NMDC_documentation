@@ -133,7 +133,7 @@ To get the NMDC Database collection statistics, like the total count of records 
 <br/>
 
 ![metadata get collection name](../_static/images/howto_guides/api_gui/metadata_get_collection_name.png)
-The `GET /nmdcschema/{collection_name}` endpoint is a general purpose way to retrieve metadata about a specified collection given user-provided filter and projection criteria. Please see the [Collection Names](https://microbiomedata.github.io/nmdc-schema/Database/) that may be retrieved. Please note that only one collection set may be retrieved at a time.<br/>
+The `GET /nmdcschema/{collection_name}` endpoint is a general purpose way to retrieve metadata about a specified collection given user-provided filter and projection criteria. Please see the [Collection Names](https://microbiomedata.github.io/nmdc-schema/Database/) that may be retrieved. Please note that metadata may only be retrieved about one collection at a time.<br/>
 <br/>
 
 ![metadata get doc_id](../_static/images/howto_guides/api_gui/metadata_get_doc_id.png)
