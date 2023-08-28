@@ -23,6 +23,7 @@ The applicable parameters of the ___find___ endpoints, with acceptable syntax an
 | per_page | Specifies the number of results returned per page. Maximum allowed is 2,000 | Integer | `50` |
 | cursor | A bookmark for where a query can pick up where it has left off. To use cursor paging, set the `cursor` parameter to `*`. The results will include a `next_cursor` value in the response's `meta` object that can be used in the `cursor` parameter to retrieve the subsequent results ![next_cursor](../_static/images/howto_guides/api_gui/find_cursor.png) | String | `*` or `nmdc:sys0zr0fbt71` |
 | group_by | Not yet implemented | Coming Soon | Not yet implemented |
+| fields | Indicates the desired attributes to be included in the response. Helpful for trimming down the returned results | Comma-separated list of attributes that belong to the documents in the collection being queried | `name, ess_dive_datasets` |
 | study_id | The unique identifier of a study | Curie e.g. `prefix:identifier` | `nmdc:sty-11-34xj1150` |
 | sample_id | The unique identifier of a biosample | Curie e.g. `prefix:identifier` | `nmdc:bsm-11-w43vsm21` |
 | data_object_id | The unique identifier of a data object | Curie e.g. `prefix:identifier` | `nmdc:dobj-11-7c6np651` |
@@ -95,7 +96,7 @@ Unlike the compact syntax used in the __find__  endpoints, the syntax for the fi
 | filter | Allows conditions to be set as part of the query, returning only results that satisfy the conditions | [MongoDB-like query language](https://www.mongodb.com/docs/manual/tutorial/query-documents/). All strings should be in double quotation marks. | `{"lat_lon.latitude": {"$gt": 45.0}, "ecosystem_category": "Plants"}` | 
 | max_page_size | Specifies the maximum number of documents returned at a time | Integer | `25`
 | page_token | Specifies the token of the page to return. If unspecified, the first page is returned. To retrieve a subsequent page, the value received as the `next_page_token` from the bottom of the previous results can be provided as a `page_token`. ![next_page_token](../_static/images/howto_guides/api_gui/metadata_page_token_param.png) | String | `nmdc:sys0ae1sh583`
-| projection | Indicates the desired fields to be included in the response. Helpful for trimming down the returned results | Comma-separated list of attributes that belong to the documents in the collection being queried | `name, ecosystem_type` |
+| projection | Indicates the desired attributes to be included in the response. Helpful for trimming down the returned results | Comma-separated list of attributes that belong to the documents in the collection being queried | `name, ecosystem_type` |
 | doc_id | The unique identifier of the item being requested. For example, the identifier of a biosample or an extraction | Curie e.g. `prefix:identifier` | `nmdc:bsm-11-ha3vfb58` |<br/>
 <br/>
 
