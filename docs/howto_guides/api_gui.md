@@ -2,7 +2,9 @@
 
 ## Retrieving and Submitting Metadata using the ___Find___ and ___Metadata___ API Endpoints
 
-Metadata describing NMDC data (e.g. studies, biosamples, data objects, etc.) may be retrieved or submitted with GET and POST requests, respectively, using the **[NMDC API Graphical User Interface (GUI)](https://api.microbiomedata.org/docs#/)**. The API GUI provides a user interface for programmatic access to the NMDC data portal without needing to use the Command Line.
+Metadata describing NMDC data (e.g. studies, biosamples, data objects, etc.) may be retrieved or submitted with GET and POST requests, respectively, using the **[NMDC API Graphical User Interface (GUI)](https://api.microbiomedata.org/docs#/)**. The API GUI provides a guided user interface for direct access to the NMDC data portal. It allows for:
+1. performing highly granular and targeted queries directly. This is especially helpful if a user has a query that may not be supported by the [NMDC Data Portal](https://data.microbiomedata.org/) yet. 
+2. interactive exploration of querying capabilities. It provides code snippets that can be used in scripts for programmatic access, i.e. the request `curl` commands and urls provided in the responses (please see the examples below).
 
 Requests can include various parameters to filter, sort, and organize the requested information. Attribute names in the parameters will vary depending on the collection. The required syntax of the parameters will also vary, depending on if it is a ___find___ or a ___metadata___ endpoint. ___Find___ endpoints are designed to use more compact syntax (for example, filtering biosamples for an "Ecosystem Category" of "Plants" would look like `ecosystem_category:Plants` using the `GET /biosamples` endpoint). While ___metadata___ endpoints use [MongoDB-like language querying](https://www.mongodb.com/docs/manual/tutorial/query-documents/) (e.g. the same filter would look like `{"ecosystem_category": "Plants"}` using the `GET /nmdcshema/{collection_name}` endpoint with `collection_name` set to `biosample_set`).
 
