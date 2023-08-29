@@ -58,7 +58,7 @@ If the data object identifier is known, the metadata can be retrieved using the 
 <br/>
 
 ![find get activities](../_static/images/howto_guides/api_gui/find_get_activities.png)
-The `GET /activities` endpoint is a general way to fetch metadata about various activities (e.g. metagenome assembly, natural organic matter analysis, library preparation, etc.). Any "slot" (a.k.a. attribute) for [WorkflowExecutionActivity](https://microbiomedata.github.io/nmdc-schema/WorkflowExecutionActivity/) or [PlannedProcess](https://microbiomedata.github.io/nmdc-schema/PlannedProcess/) classes may be used in the filter and sort parameters, including attributes for subclasses of `WorkflowExecutionActivity` and `PlannedProcess`. For example, attributes used in subclasses such as, [MetabolomicsAnalysisActivity](https://microbiomedata.github.io/nmdc-schema/MetabolomicsAnalysisActivity/) (subclass of `WorkflowExecutionActivity`) or (Extraction)[https://microbiomedata.github.io/nmdc-schema/Extraction/] (subclass of `PlannedProcess`), can be used as input criteria for the filter and sort parameters of this endpoint.<br/>
+The `GET /activities` endpoint is a general way to fetch metadata about various activities (e.g. metagenome assembly, natural organic matter analysis, library preparation, etc.). Any "slot" (a.k.a. attribute) for [WorkflowExecutionActivity](https://microbiomedata.github.io/nmdc-schema/WorkflowExecutionActivity/) or [PlannedProcess](https://microbiomedata.github.io/nmdc-schema/PlannedProcess/) classes may be used in the filter and sort parameters, including attributes of subclasses of `WorkflowExecutionActivity` and `PlannedProcess`. For example, attributes used in subclasses such as, [MetabolomicsAnalysisActivity](https://microbiomedata.github.io/nmdc-schema/MetabolomicsAnalysisActivity/) (subclass of `WorkflowExecutionActivity`) or (Extraction)[https://microbiomedata.github.io/nmdc-schema/Extraction/] (subclass of `PlannedProcess`), can be used as input criteria for the filter and sort parameters of this endpoint.<br/>
 <br/>
 
 ![find get activities by activity id](../_static/images/howto_guides/api_gui/find_get_activities_activity_id.png)
@@ -88,7 +88,7 @@ For more information and to see more examples of __find__ endpoints outside of t
 
 The [metadata endpoints](https://api.microbiomedata.org/docs#/metadata) can be used to get and filter metadata from collection set types (including studies, biosamples, activities, and data objects as discussed in the __find__ section). 
 
-Unlike the compact syntax used in the __find__  endpoints, the syntax for the filter parameter of the metadata endpoints use [MongoDB-like language querying](https://www.mongodb.com/docs/manual/tutorial/query-documents/). The applicable parameters of the __metadata__ endpoints, with acceptable syntax and examples, are in the table below.
+Unlike the compact syntax used in the __find__  endpoints, the syntax for the filter parameter of the metadata endpoints uses [MongoDB-like language querying](https://www.mongodb.com/docs/manual/tutorial/query-documents/). The applicable parameters of the __metadata__ endpoints, with acceptable syntax and examples, are in the table below.
 
 | Parameter | Description | Syntax | Example |
 | :---: | :-----------: | :-------: | :---: | 
