@@ -19,7 +19,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'NMDC Documentation'
-copyright = '2022, The NMDC Team'
+copyright = '2023, The NMDC Team'
 author = 'The NMDC Team'
 
 # The full version, including alpha/beta/rc tags
