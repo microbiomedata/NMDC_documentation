@@ -20,26 +20,26 @@ informed: Emiley Eloe-Fadrosh, Shreyas Cholia, Eric Cavanna
 * The outputs from [MaterialProcessing](https://microbiomedata.github.io/berkeley-schema-fy24/MaterialProcessing/) and all of its subclasses will be modeled as [ProcessedSample](https://microbiomedata.github.io/berkeley-schema-fy24/ProcessedSample/)s.
 * Links between instances of the [Protocol](https://microbiomedata.github.io/nmdc-schema/Protocol/) class to instances of [MaterialProcessing](https://microbiomedata.github.io/berkeley-schema-fy24/MaterialProcessing/) can be asserted within individual `MaterialProceesing`s, or various `MaterialProceesing`s can be [aggregated as the parts of](https://microbiomedata.github.io/berkeley-schema-fy24/ProtocolExecution/) a [ProtocolExecution](https://microbiomedata.github.io/berkeley-schema-fy24/ProtocolExecution/), in which case the `Protocol` would be directly [linked](https://microbiomedata.github.io/berkeley-schema-fy24/protocol_link/) to the `ProtocolExecution`.
 * A `ReactionProcess` class that appeared in at least one development branch of the schema (but was not merged into main) will be remodeled as [ChemicalConversionProcess](https://microbiomedata.github.io/berkeley-schema-fy24/ChemicalConversionProcess/). This class will be used to represent situations in which research personnel **intentionally execute** a chemical reaction.
-* The new `Solution` class can use the new [has_solution_components](https://microbiomedata.github.io/berkeley-schema-fy24/has_solution_components/) slot with range [SolutionComponent](https://microbiomedata.github.io/berkeley-schema-fy24/SolutionComponent/)
+* The new `Solution` class can use the new [has_solution_components](https://microbiomedata.github.io/berkeley-schema-fy24/has_solution_components/) slot with range [SolutionComponent](https://microbiomedata.github.io/berkeley-schema-fy24/SolutionComponent/).
   * A new [compound](https://microbiomedata.github.io/berkeley-schema-fy24/compound/) slot has domain SolutionComponent. It currently has a `string` range, but this may be changed to account for the following modeling of enzyme-catalyzed reactions, in support of proteomics workflows:
 * A [catalyzed_by](https://microbiomedata.github.io/berkeley-schema-fy24/catalyzed_by/) slot has been added with domain [ChemicalConversionProcess](https://microbiomedata.github.io/berkeley-schema-fy24/ChemicalConversionProcess/) and range [Solution](https://microbiomedata.github.io/berkeley-schema-fy24/Solution/)
   * A [ProteolyticEnzymeEnum](https://microbiomedata.github.io/berkeley-schema-fy24/ProteolyticEnzymeEnum/) enumeration has been added to the schema **but is not bound to any slots yet**.
   * The substrate(s) of a `ChemicalConversionProcess` will be captured with the `has_input` slot.
 
 
-### Class:DataGeneration
-* `Class:DataGeneration` will be created and take the place of `Class:OmicsProcessing`
-* `Class:OmicsProcessing` will be removed
-  * All reference to `Class:OmicsProcessing` should be eliminated from NMDC schema & Workflows
-  * Typecode `omprc` will still be valid for `Class:DataGeneration`
-* `Class:DataGeneration` will detail the process of inputting a material sample (Biosample or ProcessedSample, some MaterialEntity) into an instrument and generating data (output)
-  * Instrument data will be denoted using `slot:data_category` on `Class:DataObject`.
-  * The output of DataGeneration should always be `instrument_data`
-* `Class:DataGeneration` will have subclasses `Class:NucleotideSequencing` and `Class:MassSpectrometry` 
-  * This allows for the expansion of additional data types as NMDC grows
-* `slot:instrument_used` will have `Range:Class:Instrument`
-  * `Class:Instrument` will have separate enumerated slots for `vendor` and `model`
-  * `slot:id` will be the identifier of the `instrument_used` and `vendor` and `model` will NOT be inlined for `Class:DataGeneration`. Rather, it will be inferred / traced using the instrument's id.
+### Class `DataGeneration`
+* A new [DataGeneration](https://microbiomedata.github.io/berkeley-schema-fy24/DataGeneration/) class will be added and will completely replace the legacy class [OmicsProcessing](https://microbiomedata.github.io/nmdc-schema/OmicsProcessing/).
+  * All appearances of `OmicsProcessing` in the definitions of other classes will be replaced with `DataGeneration`.
+  * NMDC workflows must also be updated to use `DataGeneration` in place of `OmicsProcessing`.
+  * `datgen` will be added as a typecode for `DataGeneration` but `omprc` will remain valid for legacy instances.
+* `DataGeneration` will detail the process of [introducing](https://microbiomedata.github.io/nmdc-schema/has_input/) a sample (the [Biosample](https://microbiomedata.github.io/nmdc-schema/Biosample/) or [ProcessedSample](https://microbiomedata.github.io/nmdc-schema/ProcessedSample/) subclasses of [MaterialEntity](https://microbiomedata.github.io/nmdc-schema/MaterialEntity/)) into an instrument and generating a [DataObject](https://microbiomedata.github.io/nmdc-schema/DataObject/) as [output](https://microbiomedata.github.io/nmdc-schema/has_output/).
+  * `DataObject`s will use the [data_category](https://microbiomedata.github.io/berkeley-schema-fy24/data_category/) slot and [DataCategoryEnum](https://microbiomedata.github.io/berkeley-schema-fy24/DataCategoryEnum/) to distinguish between `instrument_data` and `processed_data`.
+  * The output of `DataGeneration` must always be categorized as `instrument_data`.
+* `DataGeneration`'s initial subclasses will be [NucleotideSequencing](https://microbiomedata.github.io/berkeley-schema-fy24/NucleotideSequencing/) and [MassSpectrometry](https://microbiomedata.github.io/berkeley-schema-fy24/MassSpectrometry/). Additional subclasses can be added as NMDC grows in scope.
+* Slot [instrument_used](https://microbiomedata.github.io/berkeley-schema-fy24/instrument_used/) will have range [Instrument](https://microbiomedata.github.io/berkeley-schema-fy24/Instrument/).
+  * Therefore, like all other slots that have another class in their range, the value of `instrument_used` will be simply be the `id` of some `Instrument`, expressed as a CURIE. No complex inlining will be required.
+  * Knowledge about particular instruments will now be captured in a to-be-added `intrument_set` collection. All slots besides `id` and `type` will be optional, to allow for very detailed modelling of capital instruments like mass spectrometers, or more minimal modelling of commodity devices like vortex mixers.
+  * `Instrument` will have separate [vendor](https://microbiomedata.github.io/berkeley-schema-fy24/vendor/) and [model](https://microbiomedata.github.io/berkeley-schema-fy24/model/) slots, whose values must come from the [InstrumentVendorEnum](https://microbiomedata.github.io/berkeley-schema-fy24/InstrumentVendorEnum/) and the [InstrumentModelEnum](https://microbiomedata.github.io/berkeley-schema-fy24/InstrumentModelEnum/) enumerations, respectively.
 * Schema support for complex paths of data generation and data processing.
   * `Class:DataGeneration` can have instances where a single sample has multiple data files that need processed together during WorkflowExecution.  
   * Relationships between samples and the data objects will be captured using `slot:part_of`, linking the 'child' back to the 'parent'.
