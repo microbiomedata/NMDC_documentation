@@ -11,7 +11,7 @@ informed: Emiley Eloe-Fadrosh, Shreyas Cholia, Eric Cavanna
 
 ### Class `PlannedProcess`
 * The [PlannedProcess](https://microbiomedata.github.io/nmdc-schema/PlannedProcess/) class will [remain a subclass of the root class NamedThing](https://microbiomedata.github.io/nmdc-schema/NamedThing/).
-* The [WorkflowExecutionActivity](https://microbiomedata.github.io/nmdc-schema/WorkflowExecutionActivity/) class will be placed as a direct subclass of [PlannedProcess](https://microbiomedata.github.io/nmdc-schema/PlannedProcess/). The legacy [Activity](https://microbiomedata.github.io/nmdc-schema/Activity/) class will be removed from the schema. The "Activity" suffix that appeared in the names of some `WorkflowExecutionActivity` subclasses will be removed.
+* A [WorkflowExecution](https://microbiomedata.github.io/berkeley-schema-fy24/WorkflowExecution/) <a name="workflow_modelling_changes">class will replace the legacy</a> [WorkflowExecutionActivity](https://microbiomedata.github.io/nmdc-schema/WorkflowExecutionActivity/) class and will be placed as a direct subclass of [PlannedProcess](https://microbiomedata.github.io/nmdc-schema/PlannedProcess/). The legacy [Activity](https://microbiomedata.github.io/nmdc-schema/Activity/) class will be removed from the schema. The "Activity" suffix that appeared in the names of some `WorkflowExecutionActivity` subclasses will be removed.
 
 ### Class `MaterialProcessing`
 * [MaterialProcessing](https://microbiomedata.github.io/berkeley-schema-fy24/MaterialProcessing/) will be created as a subclass of [PlannedProcess](https://microbiomedata.github.io/nmdc-schema/PlannedProcess/).
@@ -31,7 +31,7 @@ informed: Emiley Eloe-Fadrosh, Shreyas Cholia, Eric Cavanna
 * A new [DataGeneration](https://microbiomedata.github.io/berkeley-schema-fy24/DataGeneration/) class will be added and will completely replace the legacy class [OmicsProcessing](https://microbiomedata.github.io/nmdc-schema/OmicsProcessing/).
   * All appearances of `OmicsProcessing` in the definitions of other classes will be replaced with `DataGeneration`.
   * NMDC workflows must also be updated to use `DataGeneration` in place of `OmicsProcessing`.
-  * `datgen` will be added as a typecode for `DataGeneration` but `omprc` will remain valid for legacy instances.
+  * `datgen` will be added as a [typecode](https://api.microbiomedata.org/nmdcschema/typecodes) for `DataGeneration` but `omprc` will remain valid for legacy instances.
 * `DataGeneration` will detail the process of [introducing](https://microbiomedata.github.io/nmdc-schema/has_input/) a sample (the [Biosample](https://microbiomedata.github.io/nmdc-schema/Biosample/) or [ProcessedSample](https://microbiomedata.github.io/nmdc-schema/ProcessedSample/) subclasses of [MaterialEntity](https://microbiomedata.github.io/nmdc-schema/MaterialEntity/)) into an instrument and generating a [DataObject](https://microbiomedata.github.io/nmdc-schema/DataObject/) as [output](https://microbiomedata.github.io/nmdc-schema/has_output/).
   * `DataObject`s will use the [data_category](https://microbiomedata.github.io/berkeley-schema-fy24/data_category/) slot and [DataCategoryEnum](https://microbiomedata.github.io/berkeley-schema-fy24/DataCategoryEnum/) to distinguish between `instrument_data` and `processed_data`.
   * The output of `DataGeneration` must always be categorized as `instrument_data`.
@@ -44,33 +44,32 @@ informed: Emiley Eloe-Fadrosh, Shreyas Cholia, Eric Cavanna
   * `Class:DataGeneration` can have instances where a single sample has multiple data files that need processed together during WorkflowExecution.  
   * Relationships between samples and the data objects will be captured using `slot:part_of`, linking the 'child' back to the 'parent'.
 
-### Class:WorkflowExecution & Class:WorkflowChain
-* `Class:WorkflowExecution` will be a subclass of `Class:PlannedProcess`
-* `Class:WorkflowExecution` will replace `Class:WorkflowExecutionActivity` and will be a subclass of `Class:PlannedProcess`
-* To group subclasses of `Class:WorkflowExecution` into implemented steps, `Class:WorkflowChain` was created.
-  * This also provides clear connection back to the DataGeneration output, using `was_informed_by`
-    * `was_informed_by` is being removed from `Class:WorkflowExecution`
-  * Any implementation of `Class:WorkflowExecution` will use `Class:WorkflowChain`. Even when it's a single linked chain (ie implementation of a single subclass of `Class:WorkflowExecution`)
-* `Class:WorkflowExecution` will provide `part_of` with `Range:Class:WorkflowChain`
-  * This replaces 'used' and will no longer be on `Class:WorkflowExecution`
-* Output from `WorkflowExecution` will always have a value on `slot:data_category` of `processed_data` of `Class:DataObject`
-* `slot:analyte_category` will be used to inform the type of data that is being generated and can be instantiated on `Class:DataGeneration` and `Class:WorkflowChain`
-  * `slot:omics_type` will be removed and replaced with `slot:analyte_category` to denote the type of data generated.
-* `slot:gold_analysis_project_identifiers` and `slot:jgi_analysis_project_identifiers` will be included on `Class:WorkflowChain`
+### Classes `WorkflowExecution` and `WorkflowChain`
+* Changes to the [WorkflowExecution](https://microbiomedata.github.io/berkeley-schema-fy24/WorkflowExecution/) class are [described above](#workflow_modelling_changes).
+* A [WorkflowChain](https://microbiomedata.github.io/berkeley-schema-fy24/WorkflowChain/) class has been added, also as a subclass of [PlannedProcess](https://microbiomedata.github.io/nmdc-schema/PlannedProcess/).
+  * `WorkflowExecution`s must be aggregated into a `WorkflowChain` using the [part_of](https://microbiomedata.github.io/berkeley-schema-fy24/part_of/) slot. The ordering of the `WorkflowExecution`s reflects the order in which they were implemented (ie executed).
+  * Even single `WorkflowExecution`s must be aggregated into a `WorkflowChain`.
+  * The relationship between a `WorkflowExecution` and the `DataObject` that was its initial input is expressed with the [was_informed_by](https://microbiomedata.github.io/berkeley-schema-fy24/was_informed_by/) slot.
+  * `was_informed_by` is no longer a valid slot for the `WorkflowExecution` class.
+  * The legacy [used](https://microbiomedata.github.io/nmdc-schema/used/) slot is no longer applicable to `WorkflowExecution`s and had been removed form the schema.
+* The [DataObject](https://microbiomedata.github.io/berkeley-schema-fy24/DataObject/) outputs from `WorkflowExecution`s must populate their [data_category](https://microbiomedata.github.io/berkeley-schema-fy24/data_category/) slots with the `processed_data` permissible value from the [DataCategoryEnum](https://microbiomedata.github.io/berkeley-schema-fy24/DataCategoryEnum/).
+  * The [analyte_category](https://microbiomedata.github.io/berkeley-schema-fy24/analyte_category/) slot will be used to indicate what aspect of biology (or "type of data") is being analyzed by instances of the `DataGeneration` and `WorkflowChain` classes (among others).
+    * The `analyte_category` slot is intended to completely replace the legacy [omics_type](https://microbiomedata.github.io/berkeley-schema-fy24/omics_type/) slot, which will be removed in an upcoming commit.
+* The [gold_analysis_project_identifiers](https://microbiomedata.github.io/berkeley-schema-fy24/gold_analysis_project_identifiers/) and [jgi_portal_analysis_project_identifiers](https://microbiomedata.github.io/berkeley-schema-fy24/jgi_portal_analysis_project_identifiers/) slots will be (exclusively) available to the `WorkflowChain` class.
 
 ### Other
-* `Class:DataObject` will NOT have subclasses. Rather, it will have `slot:data_category` which has a range `DataCategoryEnum`
-* `slot:data_object_type` will be renamed to `slot:data_object_category`. 
-* Slots associated with `Class:Biosample` or `Class:OmicsProcessing` that were incorrectly associated, were removed and added to more appropriate classes. (ex: `slot:pcr_primers` was removed from `Class:Biosample` and added to the new `Class:LibraryPrep`)
-* `Class:Reaction` will renamed to `Class:BiochemicalReaction` for clarity between this class and `Class:ChemicalConversionProcess`.
-* Subclasses will have their own typecodes.
-  * This may mean that eventually, if classes are renamed, typecodes might not make sense.
-* Reciprocal or redundant relationship slots (`has_part` + `part_of`, `was_informed_by` + `used`) will not be instantiated. Only a single direction should be provided.
-* All classes should have `slot:type` with `Range:CURIE` and `designates_type = True`
-  * `slot:type` should have a range of the class they are.
+* The [DataObject](https://microbiomedata.github.io/nmdc-schema/DataObject/) class will **not** have subclasses. Rather, the different types of `DataObject`s will be reflected with the  [data_category](https://microbiomedata.github.io/berkeley-schema-fy24/data_category/) slot, which uses the [DataCategoryEnum](https://microbiomedata.github.io/berkeley-schema-fy24/DataCategoryEnum/) range.
+* ??? `slot:data_object_type` will be renamed to `slot:data_object_category`. 
+* Several slots that had been available to the Biosample class have been moved onto more appropriate classes. For example, [pcr_primers](https://microbiomedata.github.io/berkeley-schema-fy24/pcr_primers/) was moved onto [LibraryPreparation](https://microbiomedata.github.io/berkeley-schema-fy24/LibraryPreparation/).
+* The [Reaction](https://microbiomedata.github.io/nmdc-schema/Reaction/) class will be renamed to `BiochemicalReaction` in a future commit, in order to clearly distinguish it from the [ChemicalConversionProcess](https://microbiomedata.github.io/berkeley-schema-fy24/ChemicalConversionProcess/) class. `BiochemicalReaction` will only be used to annotate genes or proteins with a metabolic process that are carried out at a cellular elvel (roughly speaking).
+* All of the newly added and modified transitive subclassses of [NamedThing](https://microbiomedata.github.io/nmdc-schema/NamedThing/) will have their own [typecodes](https://api.microbiomedata.org/nmdcschema/typecodes).
+  * In general, we intend to allow modified classes to use both their legacy typecode and some new typecode that better matches the current class name. Schema users should review the full `pattern`s on class `id`s to avoid confusion about the management of typecodes.
+* To the greatest degree possible, the schema will not provide reciprocal or redundant relationship slots. We intend to make it clear that there is one preferred slot, in a single direction/orientation, for relating instances of a given class with other class instances. Users of [has_part](https://microbiomedata.github.io/berkeley-schema-fy24/has_part/) or [part_of](https://microbiomedata.github.io/berkeley-schema-fy24/part_of/) and [used](https://microbiomedata.github.io/nmdc-schema/used/) or [was_informed_by](https://microbiomedata.github.io/berkeley-schema-fy24/was_informed_by/) should familiarize themselves with this policy.
+* Data instances of all classes must now assert their own [type](https://microbiomedata.github.io/berkeley-schema-fy24/type/), since not all data serializations provide typing for free. The only legal value for the `type` slot is the `class_uri` (in CURIE form) of the instantiated class. That means that all classes in the schema must assert `type` in their `slots` list. This special behavior of the `type` slots is implemented by its `designates_type: true` annotation.
+
 
 ### In Progress
-* When/how will instances of Class:WorkflowChain be created?
+* When/how will instances of the [WorkflowChain](https://microbiomedata.github.io/berkeley-schema-fy24/WorkflowChain/) class be created?
   * By the workflows team, or by NMDC runtime?
 
 ## Context and Problem Statement
@@ -81,7 +80,7 @@ This ADR provides the decisions that were made leading up to and during the refa
 
 ## Decision Drivers
 
-* Subject matter experts, schema leaders, and modelers met and discussed all decisions above. 
+* Subject-matter experts, schema leaders, and modelers met and discussed all decisions above. 
 * Need for expanded and improved modeling
 
 ### Consequences
