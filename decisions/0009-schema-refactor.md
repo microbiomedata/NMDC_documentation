@@ -9,22 +9,23 @@ informed: Emiley Eloe-Fadrosh, Shreyas Cholia, Eric Cavanna
 
 ## Decisions Made
 
-### Class:PlannedProcess
-* `Class:PlannedProcess` will be created as a root class 
-* All "Activity" classes are now of `Class:PlannedProcess`, and the word "Activity" will be removed
+### Class `PlannedProcess`
+* The [PlannedProcess](https://microbiomedata.github.io/nmdc-schema/PlannedProcess/) class will [remain a subclass of the root class NamedThing](https://microbiomedata.github.io/nmdc-schema/NamedThing/).
+* The [WorkflowExecutionActivity](https://microbiomedata.github.io/nmdc-schema/WorkflowExecutionActivity/) class will be placed as a direct subclass of [PlannedProcess](https://microbiomedata.github.io/nmdc-schema/PlannedProcess/). The legacy [Activity](https://microbiomedata.github.io/nmdc-schema/Activity/) class will be removed from the schema. The "Activity" suffix that appeared in the names of some `WorkflowExecutionActivity` subclasses will be removed.
 
-### Class:MaterialProcessing
-* `Class:MaterialProcessing` will be created and be a subclass of `Class:PlannedProcess`
-* All processes involving material to material transformations (Biosamples to ProcessedSample, ProcessedSample to ProcessedSample) will be subclasses of `Class:MaterialProcessing` (examples: `Class:Extraction`, `Pooling`, `MixingProcess`, etc.). 
-* The output of any subclasses of `Class:MaterialProcessing` will have an output of ProcessedSample
-* `Class:ChemicalConversionProcess` will replace `Class:ReactionProcess`
-* `Class:BiosampleProcessing` will be removed. Subclasses of `Class:MaterialProcessing` will replace what was captured. 
-* Linking a protocol to a `Class:MaterialProcess` subclass can happen at the individual class level, or at the aggregation of processes via the `Class:ProtocolExecution`
-* `slot:catalyzed_by` is instantiated on `Class:ChemicalConversionProcess` with `Range:Class:Solution`.
-  * `Class:Solution` has `slot:has_solution_components` with `Range:Class:SolutionComponent` where `slot:compound` has `Range:Class:ProteolyticEnzymeEnum`.
-  * `slot:catalyzed_by` will capture any substrate or enzyme that was used to facilitate a chemical conversion process. 
-  * Enzymes that can be used as catalysts are available in the `Class:ProteolyticEnzymeEnum`.
-  * The `slot:catalyzed_by` will be referenced by proteomics workflows.
+### Class `MaterialProcessing`
+* [MaterialProcessing](https://microbiomedata.github.io/berkeley-schema-fy24/MaterialProcessing/) will be created as a subclass of [PlannedProcess](https://microbiomedata.github.io/nmdc-schema/PlannedProcess/).
+* All processes involving [MaterialEntity](https://microbiomedata.github.io/nmdc-schema/MaterialEntity/) to `MaterialEntity` transformations (`Biosample`s to `ProcessedSample`, `ProcessedSample` to `ProcessedSample`) will be modeled as subclasses of [MaterialProcessing](https://microbiomedata.github.io/berkeley-schema-fy24/MaterialProcessing/) (examples: [Extraction](https://microbiomedata.github.io/berkeley-schema-fy24/Extraction/), [Pooling](https://microbiomedata.github.io/berkeley-schema-fy24/Pooling/), [MixingProcess](https://microbiomedata.github.io/berkeley-schema-fy24/MixingProcess/), etc.). 
+* The legacy [BiosampleProcessing](https://microbiomedata.github.io/nmdc-schema/BiosampleProcessing/) class will be removed and replaced with the various subclasses of [MaterialProcessing](https://microbiomedata.github.io/berkeley-schema-fy24/MaterialProcessing/).
+* The outputs from [MaterialProcessing](https://microbiomedata.github.io/berkeley-schema-fy24/MaterialProcessing/) and all of its subclasses will be modeled as [ProcessedSample](https://microbiomedata.github.io/berkeley-schema-fy24/ProcessedSample/)s.
+* Links between instances of the [Protocol](https://microbiomedata.github.io/nmdc-schema/Protocol/) class to instances of [MaterialProcessing](https://microbiomedata.github.io/berkeley-schema-fy24/MaterialProcessing/) can be asserted within individual `MaterialProceesing`s, or various `MaterialProceesing`s can be [aggregated as the parts of](https://microbiomedata.github.io/berkeley-schema-fy24/ProtocolExecution/) a [ProtocolExecution](https://microbiomedata.github.io/berkeley-schema-fy24/ProtocolExecution/), in which case the `Protocol` would be directly [linked](https://microbiomedata.github.io/berkeley-schema-fy24/protocol_link/) to the `ProtocolExecution`.
+* A `ReactionProcess` class that appeared in at least one development branch of the schema (but was not merged into main) will be remodeled as [ChemicalConversionProcess](https://microbiomedata.github.io/berkeley-schema-fy24/ChemicalConversionProcess/). This class will be used to represent situations in which research personnel **intentionally execute** a chemical reaction.
+* The new `Solution` class can use the new [has_solution_components](https://microbiomedata.github.io/berkeley-schema-fy24/has_solution_components/) slot with range [SolutionComponent](https://microbiomedata.github.io/berkeley-schema-fy24/SolutionComponent/)
+  * A new [compound](https://microbiomedata.github.io/berkeley-schema-fy24/compound/) slot has domain SolutionComponent. It currently has a `string` range, but this may be changed to account for the following modeling of enzyme-catalyzed reactions, in support of proteomics workflows:
+* A [catalyzed_by](https://microbiomedata.github.io/berkeley-schema-fy24/catalyzed_by/) slot has been added with domain [ChemicalConversionProcess](https://microbiomedata.github.io/berkeley-schema-fy24/ChemicalConversionProcess/) and range [Solution](https://microbiomedata.github.io/berkeley-schema-fy24/Solution/)
+  * A [ProteolyticEnzymeEnum](https://microbiomedata.github.io/berkeley-schema-fy24/ProteolyticEnzymeEnum/) enumeration has been added to the schema **but is not bound to any slots yet**.
+  * The substrate(s) of a `ChemicalConversionProcess` will be captured with the `has_input` slot.
+
 
 ### Class:DataGeneration
 * `Class:DataGeneration` will be created and take the place of `Class:OmicsProcessing`
