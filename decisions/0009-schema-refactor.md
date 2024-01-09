@@ -2,7 +2,7 @@
 status: accepted 
 date: 2023-12-19
 deciders: Chris Mungall, Lee Ann 
-consulted: Anastasiya Prymolenna, Brynn Zalmanek, James Tessmer, Montana Smith, Sam Purvine, Yuri Corilo, Mark Miller, Michael Thorton, Alicia Clum, Mark Miller    
+consulted: Anastasiya Prymolenna, Brynn Zalmanek, James Tessmer, Montana Smith, Sam Purvine, Yuri Corilo, Michael Thorton, Alicia Clum, Mark Miller    
 informed: Emiley Eloe-Fadrosh, Shreyas Cholia, Eric Cavanna 
 ---
 # Schema Refactoring: Monterey//Berkeley
@@ -40,7 +40,7 @@ informed: Emiley Eloe-Fadrosh, Shreyas Cholia, Eric Cavanna
   * Therefore, like all other slots that have another class in their range, the value of `instrument_used` will be simply be the `id` of some `Instrument`, expressed as a CURIE. No complex inlining will be required.
   * Knowledge about particular instruments will now be captured in a to-be-added `intrument_set` collection. All slots besides `id` and `type` will be optional, to allow for very detailed modelling of capital instruments like mass spectrometers, or more minimal modelling of commodity devices like vortex mixers.
   * `Instrument` will have separate [vendor](https://microbiomedata.github.io/berkeley-schema-fy24/vendor/) and [model](https://microbiomedata.github.io/berkeley-schema-fy24/model/) slots, whose values must come from the [InstrumentVendorEnum](https://microbiomedata.github.io/berkeley-schema-fy24/InstrumentVendorEnum/) and the [InstrumentModelEnum](https://microbiomedata.github.io/berkeley-schema-fy24/InstrumentModelEnum/) enumerations, respectively.
-* Schema support for complex paths of data generation and data processing.
+* ??? Schema support for complex paths of data generation and data processing.
   * `Class:DataGeneration` can have instances where a single sample has multiple data files that need processed together during WorkflowExecution.  
   * Relationships between samples and the data objects will be captured using `slot:part_of`, linking the 'child' back to the 'parent'.
 
@@ -61,7 +61,7 @@ informed: Emiley Eloe-Fadrosh, Shreyas Cholia, Eric Cavanna
 * The [DataObject](https://microbiomedata.github.io/nmdc-schema/DataObject/) class will **not** have subclasses. Rather, the different types of `DataObject`s will be reflected with the  [data_category](https://microbiomedata.github.io/berkeley-schema-fy24/data_category/) slot, which uses the [DataCategoryEnum](https://microbiomedata.github.io/berkeley-schema-fy24/DataCategoryEnum/) range.
 * ??? `slot:data_object_type` will be renamed to `slot:data_object_category`. 
 * Several slots that had been available to the Biosample class have been moved onto more appropriate classes. For example, [pcr_primers](https://microbiomedata.github.io/berkeley-schema-fy24/pcr_primers/) was moved onto [LibraryPreparation](https://microbiomedata.github.io/berkeley-schema-fy24/LibraryPreparation/).
-* The [Reaction](https://microbiomedata.github.io/nmdc-schema/Reaction/) class will be renamed to `BiochemicalReaction` in a future commit, in order to clearly distinguish it from the [ChemicalConversionProcess](https://microbiomedata.github.io/berkeley-schema-fy24/ChemicalConversionProcess/) class. `BiochemicalReaction` will only be used to annotate genes or proteins with a metabolic process that are carried out at a cellular elvel (roughly speaking).
+* The [Reaction](https://microbiomedata.github.io/nmdc-schema/Reaction/) class will be renamed to `BiochemicalReaction` in a future [pull request](https://github.com/microbiomedata/berkeley-schema-fy24/pull/64), in order to clearly distinguish it from the [ChemicalConversionProcess](https://microbiomedata.github.io/berkeley-schema-fy24/ChemicalConversionProcess/) class. `BiochemicalReaction` will only be used to annotate genes or proteins with a metabolic process that are carried out at a cellular elvel (roughly speaking).
 * All of the newly added and modified transitive subclassses of [NamedThing](https://microbiomedata.github.io/nmdc-schema/NamedThing/) will have their own [typecodes](https://api.microbiomedata.org/nmdcschema/typecodes).
   * In general, we intend to allow modified classes to use both their legacy typecode and some new typecode that better matches the current class name. Schema users should review the full `pattern`s on class `id`s to avoid confusion about the management of typecodes.
 * To the greatest degree possible, the schema will not provide reciprocal or redundant relationship slots. We intend to make it clear that there is one preferred slot, in a single direction/orientation, for relating instances of a given class with other class instances. Users of [has_part](https://microbiomedata.github.io/berkeley-schema-fy24/has_part/) or [part_of](https://microbiomedata.github.io/berkeley-schema-fy24/part_of/) and [used](https://microbiomedata.github.io/nmdc-schema/used/) or [was_informed_by](https://microbiomedata.github.io/berkeley-schema-fy24/was_informed_by/) should familiarize themselves with this policy.
@@ -74,7 +74,7 @@ informed: Emiley Eloe-Fadrosh, Shreyas Cholia, Eric Cavanna
 
 ## Context and Problem Statement
 
-The NMDC schema was originally built providing one place, Class:OmicsProcessing, for capturing a wide variety of metadata fields. With expansion of data types and required metadata fields it was identified as being overloaded and requiring additional modeling.
+The NMDC schema originally provided a single class, [OmicsProcessing](https://microbiomedata.github.io/nmdc-schema/OmicsProcessing/), for capturing metadata about analytical processes, but it was strongly biased towards nucleic acid sequencing analyses. Since the schema needs the ability to model other analyses (like mass spectrometry), the possibility of adding new slots to `OmicsProcessing` was considered but rejected because it would result in one class that some people might describe as 'overloaded'. Therefore, we decided to add new, more granular, classes to independently represent various different kinds of analyses, along with the different kinds of processes that are required to prepare samples for those analyses.
 
 This ADR provides the decisions that were made leading up to and during the refactoring process to better capture metadata and describe samples and analyses.
 
