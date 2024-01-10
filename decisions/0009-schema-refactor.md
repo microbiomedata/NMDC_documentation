@@ -40,9 +40,10 @@ informed: Emiley Eloe-Fadrosh, Shreyas Cholia, Eric Cavanna
   * Therefore, like all other slots that have another class in their range, the value of `instrument_used` will be simply be the `id` of some `Instrument`, expressed as a CURIE. No complex inlining will be required.
   * Knowledge about particular instruments will now be captured in a to-be-added `intrument_set` collection. All slots besides `id` and `type` will be optional, to allow for very detailed modelling of capital instruments like mass spectrometers, or more minimal modelling of commodity devices like vortex mixers.
   * `Instrument` will have separate [vendor](https://microbiomedata.github.io/berkeley-schema-fy24/vendor/) and [model](https://microbiomedata.github.io/berkeley-schema-fy24/model/) slots, whose values must come from the [InstrumentVendorEnum](https://microbiomedata.github.io/berkeley-schema-fy24/InstrumentVendorEnum/) and the [InstrumentModelEnum](https://microbiomedata.github.io/berkeley-schema-fy24/InstrumentModelEnum/) enumerations, respectively.
-* ??? Schema support for complex paths of data generation and data processing.
-  * `Class:DataGeneration` can have instances where a single sample has multiple data files that need processed together during WorkflowExecution.  
-  * Relationships between samples and the data objects will be captured using `slot:part_of`, linking the 'child' back to the 'parent'.
+* Schema support for complex paths of data generation and data processing.
+  * There are cases in which multiple [DataObjects](https://microbiomedata.github.io/nmdc-schema/DataObject/), outputted from multiple [DataGeneration](https://microbiomedata.github.io/berkeley-schema-fy24/DataGeneration/)s that take one single sample as their input, will need to be analyzed together in [WorkflowExecution](https://microbiomedata.github.io/berkeley-schema-fy24/WorkflowExecution/)s or [WorkflowChain](https://microbiomedata.github.io/berkeley-schema-fy24/WorkflowChain/)s
+  * Therefore, a child `DataGeneration` can use the slot `part_of` with  range `DataGeneration` to indicate all of the processes whose data must be analyzed together.
+  * The previous usage of `part_of`  by `DataGeneration`/[OmicsProcessing](https://microbiomedata.github.io/nmdc-schema/OmicsProcessing/)  will be replaced with the `associated_studies` slot to point to the [Study](https://microbiomedata.github.io/nmdc-schema/Study/) or Studies that the analyses belong to.
 
 ### Classes `WorkflowExecution` and `WorkflowChain`
 * Changes to the [WorkflowExecution](https://microbiomedata.github.io/berkeley-schema-fy24/WorkflowExecution/) class are [described above](#workflow_modelling_changes).
