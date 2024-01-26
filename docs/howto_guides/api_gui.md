@@ -1,5 +1,8 @@
 # Using the NMDC API Graphical User Interface (GUI)
 
+Dependency versions:
+nmdc-runtime=1.2.0
+
 ## Retrieving Metadata using the ___Find___ and ___Metadata___ API Endpoints
 
 Metadata describing NMDC data (e.g. studies, biosamples, data objects, etc.) may be retrieved with GET requests, using the **[NMDC API Graphical User Interface (GUI)](https://api.microbiomedata.org/docs#/)**. The API GUI provides a guided user interface for direct access to the NMDC data portal. It allows for:
