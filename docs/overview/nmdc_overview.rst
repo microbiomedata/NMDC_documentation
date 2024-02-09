@@ -1,12 +1,21 @@
-NMDC Overview
+Advancing microbiome science together: Welcome to the NMDC
 ==================
 
-The National Microbiome Data Collaborative (NMDC) is a new US-based pilot initiative launched in June 2019 to support microbiome data exploration and discovery through a collaborative, integrative data science ecosystem. The primary goal is to democratize microbiome data science by providing access to multi-omics microbiome data to support reproducible, cross-study analyses aligned with the FAIR data principles. To demonstrate the utility of linking across multi-omics microbiome data, the NMDC team has initially focused on projects funded through the Facilities Integrating Collaborations for User Science (FICUS) Program, a partnership between two DOE User Facilities, the JGI at LBNL and EMSL at PNNL. These projects span diverse terrestrial and aquatic environments, and address questions related to microbially-mediated carbon transformations, biogeochemical cycling, and plant-microbiome interactions. Currently, metagenome and metatranscriptome data are made available through maintained resources at the JGI, including the `JGI Genome Portal <https://genome.jgi.doe.gov/portal>`_, the `Genomes OnLine Database (GOLD) <https://gold.jgi.doe.gov>`_, and the `Integrated Microbial Genomes and Microbiomes (IMG/M) <https://img.jgi.doe.gov>`_. Metaproteome, metabolome and natural organic characterization data generated at EMSL are made available through the `MyEMSL/NEXUS system <https://search.emsl.pnnl.gov>`_. While the primary research teams are aware of data generated for their own projects across these two User Facilities, challenges exist for the broader research community to search associated data and link complementary data derived from the same biosample or project. Further, publications resulting from data generated at the JGI and EMSL reference a suite of repositories (e.g., PRIDE, MetaboLights, INSDC) where data is dispersed across resources that renders meta-analyses difficult for multi-omics data.
+We have built the National Microbiome Data Collaborative (NMDC) to advance how scientists create, use, and reuse data to redefine the way we understand and harness the power of microbes. The three core infrastructure elements of the NMDC framework are: (1) the `Submission Portal <https://data.microbiomedata.org/submission/home>`_ to support collection of standardized study and biosample information; (2) `NMDC EDGE <https://nmdc-edge.org/home>`_, an intuitive user interface to access standardized bioinformatics workflows; and (3) the `Data Portal <https://data.microbiomedata.org/>`_, a resource for consistently processed and integrated multi-omics data enabling search, access, and download [2]. Our engagement strategy includes partnerships with complementary data resources like DOE’s Environmental Systems Science Data Infrastructure for a Virtual Ecosystem (`ESS-DIVE <https://ess-dive.lbl.gov>`_) and DOE’s Systems Biology Knowledgebase (`KBase <https://www.kbase.us>`_); partnerships with DOE User Facilities, the Joint Genome Institute (`JGI <https://jgi.doe.gov>`_) and the Envionmental Molecular Sciences Laboratory (`EMSL <https://www.emsl.pnnl.gov>`_); coordinating with interagency programs outside of the DOE ecosystem such as NSF’s National Ecological Observatory Network (`NEON <https://www.neonscience.org>`_);  and development of our flagship engagement programs, the NMDC `Ambassadors <https://microbiomedata.org/ambassadors>`_ and `Champions <https://microbiomedata.org/community/championsprogram>`_. This community-centric framework leverages unique capabilities, expertise, and resources available at the Department of Energy National Laboratories to create an enabling environment for findable, accessible, interoperable, and reusable (FAIR) multi-omics microbiome data.  
 
-About our documentation
+
+
+About our Documentation
 ==================
 
-Our documentation is based on the `Diátaxis framework <https://diataxis.fr/>`_. 
+To support a systematic approach to our technical documentation, we have adopted the `Diátaxis framework <https://diataxis.fr/>` which identifies four distinct forms of documentation: tutorials, how-to guides, technical reference and explanation. We aim for our documentation to be accessible to a broad audience, so whether you are new to microbiome research or a leading scientist in the field, we welcome everyone to learn more from our: 
+
+1. Tutorials (Learning-oriented): get started through short, hands-on activities
+2. How-To Guides (Task-oriented): step-by-step instructions for using NMDC's products and resources
+3. Explanation (Understanding-oriented): background information covering a wide range of topics
+4. Reference (Information-oriented): in-depth learning materials
+
+Let us know if you have suggestions to further support your research by `reaching out to us <https://microbiomedata.org/contact>`_!
 
 .. image:: ../_static/images/overview/diataxis_documentation_graphic.png
    :width: 1000
