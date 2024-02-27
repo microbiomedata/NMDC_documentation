@@ -24,6 +24,7 @@ NMDC Documentation
    Submitting to NMDC <./howto_guides/submit2nmdc.md>
    Running the Workflows <./howto_guides/run_workflows.md>
    Navigating the Data Portal <./howto_guides/portal_guide.md>
+   Using the NMDC API GUI <./howto_guides/api_gui.md>
 
 
 .. toctree::
