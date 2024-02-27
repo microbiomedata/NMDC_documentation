@@ -19,7 +19,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'NMDC Documentation'
-copyright = '2022, The NMDC Team'
+copyright = '2024, The NMDC Team'
 author = 'The NMDC Team'
 
 # The full version, including alpha/beta/rc tags
@@ -32,10 +32,9 @@ release = '0.1'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-   'recommonmark',
+   'myst_parser',
    'sphinx_markdown_tables'
 ]
-
 
 # source_suffix = '.rst'
 source_suffix = ['.rst', '.md']
