@@ -6,3 +6,8 @@ div.rst-versions > div.rst-other-versions > div.injected > dl:nth-child(3) {
 div.rst-versions > div.rst-other-versions > div.injected > dl:nth-child(4) {
     display: none;
 }
+
+/* talbe text wrap */
+.wy-table-responsive table td, .wy-table-responsive table th {
+    white-space: inherit;
+}
