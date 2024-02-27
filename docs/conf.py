@@ -19,7 +19,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'NMDC Documentation'
-copyright = '2022, The NMDC Team'
+copyright = '2024, The NMDC Team'
 author = 'The NMDC Team'
 
 # The full version, including alpha/beta/rc tags
@@ -36,6 +36,9 @@ extensions = [
    'sphinx_markdown_tables'
 ]
 
+source_parsers = {
+    '.md': 'recommonmark.parser.CommonMarkParser',
+}
 
 # source_suffix = '.rst'
 source_suffix = ['.rst', '.md']
