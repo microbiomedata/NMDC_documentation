@@ -1,28 +1,34 @@
 # NMDC Data Portal
 
-The NMDC Data Portal is enables users to discover and access standardized multi-omics microbiome data over the web. 
+The NMDC Data Portal is a web application researchers can use to discover and access standardized multi-omics microbiome data.
 
-The NMDC Data Portal is build with these technologies
+The main technologies upon which it is built are:
 
-* Python and [FastAPI](https://fastapi.tiangolo.com/)
-* PostgreSQL and SQLAlchemy
-* Celery and Redis Queue
-* Vue JS and Vuetify
+* [Python](https://www.python.org/) and [FastAPI](https://fastapi.tiangolo.com/)
+* [PostgreSQL](https://www.postgresql.org/) and [SQLAlchemy](https://www.sqlalchemy.org/)
+* [Celery](https://docs.celeryq.dev/) and [Redis](https://redis.io/)
+* [Vue.js](https://vuejs.org/) and [Vuetify](https://vuetifyjs.com/)
 
-### Software versions
+### Dependencies
 
-* [Python version dependencies](https://github.com/microbiomedata/nmdc-server/blob/main/setup.py)
-* [Javascript version dependencies](https://github.com/microbiomedata/nmdc-server/blob/main/web/package.json)
+The NMDC Data Portal depends upon various Python and JavaScript libraries, which are listed in either of the following documents:
 
-## General architecture
+* [Python dependencies](https://github.com/microbiomedata/nmdc-server/blob/main/setup.py)
+* [Javascript dependencies](https://github.com/microbiomedata/nmdc-server/blob/main/web/package.json)
+
+## Architecture
 
 ![nmdc-diagram](../_static/images/reference/data_portal/nmdc-diagram.svg)
 
-## API Documentation
+## API documentation
 
-Information about how to use the search portal REST API can be found in the [wiki](https://github.com/microbiomedata/nmdc-server/wiki/Search-API-Docs).
+In addition to providing a web-based GUI (graphical user interface), the NMDC Data Portal also exposes an HTTP API. Researchers can use the latter to _programmatically_ discover and access standardized multi-omics microbiome data.
+
+Information about the HTTP API is in this [wiki](https://github.com/microbiomedata/nmdc-server/wiki/Search-API-Docs).
 
 ## Development documentation
+
+Here are some resources people can use to learn about the development of the NMDC Data Portal.
 
 * [Server and client development documentation](https://github.com/microbiomedata/nmdc-server)
 * [Client architecture notes](https://github.com/microbiomedata/nmdc-server/blob/main/web/README.md)
