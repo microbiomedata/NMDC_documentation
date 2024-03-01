@@ -31,7 +31,7 @@ NMDC Documentation
    :maxdepth: 2
    :caption: Reference:
 
-   NMDC Metadata <https://microbiomedata.github.io/nmdc-schema/>
+   NMDC Metadata <https://w3id.org/nmdc/about>
    NMDC Workflows <https://nmdc-workflow-documentation.readthedocs.io/en/latest/chapters/overview.html>
    NMDC Data Portal <./reference/data_portal.md>
 
