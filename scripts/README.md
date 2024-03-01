@@ -4,7 +4,7 @@ The scripts will update the documents and push the changes to a new branch named
 > 
 > e.g. *workflow-docs-auto-update-2024-02-29_19-40-58, schema-docs-auto-update-2024-02-29_21-33-40*
 
-## Push the updated docs to a test repo
+## Push the updated docs to test repo
 
 * Run the scripts on unix/linux OS
   
@@ -27,7 +27,7 @@ The scripts will update the documents and push the changes to a new branch named
   ./updateSchemaDocsTest.sh -i inputs.txt -s mac
   ```
 
-## Push the updated docs to the NMDC_documentation 
+## Push the updated docs to NMDC_documentation repo
 * Run the scripts on unix/linux OS
   
   ```shell
