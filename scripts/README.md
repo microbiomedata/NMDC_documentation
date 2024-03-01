@@ -7,7 +7,7 @@ The scripts will update the documents and push the changes to a new branch named
 
 ### Push the updated docs to test repo
 
-#### Run the scripts on unix/linux OS
+#### Run the scripts on Unix/Linux OS
   
   ```shell
   ./updateWorkflowDocsTest.sh -i inputs.txt
@@ -18,7 +18,7 @@ The scripts will update the documents and push the changes to a new branch named
   ```
 
   
-#### Run the scripts on MacOS
+#### Run the scripts on Mac OS
   
   ```shell
   ./updateWorkflowDocsTest.sh -i inputs.txt -s mac
@@ -30,7 +30,7 @@ The scripts will update the documents and push the changes to a new branch named
 
 ### Push the updated docs to NMDC_documentation repo
 
-#### Run the scripts on unix/linux OS
+#### Run the scripts on Unix/Linux OS
   
   ```shell
   ./updateWorkflowDocs.sh -i inputs.txt
@@ -41,7 +41,7 @@ The scripts will update the documents and push the changes to a new branch named
   ```
 
   
-#### Run the scripts on MacOS
+#### Run the scripts on Mac OS
   
   ```shell
   ./updateWorkflowDocs.sh -i inputs.txt -s mac
