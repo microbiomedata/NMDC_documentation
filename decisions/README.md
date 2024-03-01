@@ -1,5 +1,7 @@
 # Decisions
 
+**The decisions directory has been moved to the [isssues repo](https://github.com/microbiomedata/issues/tree/main/decisions). This folder will be removed - please create new ADRS in the issues repo**
+
 This directory contains decision records for NMDC.
 
 For new ADRs, please use [adr-template.md](adr-template.md) as basis.
