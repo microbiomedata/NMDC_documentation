@@ -25,7 +25,7 @@ NMDC Documentation
    Running the Workflows <./howto_guides/run_workflows.md>
    Navigating the Data Portal <./howto_guides/portal_guide.md>
    Using the NMDC API GUI <./howto_guides/api_gui.md>
-
+   Downloading Data via Globus <./howto_guides/globus.md>
 
 .. toctree::
    :maxdepth: 2
