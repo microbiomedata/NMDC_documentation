@@ -33,7 +33,8 @@ release = '0.1'
 # ones.
 extensions = [
    'myst_parser',
-   'sphinx_markdown_tables'
+   'sphinx_markdown_tables',
+   'sphinx_reredirects'
 ]
 
 # source_suffix = '.rst'
@@ -66,3 +67,13 @@ html_css_files = [
     'css/custom.css',
 ]
 html_logo = "_static/images/nmdc-logo-bg-white.png"
+
+# -- Redirects ------------------------------------------
+
+# Redirect old schema documentation URLs to the schema documentation
+# that is automatically kept in sync with the schema.
+# Reference: https://pypi.org/project/sphinx-reredirects/
+redirects = {
+    "reference/metadata/xylene": "https://w3id.org/nmdc/xylene",  # the latter redirects to: https://microbiomedata.github.io/nmdc-schema/xylene/
+    "reference/metadata/*": "https://w3id.org/nmdc/nmdc",
+}
