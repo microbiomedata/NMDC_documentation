@@ -10,7 +10,7 @@ While a new concept, making your DMP machine readable, increases the likelihood 
 
 ### What to include in your DMP? 
 
-While your DMP should include information about all data collected through the duration of your research, these guidelines and best practices focus on large omic data generated from microbiome samples. If you are unfamiliar with microbiome data management and metadata standards, we recommend you begin with an [Introduction to Metadata and Ontologies: Everything You Always Wanted to Know About Metadata and Ontologies (But Were Afraid to Ask)](https://microbiomedata.org/introduction-to-metadata-and-ontologies/) and the [NMDC Metadata Standards Documentation](https://nmdc-documentation.readthedocs.io/en/latest/reference/metadata/combined_schema_docs.html). These resources will introduce you to multi-omics metadata standards that leverage existing community-driven standards. 
+While your DMP should include information about all data collected through the duration of your research, these guidelines and best practices focus on large omic data generated from microbiome samples. If you are unfamiliar with microbiome data management and metadata standards, we recommend you begin with an [Introduction to Metadata and Ontologies: Everything You Always Wanted to Know About Metadata and Ontologies (But Were Afraid to Ask)](https://microbiomedata.org/introduction-to-metadata-and-ontologies/) and the [NMDC Metadata Standards Documentation](https://w3id.org/nmdc/nmdc). These resources will introduce you to multi-omics metadata standards that leverage existing community-driven standards. 
 
 ***The NMDC DMPTool Template***
 

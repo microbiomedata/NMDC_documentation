@@ -33,7 +33,8 @@ release = '0.1'
 # ones.
 extensions = [
    'myst_parser',
-   'sphinx_markdown_tables'
+   'sphinx_markdown_tables',
+   'sphinx_reredirects'
 ]
 
 # source_suffix = '.rst'
@@ -66,3 +67,20 @@ html_css_files = [
     'css/custom.css',
 ]
 html_logo = "_static/images/nmdc-logo-bg-white.png"
+
+# -- Redirects ------------------------------------------
+
+# Redirect URLs that originally led to local, manually-maintained schema documentation web pages,
+# so that they instead lead to remote, automatically-maintained schema documentation web pages.
+#
+# Reference: https://documatt.com/sphinx-reredirects/usage.html#target-placeholders
+#
+redirects = {
+    # Note: The portion of the source path matched by the `*` is available in the target path as `${source}`.
+    #
+    # Example: The code below redirects https://nmdc-documentation.readthedocs.io/en/latest/reference/metadata/xylene.html
+    #          to https://w3id.org/nmdc/xylene. Then, the code in https://github.com/perma-id/w3id.org/blob/master/nmdc/.htaccess
+    #          (not in this repo) redirects https://w3id.org/nmdc/xylene to https://microbiomedata.github.io/nmdc-schema/xylene/.
+    #
+    "reference/metadata/*": "https://w3id.org/nmdc/${source}",
+}

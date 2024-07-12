@@ -16,9 +16,7 @@ data are available under a Creative Commons 4.0 license, which enables
 public use with attribution, as outlined in the NMDC Data Use Policy
 (<https://microbiomedata.org/nmdc-data-use-policy>). This first
 iteration of the NMDC Data Portal was released in March 2021, and will
-continue to expand its data hostings and functionality on a quarterly
-basis. Associated release notes and updated user guides will accompany
-each quarterly release.
+continue to expand its data hostings and functionality on an ongoing. 
 
 There is a short video tutorial showing how to navigate the portal on
 Youtube (<https://www.youtube.com/watch?v=KJQDrCnJRho>).
@@ -45,8 +43,7 @@ the NMDC Data Portal.
 
 ## Available Studies & Data
 
-For the October 2021 NMDC Data Portal release, the data hostings include
-7 studies, 638 biosamples, and 5 data types from a breadth of
+Data hostings include studies, biosamples, and 5 data types from a breadth of
 environmental microbiomes, spanning river sediments, subsurface shale
 carbon reservoirs, plant-microbe associations, and temperate and
 tropical soils. Specifics are as follows:
@@ -68,7 +65,7 @@ provides a standard data dictionary of sample descriptors (e.g.,
 location, biome, altitude, depth) organized into seventeen environmental
 packages (<https://www.gensc.org/pages/standards-intro.html>) for sequence data. The NMDC team has
 mapped fields used to describe samples in the GOLD database to MIxS
-version 5 (v5) elements. In addition, we are adopting the MIxS standards
+version 6.1 elements. In addition, we are adopting the MIxS standards
 for sequence data types (e.g., sequencing method, pcr primers and
 conditions, etc.), and are leveraging standards and controlled
 vocabularies developed by the Proteomics Standards Initiative (4), the
@@ -121,7 +118,7 @@ correction, assembly, structural and functional annotation, and binning
 leveraging the JGI's production pipelines (6), along with an additional
 read-based taxonomic analysis component. Standardized outputs from the
 read QC, read-based analysis, assembly, annotation, and binning are
-available for search and download for 123 metagenomes on the NMDC Data
+available for search and download on the NMDC Data
 Portal.
 
 ### *Metatranscriptomes.*
@@ -135,7 +132,7 @@ metagenome workflow, and the high-quality reads are mapped back to the
 annotated transcripts using HISAT2 (8) and then processed to calculate
 the number of reads mapped per feature using FeatureCount (9) and RPKM
 calculations per feature using edgeR (10). Results from read QC,
-assembly, and annotation are available for search and download for 45
+assembly, and annotation are available for search and download for 
 metatranscriptomes on the NMDC Data Portal.
 
 ### *Metaproteomes.*
@@ -148,7 +145,7 @@ database approach. Intensity information is extracted using MASIC (13)
 and combined with protein information. Protein annotation information is
 obtained from the associated metagenome annotation output. Standardized
 outputs for quality control, and peptide and protein-level quantitative
-data are available for search and download for 38 metaproteomes on the
+data are available for search and download for metaproteomes on the
 NMDC Data Portal.
 
 ### *Metabolomes.*
@@ -163,7 +160,7 @@ threshold calculation, peak picking) and molecular identification,
 including the molecular search using a metabolites standard compound
 library, spectral similarity calculation, and similarity score
 calculation (15), all in a single step. The putative metabolite
-annotation data is available to download for 34 metabolomes on the NMDC
+annotation data is available to download for metabolomes on the NMDC
 Data Portal. Data dependent LC-MS based workflows are currently under
 development. Additionally, it should be noted that all available data
 derives from exploratory, untargeted analysis and is semi-quantitative.
@@ -180,7 +177,7 @@ generated molecular formula library with a defined molecular search
 space. The confidence scores for all the molecular formula candidates
 are calculated based on the mass accuracy and fine isotopic structure,
 and the best candidate assigned as the highest score. The molecular
-formula characterization table is available to download for 946 natural
+formula characterization table is available to download for natural
 organic matter characterizations on the NMDC Data Portal.
 
 ## Portal Functionality

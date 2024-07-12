@@ -25,14 +25,14 @@ NMDC Documentation
    Running the Workflows <./howto_guides/run_workflows.md>
    Navigating the Data Portal <./howto_guides/portal_guide.md>
    Using the NMDC API GUI <./howto_guides/api_gui.md>
-
+   Downloading Data via Globus <./howto_guides/globus.md>
 
 .. toctree::
    :maxdepth: 2
    :caption: Reference:
 
-   NMDC Metadata <./reference/metadata/combined_schema_docs.md>
-   NMDC Workflows <./reference/combined_workflow_docs.rst>
+   NMDC Schema <https://w3id.org/nmdc/about>
+   NMDC Workflows <https://nmdc-workflow-documentation.readthedocs.io/en/latest/chapters/overview.html>
    NMDC Data Portal <./reference/data_portal.md>
 
 .. toctree::
