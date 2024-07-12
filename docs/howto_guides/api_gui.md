@@ -15,7 +15,7 @@ Requests can include various parameters to filter, sort, and organize the reques
 
 #### ___Find___ Endpoints
 
-The [find endpoints](https://api.microbiomedata.org/docs#/find:~:text=Find%20NMDC-,metadata,-entities.) are provided with NMDC metadata entities already specified - where metadata about [studies](https://microbiomedata.github.io/nmdc-schema/Study/), [biosamples](https://microbiomedata.github.io/nmdc-schema/Biosample/), [data objects](https://microbiomedata.github.io/nmdc-schema/DataObject/), and [activities](https://microbiomedata.github.io/nmdc-schema/Activity/) can be retrieved using GET requests. 
+The [find endpoints](https://api.microbiomedata.org/docs#/find:~:text=Find%20NMDC-,metadata,-entities.) are provided with NMDC metadata entities already specified - where metadata about [studies](https://w3id.org/nmdc/Study), [biosamples](https://w3id.org/nmdc/Biosample), [data objects](https://w3id.org/nmdc/DataObject/), and [activities](https://w3id.org/nmdc/Activity/) can be retrieved using GET requests. 
 
 The applicable parameters of the ___find___ endpoints, with acceptable syntax and examples, are in the table below.
 
