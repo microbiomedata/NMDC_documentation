@@ -24,39 +24,39 @@ We proposed a few solutions in the [GitHub dsicussion](https://github.com/microb
 
 ## Considered Options
 
-* Solution 1
-Provide a "delete this submission" button.
+**Solution 1**
+* Provide a "delete this submission" button.
     - Sandbox NEVER gets wiped. People can just delete their submissions when they're ready
 
-* Solution 2
-Extend the time.
+**Solution 2**
+* Extend the time.
     - Submissions are deleted ever quarter?
     - Submissions are deleted 90 days after creation?
     - Should provide a warning? How?
-    - Add a "trash" where people can restore the submission for so many days after deletion?
+* Add a "trash" where people can restore the submission for so many days after deletion?
 
-* Solution 3
-Add a "delete this is a test" check box to the production site & those get deleted every so many days
+**Solution 3**
+* Add a "delete this is a test" check box to the production site & those get deleted every so many days
     - This checkbox can be checked after the fact so it's not deleted until someone says they want it to be.
     - I think a LOT of people make test submission and forget about them, so the NMDC team should have the ability to delete them & send a notice
 
 ## Decision Outcome
 
 Chosen option: Combo solution
-    - Add “delete this submission” option to https://data.microbiomedata.org/submission/home
-        - Anyone with “creator role” (submitter & PIs) and admins can delete a submission
-    - Eliminate sandbox
-    - Add “Create test submission” button to [prod+dev](https://data.microbiomedata.org/submission/home)
-        - Test, fake, workshop, TBD what we title this button
-        - Provide clear tool tip text to elaborate / explain when to make a new submission vs test submission
-            - Test submissions can NOT be submitted
-            - Test submissions can NOT be converted to real submissions
-            - Test is not equal to Draft
-    - Eliminate deletion policy until we get a good sense of HOW test submissions are being created & IF people delete their own tests
-        - Submissions will NEVER be auto deleted
-        - Add a “date last modified” attribute to submissions to track how often people refer to a test submission & determine when tests could be deleted
-    - Add "Create test submission” option to the app
-    - Add ability to track what submissions in the submission portal come from the app (for metrics)
+* Add “delete this submission” option to https://data.microbiomedata.org/submission/home
+    - Anyone with “creator role” (submitter & PIs) and admins can delete a submission
+* Eliminate sandbox
+* Add “Create test submission” button to [prod+dev](https://data.microbiomedata.org/submission/home)
+    - Test, fake, workshop, TBD what we title this button
+    - Provide clear tool tip text to elaborate / explain when to make a new submission vs test submission
+        - Test submissions can NOT be submitted
+        - Test submissions can NOT be converted to real submissions
+        - Test is not equal to Draft
+* Eliminate deletion policy until we get a good sense of HOW test submissions are being created & IF people delete their own tests
+    - Submissions will NEVER be auto deleted
+* Add a “date last modified” attribute to submissions to track how often people refer to a test submission & determine when tests could be deleted
+* Add "Create test submission” option to the app
+* Add ability to track what submissions in the submission portal come from the app (for metrics)
 
 <!-- This is an optional element. Feel free to remove. -->
 ### Consequences    
