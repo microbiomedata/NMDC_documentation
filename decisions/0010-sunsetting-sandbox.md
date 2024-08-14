@@ -25,19 +25,20 @@ We proposed a few solutions in the [GitHub dsicussion](https://github.com/microb
 ## Considered Options
 
 * Solution 1
-Provide a "delete this submission" button. So the sandbox NEVER gets wiped. People can just delete their submissions when they're read
+Provide a "delete this submission" button.
+    - Sandbox NEVER gets wiped. People can just delete their submissions when they're ready
 
 * Solution 2
 Extend the time.
-    - Submissions are deleted ever quarter
-    - Submissions are deleted 90 days after creation
+    - Submissions are deleted ever quarter?
+    - Submissions are deleted 90 days after creation?
     - Should provide a warning? How?
-    - Add a "trash" where people can restore the submission for so many days after deletion
+    - Add a "trash" where people can restore the submission for so many days after deletion?
 
 * Solution 3
 Add a "delete this is a test" check box to the production site & those get deleted every so many days
-    - This checkbox can be check after the fact so it's not deleted until someone says they want it to be.
-    - I think a LOT of people make test submission and forget about them, so I would like the ability to delete them & send a notice
+    - This checkbox can be checked after the fact so it's not deleted until someone says they want it to be.
+    - I think a LOT of people make test submission and forget about them, so the NMDC team should have the ability to delete them & send a notice
 
 ## Decision Outcome
 
@@ -54,7 +55,7 @@ Chosen option: Combo solution
     - Eliminate deletion policy until we get a good sense of HOW test submissions are being created & IF people delete their own tests
         - Submissions will NEVER be auto deleted
         - Add a “date last modified” attribute to submissions to track how often people refer to a test submission & determine when tests could be deleted
-    - Add a “test” option to the app
+    - Add "Create test submission” option to the app
     - Add ability to track what submissions in the submission portal come from the app (for metrics)
 
 <!-- This is an optional element. Feel free to remove. -->
