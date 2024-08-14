@@ -10,7 +10,7 @@ This ADR outlines the process we used to decide to sunset the NMDC Sandbox Submi
 
 ## Context and Problem Statement
 
-Currently, the NMDC submission portal sandbox is wiped every sunday.
+Currently, the NMDC submission portal sandbox is wiped every Sunday.
 Some ambassadors or other users are still using the production environment for tests, workshops, and fake submissions. Additionally, people don't always know about the NMDC Sandbox site or there's a desire to have fake/test studies persist after a sunday (ex: Prep for a workshop on Friday, and the submission still be there for monday's session; Re-use the same submission for multiple workshops & not need to re-submit)
 
 We proposed a few solutions in the [GitHub dsicussion](https://github.com/microbiomedata/issues/discussions/743) and in a small meeting (contact Montana for those google notes). Team members invited to contribute to and voice opinions on the GitHub discussion. Additionaly, we polled slack for reactions to confrim people were aware and we received 12 approvals. 
