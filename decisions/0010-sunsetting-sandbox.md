@@ -3,7 +3,6 @@ status: accepted
 date: 2024-08-14
 deciders: Montana Smith, NMDC PIs, Mike Nagler, Patrick Kalita 
 consulted: Entire NMDC team via [GitHub discussion](https://github.com/microbiomedata/issues/discussions/743), meetings, and slack were given the oppotrunity to voice opinions
-informed:
 ---
 # Sunsetting the NMDC Sandbox UI
 
