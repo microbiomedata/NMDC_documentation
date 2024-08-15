@@ -1,3 +1,6 @@
+> [!NOTE]
+> **ADRs are now being recorded in the [`issues` repository](https://github.com/microbiomedata/issues/tree/main/decisions) instead of this repository.**
+
 # NMDC_documentation
 Compile documentation for NMDC workflows, schemas/ metadata, and portal
 
