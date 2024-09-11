@@ -1,7 +1,7 @@
 # Using the NMDC API Graphical User Interface (GUI)
 
 Dependency versions:
-nmdc-runtime=1.2.0
+nmdc-runtime=1.9.1.dev86+g66b36e9
 
 ## Retrieving Metadata using the ___Find___ and ___Metadata___ API Endpoints
 
@@ -15,7 +15,7 @@ Requests can include various parameters to filter, sort, and organize the reques
 
 #### ___Find___ Endpoints
 
-The [find endpoints](https://api.microbiomedata.org/docs#/find:~:text=Find%20NMDC-,metadata,-entities.) are provided with NMDC metadata entities already specified - where metadata about [studies](https://w3id.org/nmdc/Study), [biosamples](https://w3id.org/nmdc/Biosample), [data objects](https://w3id.org/nmdc/DataObject/), and [activities](https://w3id.org/nmdc/Activity/) can be retrieved using GET requests. 
+The [find endpoints](https://api.microbiomedata.org/docs#/find:~:text=Find%20NMDC-,metadata,-entities.) are provided with NMDC metadata entities already specified - where metadata about [studies](https://w3id.org/nmdc/Study), [biosamples](https://w3id.org/nmdc/Biosample), [data objects](https://w3id.org/nmdc/DataObject/), and [planned processes](https://w3id.org/nmdc/PlannedProcess/) can be retrieved using GET requests. 
 
 The applicable parameters of the ___find___ endpoints, with acceptable syntax and examples, are in the table below.
 
@@ -32,7 +32,7 @@ The applicable parameters of the ___find___ endpoints, with acceptable syntax an
 | study_id | The unique identifier of a study | Curie e.g. `prefix:identifier` | `nmdc:sty-11-34xj1150` |
 | sample_id | The unique identifier of a biosample | Curie e.g. `prefix:identifier` | `nmdc:bsm-11-w43vsm21` |
 | data_object_id | The unique identifier of a data object | Curie e.g. `prefix:identifier` | `nmdc:dobj-11-7c6np651` |
-| activity_id | The unique identifier for an NMDC workflow execution activity | Curie e.g. `prefix:identifier` | `nmdc:wfmgan-11-hvcnga50.1`|
+| planned_process_id | The unique identifier for an NMDC planned process | Curie e.g. `prefix:identifier` | `nmdc:wfmgan-11-hvcnga50.1`|
 
 <br/>
 <br/>
@@ -64,12 +64,12 @@ To retrieve metadata about NMDC data objects (such as files, records, or omics d
 If the data object identifier is known, the metadata can be retrieved using the `GET /data_objects/{data_object_id}` endpoint. Note that only one data object metadata record may be retrieved at a time using this method.<br/>
 <br/>
 
-![find get activities](../_static/images/howto_guides/api_gui/find_get_activities.png)
-The `GET /activities` endpoint is a general way to fetch metadata about various activities (e.g. metagenome assembly, natural organic matter analysis, library preparation, etc.). Any "slot" (a.k.a. attribute) for [WorkflowExecutionActivity](https://microbiomedata.github.io/nmdc-schema/WorkflowExecutionActivity/) or [PlannedProcess](https://microbiomedata.github.io/nmdc-schema/PlannedProcess/) classes may be used in the filter and sort parameters, including attributes of subclasses of `WorkflowExecutionActivity` and `PlannedProcess`. For example, attributes used in subclasses such as, [MetabolomicsAnalysisActivity](https://microbiomedata.github.io/nmdc-schema/MetabolomicsAnalysisActivity/) (subclass of `WorkflowExecutionActivity`) or (Extraction)[https://microbiomedata.github.io/nmdc-schema/Extraction/] (subclass of `PlannedProcess`), can be used as input criteria for the filter and sort parameters of this endpoint.<br/>
+![find get planned processes](../_static/images/howto_guides/api_gui/find_get_planned_process.png)
+The `GET /planned_processes` endpoint is a general way to fetch metadata about various planned processes (e.g. mass spectrometry, natural organic matter analysis, library preparation, etc.). Any "slot" (a.k.a. attribute) for [PlannedProcess](https://microbiomedata.github.io/nmdc-schema/PlannedProcess/) subclasses may be used in the filter and sort parameters. For example, attributes used in subclasses such as, [MetabolomicsAnalysis](https://microbiomedata.github.io/nmdc-schema/MetabolomicsAnalysis/) (subclass of `WorkflowExecution` which is a subclass of `PlannedProcess`) or (Extraction)[https://microbiomedata.github.io/nmdc-schema/Extraction/] (subclass of `MaterialProcessing` which is a subclass of `PlannedProcess`), can be used as input criteria for the filter and sort parameters of this endpoint.<br/>
 <br/>
 
-![find get activities by activity id](../_static/images/howto_guides/api_gui/find_get_activities_activity_id.png)
-If the activity identifier is known, the activity metadata can be retrieved using the `GET /activities/activity_id` endpoint. Note that only one metadata record for an activity may be returned at a time using this method.<br/>
+![find get planned processes by planned process id](../_static/images/howto_guides/api_gui/find_get_planned_process_id.png)
+If the planned process identifier is known, the metadata can be retrieved using the `GET /planned_processes/planned_process_id` endpoint. Note that only one metadata record for a planned process may be returned at a time using this method.<br/>
 <br/>
 
 For more information and to see more examples of __find__ endpoints outside of the [autogenerated user interface](https://api.microbiomedata.org/docs#/find), please visit: https://api.microbiomedata.org/search<br/>
