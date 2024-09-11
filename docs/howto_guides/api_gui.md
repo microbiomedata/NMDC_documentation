@@ -93,7 +93,7 @@ For more information and to see more examples of __find__ endpoints outside of t
 
 #### ___Metadata___ Endpoints
 
-The [metadata endpoints](https://api.microbiomedata.org/docs#/metadata) can be used to get and filter metadata from collection set types (including studies, biosamples, activities, and data objects as discussed in the __find__ section). 
+The [metadata endpoints](https://api.microbiomedata.org/docs#/metadata) can be used to get and filter metadata from collection set types (including studies, biosamples, planned processes, and data objects as discussed in the __find__ section). 
 
 Unlike the compact syntax used in the __find__  endpoints, the syntax for the filter parameter of the metadata endpoints uses [MongoDB-like language querying](https://www.mongodb.com/docs/manual/tutorial/query-documents/). The applicable parameters of the __metadata__ endpoints, with acceptable syntax and examples, are in the table below.
 
