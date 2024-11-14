@@ -215,7 +215,7 @@ all of the added terms.
 
 [![](../_static/images/howto_guides/portal_guide/depth_meter.png)](../_static/images/howto_guides/portal_guide/depth_meter.png)
 
-[![](../_static/images/howto_guides/portal_guide/date.png)](../_static/images/howto_guides/portal_guide/date.png)
+[![](../_static/images/howto_guides/portal_guide/date_slider.png)](../_static/images/howto_guides/portal_guide/date_slider.png)
 
 [![](../_static/images/howto_guides/portal_guide/latitude.png)](../_static/images/howto_guides/portal_guide/latitude.png)
 
