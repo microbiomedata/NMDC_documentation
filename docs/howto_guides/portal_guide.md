@@ -189,7 +189,7 @@ more information about that study and that principal investigator.
 
 [![](../_static/images/howto_guides/portal_guide/instrument_name.png)](../_static/images/howto_guides/portal_guide/instrument_name.png)
 
-[![](../_static/images/howto_guides/portal_guide/omics_type.png)](../_static/images/howto_guides/portal_guide/omics_type.png)
+[![](../_static/images/howto_guides/portal_guide/data_type.png)](../_static/images/howto_guides/portal_guide/data_type.png)
 
 [![](../_static/images/howto_guides/portal_guide/processing_institution.png)](../_static/images/howto_guides/portal_guide/processing_institution.png)
 
@@ -213,7 +213,7 @@ all of the added terms.
 
 ### *Search by environmental descriptors*
 
-[![](../_static/images/howto_guides/portal_guide/depth.png)](../_static/images/howto_guides/portal_guide/depth.png)
+[![](../_static/images/howto_guides/portal_guide/depth_meter.png)](../_static/images/howto_guides/portal_guide/depth_meter.png)
 
 [![](../_static/images/howto_guides/portal_guide/date.png)](../_static/images/howto_guides/portal_guide/date.png)
 
@@ -234,7 +234,8 @@ name.
 
 [![](../_static/images/howto_guides/portal_guide/gold_classification.png)](../_static/images/howto_guides/portal_guide/gold_classification.png)
 
-[![](../_static/images/howto_guides/portal_guide/envo.png)](../_static/images/howto_guides/portal_guide/envo.png)
+[![](../_static/images/howto_guides/portal_guide/mixs_env_triad.png)
+)](../_static/images/howto_guides/portal_guide/mixs_env_triad.png)
 
 Samples can also be queried by ecosystem classifications using GOLD
 and/or MIxS Environmental Triad terms. Selecting GOLD classification in the query term bar
@@ -279,7 +280,7 @@ button will limit the search to the current map bounds.
 
 #### Temporal slider
 
-[![](../_static/images/howto_guides/portal_guide/temporal_slider.png)](../_static/images/howto_guides/portal_guide/temporal_slider.png)
+[![](../_static/images/howto_guides/portal_guide/date.png)](../_static/images/howto_guides/portal_guide/date.png)
 
 Samples can also be queried by a sample collection date range by
 clicking and holding to select a date range. Sample
