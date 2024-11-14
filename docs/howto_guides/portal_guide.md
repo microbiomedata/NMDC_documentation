@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The pilot NMDC Data Portal (<https://data.microbiomedata.org>) provides
+The NMDC Data Portal (<https://data.microbiomedata.org>) provides
 a resource for consistently processed multi-omics data that is
 integrated to enable search, access, analysis, and download. Open-source
 bioinformatics workflows are used to process raw multi-omics data and
@@ -14,9 +14,9 @@ user interface using an ORCiD authentication, with associated download
 metrics, or retrieved through available RESTful APIs. All multi-omics
 data are available under a Creative Commons 4.0 license, which enables
 public use with attribution, as outlined in the NMDC Data Use Policy
-(<https://microbiomedata.org/nmdc-data-use-policy>). This first
-iteration of the NMDC Data Portal was released in March 2021, and will
-continue to expand its data hostings and functionality on an ongoing. 
+(<https://microbiomedata.org/nmdc-data-use-policy>). The first
+iteration of the NMDC Data Portal was released in March 2021 and 
+continues  to expand its data hostings and functionality on an ongoing. 
 
 There is a short video tutorial showing how to navigate the portal on
 Youtube (<https://www.youtube.com/watch?v=KJQDrCnJRho>).
@@ -31,7 +31,7 @@ Data Portal. This methodology (1) enables the scientific community to
 provide feedback, iterative and continuous improvement of our systems,
 and ensures that our systems enable a high level of scientific
 productivity. Feedback collected from the scientific community during
-early iterations of the Data Portal can be linked to the features and
+user research can be linked to the features and
 design directions found in the current release. Our community-centered
 design approach ensures that the NMDC can evolve with the needs of the
 microbiome research community, but will also be important for uncovering
@@ -46,15 +46,7 @@ the NMDC Data Portal.
 Data hostings include studies, biosamples, and 5 data types from a breadth of
 environmental microbiomes, spanning river sediments, subsurface shale
 carbon reservoirs, plant-microbe associations, and temperate and
-tropical soils. Specifics are as follows:
-
-## Studies
-
-As the NMDC Data Portal is a pilot infrastructure, incoming projects for
-which study information and curated environmental metadata become
-available is first validated and loaded with a flag (Omics data coming
-soon) before processed instrumentation data is integrated into the
-portal.
+tropical soils. 
 
 ## Standards
 
@@ -89,7 +81,8 @@ EnvO is a community-led ontology that represents environmental entities
 such as biomes, environmental features, and environmental materials.
 These EnvO entities are the recommended values for several of the
 mandatory terms in the MIxS packages, often referred to as the "MIxS
-triad".
+triad".  Where appropriate, we also support terms from the Plant Ontology (PO) and Uberon, 
+an anotomical ontology. 
 
 ### *Genomes OnLine Database (GOLD)*
 
@@ -100,16 +93,16 @@ environment) are described using a five-level ecosystem classification
 path that goes from ecosystem down to the type of environmental material
 that describes the sample.
 
-## Omics Data
+## Data Types
 
-A suite of omics processing data can be generated from available
+A suite of data can be generated from available
 biosamples, and the value of associating these data through a common
 sample source enables researchers to probe function. The NMDC data
-schema offers an approach to link omics processing runs to their source
+schema offers an approach to link data to their source
 biosample (for example, multiple organic matter characterizations can be
 generated from a single sample through extraction with various solvents,
 eg, chloroform, methanol, and water fractionation). Below outlines the
-various omics data currently available through the portal.
+various data types currently available through the portal.
 
 ### *Metagenomes.*
 
@@ -127,12 +120,10 @@ Illumina-sequenced shotgun reads from cDNA library undergo
 pre-processing and error correction in the same way as described above
 in the metagenome workflow with additional steps to filter ribosomal
 reads. High-quality reads are then assembled into transcripts using
-MEGAHIT (7), annotated using the annotation module described in the
+rnaSPAdes (7), annotated using the annotation module described in the
 metagenome workflow, and the high-quality reads are mapped back to the
-annotated transcripts using HISAT2 (8) and then processed to calculate
-the number of reads mapped per feature using FeatureCount (9) and RPKM
-calculations per feature using edgeR (10). Results from read QC,
-assembly, and annotation are available for search and download for 
+annotated transcripts using JGI's workflow. Results from read QC,
+assembly, annotation, and expression analysis are available for search and download for 
 metatranscriptomes on the NMDC Data Portal.
 
 ### *Metaproteomes.*
@@ -194,7 +185,7 @@ selection will display studies and samples associated with that PI, and
 selecting the arrow on the right side of the study name will open up
 more information about that study and that principal investigator.
 
-### *Search by omics processing information*
+### *Search by data generation information*
 
 [![](../_static/images/howto_guides/portal_guide/instrument_name.png)](../_static/images/howto_guides/portal_guide/instrument_name.png)
 
@@ -202,8 +193,8 @@ more information about that study and that principal investigator.
 
 [![](../_static/images/howto_guides/portal_guide/processing_institution.png)](../_static/images/howto_guides/portal_guide/processing_institution.png)
 
-Samples can be queried by various omics processing information terms
-including instrument name, omics type (processing runs sorted by omics
+Samples can be queried by various data generation terms
+including instrument name, data type (processing runs sorted by data
 type can also be queried using the bar plot on the main portal page),
 and processing institution.
 
@@ -246,21 +237,22 @@ name.
 [![](../_static/images/howto_guides/portal_guide/envo.png)](../_static/images/howto_guides/portal_guide/envo.png)
 
 Samples can also be queried by ecosystem classifications using GOLD
-and/or ENVO terms. Selecting GOLD classification in the query term bar
+and/or MIxS Environmental Triad terms. Selecting GOLD classification in the query term bar
 opens up a hierarchy that can be navigated through to select ecosystem
 classification(s) of interest. Users can select everything under a
 certain classification at any point, or can continue navigating to more
 specific classifications. The Sankey diagram on the 'Environment' page
-provides an interactive visualization of the GOLD classification system.
+provides an interactive visualization of the GOLD classification system. 
 
-Similarly, ENVO terms can be used to query the portal, and these are
-broken down into environmental biome, feature, and material categories.
-ENVO is another effective classification system that can be used to
-describe environments where samples were collected from.
+Similarly, ENVO, PO and Uberon terms are classification systems that can be used to
+describe environments where samples were collected from which can be used to query the portal.  
+Users can search by broad-scale environmental context, local environmental context, 
+and envioronmental medium.  These terms are required by NMDC because they are required by
+the GSC.
 
 ## Interactive visualizations
 
-### *Omics Page*
+### *Data Type*
 
 #### Barplot
 
@@ -276,7 +268,7 @@ type.
 
 [![](../_static/images/howto_guides/portal_guide/geographic_map.png)](../_static/images/howto_guides/portal_guide/geographic_map.png)
 
-The geographic map on the omics page allows for samples to be queried by
+The geographic map allows for samples to be queried by
 the geographic location from which they were isolated. The map displays
 the geographical location (latitude, longitude) of the sample collection
 sites as clusters with colors corresponding to the number of samples
@@ -290,22 +282,22 @@ button will limit the search to the current map bounds.
 [![](../_static/images/howto_guides/portal_guide/temporal_slider.png)](../_static/images/howto_guides/portal_guide/temporal_slider.png)
 
 Samples can also be queried by a sample collection date range by
-dragging the dots below the temporal slider on the omics page. Sample
-collection dates are grouped by month.
+clicking and holding to select a date range. Sample
+collection dates are grouped by month. The selected date range will be highlighted in gray.
 
 #### Upset plot
 
 [![](../_static/images/howto_guides/portal_guide/upset_plot.png)](../_static/images/howto_guides/portal_guide/upset_plot.png)
 
 The upset plot on the omics page displays the number of samples that
-have various combinations of associated omics data. The axis at the top
+have various combinations of associated data. The axis at the top
 of the plot refers to the different omics types (MG: metagenomic, MT:
 metatranscriptomic, MP: metaproteomic, MB: metabolomic, NOM: natural
 organic matter) and the dots and lines in the graph below represent the
-combinations of the omics data types. The numbers and bars on the right
+combinations of the data types. The numbers and bars on the right
 side represent the number of samples searchable in the NMDC data portal
-with each corresponding combination of omics data types. This plot will
-update as query terms are added.
+with each corresponding combination of omics data types. Clicking either on the bar 
+portion or the number beside it will apply a filter.
 
 ### *Environment Page*
 
@@ -328,7 +320,7 @@ came from that selected environment.
 
 Various output data files are available from samples findable through
 the NMDC that have been run through the NMDC standardized workflows.
-Output files from each omic type are sorted by the specific workflow
+Output files from each data type are sorted by the specific workflow
 (e.g. Metagenome Assembly, Annotation) that was run and are each
 available for download when the sample of interest is selected. Users
 must log in with an ORCID account before downloading data.
