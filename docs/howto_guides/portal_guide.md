@@ -173,7 +173,7 @@ organic matter characterizations on the NMDC Data Portal.
 
 ## Portal Functionality
 
-#Faceted search and access
+# Faceted search and access
 
 ### *Search by investigator name*
 
