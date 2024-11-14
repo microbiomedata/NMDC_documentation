@@ -234,8 +234,7 @@ name.
 
 [![](../_static/images/howto_guides/portal_guide/gold_classification.png)](../_static/images/howto_guides/portal_guide/gold_classification.png)
 
-[![](../_static/images/howto_guides/portal_guide/mixs_env_triad.png)
-)](../_static/images/howto_guides/portal_guide/mixs_env_triad.png)
+[![](../_static/images/howto_guides/portal_guide/mixs_env_triad.png)](../_static/images/howto_guides/portal_guide/mixs_env_triad.png)
 
 Samples can also be queried by ecosystem classifications using GOLD
 and/or MIxS Environmental Triad terms. Selecting GOLD classification in the query term bar
