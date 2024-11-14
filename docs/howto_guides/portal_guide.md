@@ -102,74 +102,8 @@ schema offers an approach to link data to their source
 biosample (for example, multiple organic matter characterizations can be
 generated from a single sample through extraction with various solvents,
 eg, chloroform, methanol, and water fractionation). Below outlines the
-various data types currently available through the portal.
-
-### *Metagenomes.*
-
-Illumina-sequenced shotgun metagenome data undergo pre-processing, error
-correction, assembly, structural and functional annotation, and binning
-leveraging the JGI's production pipelines (6), along with an additional
-read-based taxonomic analysis component. Standardized outputs from the
-read QC, read-based analysis, assembly, annotation, and binning are
-available for search and download on the NMDC Data
-Portal.
-
-### *Metatranscriptomes.*
-
-Illumina-sequenced shotgun reads from cDNA library undergo
-pre-processing and error correction in the same way as described above
-in the metagenome workflow with additional steps to filter ribosomal
-reads. High-quality reads are then assembled into transcripts using
-rnaSPAdes (7), annotated using the annotation module described in the
-metagenome workflow, and the high-quality reads are mapped back to the
-annotated transcripts using JGI's workflow. Results from read QC,
-assembly, annotation, and expression analysis are available for search and download for 
-metatranscriptomes on the NMDC Data Portal.
-
-### *Metaproteomes.*
-
-Data-dependent mass spectrometry raw data files are first converted to
-mzML, using MSConvert (11). Peptide identification is achieved using
-MSGF+ (12) and the associated metagenomic information in the FASTA file.
-Peptide identification false discovery rate is controlled using a decoy
-database approach. Intensity information is extracted using MASIC (13)
-and combined with protein information. Protein annotation information is
-obtained from the associated metagenome annotation output. Standardized
-outputs for quality control, and peptide and protein-level quantitative
-data are available for search and download for metaproteomes on the
-NMDC Data Portal.
-
-### *Metabolomes.*
-
-The gas chromatography-mass spectrometry (GC-MS) based metabolomics
-workflow (metaMS) developed by leveraging EMSL's CoreMS mass
-spectrometry software framework allows target and semi-target data
-analysis of metabolomics data (14). The raw data is parsed into coreMS
-data structure and undergoes all the steps of signal processing (signal
-noise reduction, m/z based chromatogram peak deconvolution, abundance
-threshold calculation, peak picking) and molecular identification,
-including the molecular search using a metabolites standard compound
-library, spectral similarity calculation, and similarity score
-calculation (15), all in a single step. The putative metabolite
-annotation data is available to download for metabolomes on the NMDC
-Data Portal. Data dependent LC-MS based workflows are currently under
-development. Additionally, it should be noted that all available data
-derives from exploratory, untargeted analysis and is semi-quantitative.
-
-### *Natural Organic Matter Characterization (NOM).*
-
-Direct Infusion Fourier Transform mass spectrometry (DI FT-MS) data
-undergoes signal processing and molecular formula assignment leveraging
-EMSL's CoreMS framework (14). Raw time domain data is transformed into
-the *m/z* domain using Fourier Transform and Ledford equation (16). Data
-is denoised followed by peak picking, recalibration using an external
-reference list of known compounds, and searched against a dynamically
-generated molecular formula library with a defined molecular search
-space. The confidence scores for all the molecular formula candidates
-are calculated based on the mass accuracy and fine isotopic structure,
-and the best candidate assigned as the highest score. The molecular
-formula characterization table is available to download for natural
-organic matter characterizations on the NMDC Data Portal.
+various data types currently available through the portal. For details on workflow processing 
+our [workflow documentation](https://github.com/microbiomedata/workflow_documentation/tree/master/docs/chapters).
 
 ## Portal Functionality
 
@@ -368,46 +302,3 @@ downloading data.
 >     Nikolau B, Robertson D, Sumner LW, Taylor C, van der Werf M, van
 >     Ommen B, Fiehn O, Members MSIB. 2007. The Metabolomics Standards
 >     Initiative. \_Nature Biotechnol. \_25:846-848.
-> 6.  Clum A, Huntemann M, Bushnell B, Foster B, Foster B, Roux S, Hajek
->     PP, Varghese N, Mukherjee S, Reddy TBK, Daum C, Yoshinaga Y,
->     O'Malley R, Seshadri R, Kyrpides NC, Eloe-Fadrosh EA, Chen I-MA,
->     Copeland A, Ivanova NN, Segata N. 2021. DOE JGI Metagenome
->     Workflow. \_mSystems \_6:e00804-20.
-> 7.  Li D, Liu C-M, Luo R, Sadakane K, Lam T-W. 2015. MEGAHIT: an
->     ultra-fast single-node solution for large and complex metagenomics
->     assembly via succinct de Bruijn graph. \_Bioinformatics
->     \_31:1674-1676.
-> 8.  Kim D, Paggi JM, Park C, Bennett C, Salzberg SL. 2019. Graph-based
->     genome alignment and genotyping with HISAT2 and HISAT-genotype.
->     \_Nature Biotechnol. \_37:907-915.
-> 9.  Liao Y, Smyth GK, Shi W. 2014. featureCounts: an efficient general
->     purpose program for assigning sequence reads to genomic features.
->     \_Bioinformatics \_30:923-30.
-> 10. Robinson MD, McCarthy DJ, Smyth GK. 2010. edgeR: a Bioconductor
->     package for differential expression analysis of digital gene
->     expression data. \_Bioinformatics \_26:139-140.
-> 11. Chambers MC, Maclean B, Burke R, Amodei D, Ruderman DL, Neumann S,
->     Gatto L, Fischer B, Pratt B, Egertson J, Hoff K, Kessner D, Tasman
->     N, Shulman N, Frewen B, Baker TA, Brusniak MY, Paulse C, Creasy D,
->     Flashner L, Kani K, Moulding C, Seymour SL, Nuwaysir LM, Lefebvre
->     B, Kuhlmann F, Roark J, Rainer P, Detlev S, Hemenway T, Huhmer A,
->     Langridge J, Connolly B, Chadick T, Holly K, Eckels J, Deutsch EW,
->     Moritz RL, Katz JE, Agus DB, MacCoss M, Tabb DL, Mallick P. 2012.
->     A cross-platform toolkit for mass spectrometry and proteomics.
->     \_Nature Biotechnol. \_30:918-20.
-> 12. Kim S, Gupta N, Pevzner PA. 2008. Spectral Probabilities and
->     Generating Functions of Tandem Mass Spectra: A Strike against
->     Decoy Databases. \_J Proteome Res. \_7:3354-3363.
-> 13. Monroe ME, Shaw JL, Daly DS, Adkins JN, Smith RD. 2008. MASIC: A
->     software program for fast quantitation and flexible visualization
->     of chromatographic profiles from detected LC-- MS(/MS) features.
->     \_Comp. Biol. Chemistry \_32:215-217.
-> 14. Corilo YE, Kew WR, McCue LA. 2021. EMSL-Computing/CoreMS: CoreMS
->     1.0.0 (v1.0.0). Zenodo. 10.5281/zenodo.4641552.
-> 15. Hiller K, Hangebrauk J, Jäger C, Spura J, Schreiber K,
->     Schomburg D. 2009. MetaboliteDetector: comprehensive analysis tool
->     for targeted and nontargeted GC/MS based metabolome analysis.
->     \_Anal Chem \_81:3429-39.
-> 16. Marshall AG, Hendrickson CL, Jackson GS. 1998. Fourier transform
->     ion cyclotron resonance mass spectrometry: a primer. \_Mass
->     Spectrom Rev \_17:1-35.
