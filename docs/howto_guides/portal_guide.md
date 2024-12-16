@@ -101,8 +101,7 @@ sample source enables researchers to probe function. The NMDC data
 schema offers an approach to link data to their source
 biosample (for example, multiple organic matter characterizations can be
 generated from a single sample through extraction with various solvents,
-eg, chloroform, methanol, and water fractionation). Below outlines the
-various data types currently available through the portal. For details on workflow processing 
+eg, chloroform, methanol, and water fractionation). For details on workflow processing refer to 
 our [workflow documentation](https://github.com/microbiomedata/workflow_documentation/tree/master/docs/chapters).
 
 ## Portal Functionality
@@ -132,17 +131,16 @@ including instrument name, data type (processing runs sorted by data
 type can also be queried using the bar plot on the main portal page),
 and processing institution.
 
-### *Search by KEGG Orthology (KO)*
+### *Search by function*
 
 [![](../_static/images/howto_guides/portal_guide/KO_term_search.png)](../_static/images/howto_guides/portal_guide/KO_term_search.png)
 
 [![](../_static/images/howto_guides/portal_guide/KO_results.png)](../_static/images/howto_guides/portal_guide/KO_results.png)
 
-Under 'Function' on the query term bar, users are able to search by KEGG
-Orthology (KO) terms to limit the query to samples with datasets that
-include at least one of the listed KO terms. Users may list multiple KO
+Under 'Function' on the query term bar users are able to search by Kyoto Encyclopedia of Genes and Genomes (KEGG), the protein families database (Pfam), Clusters of Orthologous Genes (COG) and Gene Ontology (GO) terms to limit the query to samples with datasets that
+include at least one of the listed terms. For KEGG we support search by orthologies, modules or pathways. For Pfam we support entries and clans. For COG we support terms, categories and pathways. Search by GO terms is supported via mappings to Pfam and KEGG terms.  Users may list multiple 
 terms, but it is important to note that adding multiple terms will limit
-the search to datasets that include at least one of those KO terms, not
+the search to datasets that include at least one of those identifiers, not
 all of the added terms.
 
 ### *Search by environmental descriptors*
