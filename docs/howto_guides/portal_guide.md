@@ -133,7 +133,7 @@ and processing institution.
 
 ### *Search by function*
 
-[![](../_static/images/howto_guides/portal_guide/KO_term_search.png)](../_static/images/howto_guides/portal_guide/KO_term_search.png)
+[![](../_static/images/howto_guides/portal_guide/KO_term_search.png)](../_static/images/howto_guides/portal_guide/functional_search_2024.png)
 
 [![](../_static/images/howto_guides/portal_guide/KO_results.png)](../_static/images/howto_guides/portal_guide/KO_results.png)
 
