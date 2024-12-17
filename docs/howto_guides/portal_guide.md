@@ -133,9 +133,9 @@ and processing institution.
 
 ### *Search by function*
 
-[![](../_static/images/howto_guides/portal_guide/KO_term_search.png)](../_static/images/howto_guides/portal_guide/functional_search_2024.png)
+[![](../_static/images/howto_guides/portal_guide/functional_search_2024.png)](../_static/images/howto_guides/portal_guide/functional_search_2024.png)
 
-[![](../_static/images/howto_guides/portal_guide/KO_results.png)](../_static/images/howto_guides/portal_guide/kegg_search_2024.png)
+[![](../_static/images/howto_guides/portal_guide/kegg_search_2024.png)](../_static/images/howto_guides/portal_guide/kegg_search_2024.png)
 
 Under 'Function' on the query term bar users are able to search by Kyoto Encyclopedia of Genes and Genomes (KEGG), the protein families database (Pfam), Clusters of Orthologous Genes (COG) and Gene Ontology (GO) terms to limit the query to samples with datasets that
 include at least one of the listed terms. For KEGG we support search by orthologies, modules or pathways. For Pfam we support entries and clans. For COG we support terms, categories and pathways. Search by GO terms is supported via mappings to Pfam and KEGG terms.  Users may list multiple 
