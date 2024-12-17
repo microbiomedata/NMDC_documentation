@@ -43,7 +43,7 @@ the NMDC Data Portal.
 
 ## Available Studies & Data
 
-Data hostings include studies, biosamples, and 5 data types from a breadth of
+Data hostings include studies, biosamples, and multi-omics data from a breadth of
 environmental microbiomes, spanning river sediments, subsurface shale
 carbon reservoirs, plant-microbe associations, and temperate and
 tropical soils. 
@@ -77,16 +77,16 @@ altitude, depth, etc.) for 17 different sample environments.
 
 ### *Environment Ontology (EnvO)*
 
-EnvO is a community-led ontology that represents environmental entities
+EnvO (6) is a community-led ontology that represents environmental entities
 such as biomes, environmental features, and environmental materials.
 These EnvO entities are the recommended values for several of the
 mandatory terms in the MIxS packages, often referred to as the "MIxS
-triad".  Where appropriate, we also support terms from the Plant Ontology (PO) and Uberon, 
+triad".  Where appropriate, we also support terms from the Plant Ontology (PO) (7) and Uberon (8), 
 an anotomical ontology. 
 
 ### *Genomes OnLine Database (GOLD)*
 
-GOLD is an open-access repository of genome, metagenome, and
+GOLD (9) is an open-access repository of genome, metagenome, and
 metatranscriptome sequencing projects with their associated metadata.
 Biosamples (defined as the physical material collected from an
 environment) are described using a five-level ecosystem classification
@@ -137,7 +137,7 @@ and processing institution.
 
 [![](../_static/images/howto_guides/portal_guide/kegg_search_2024.png)](../_static/images/howto_guides/portal_guide/kegg_search_2024.png)
 
-Under 'Function' on the query term bar users are able to search by Kyoto Encyclopedia of Genes and Genomes (KEGG), the protein families database (Pfam), Clusters of Orthologous Genes (COG) and Gene Ontology (GO) terms to limit the query to samples with datasets that
+Under 'Function' on the query term bar users are able to search by Kyoto Encyclopedia of Genes and Genomes (KEGG) (10) , the protein families database (Pfam) (11) , Clusters of Orthologous Genes (COG) (12) and Gene Ontology (GO) (13) terms to limit the query to samples with datasets that
 include at least one of the listed terms. For KEGG we support search by orthologies, modules or pathways. For Pfam we support entries and clans. For COG we support terms, categories and pathways. Search by GO terms is supported via mappings to Pfam and KEGG terms.  Users may list multiple 
 terms, but it is important to note that adding multiple terms will limit
 the search to datasets that include at least one of those identifiers, not
