@@ -272,7 +272,7 @@ downloading data.
 ## References
 
 > 1.  Abras C, Maloney-Krichmar, D., Preece, J. 2004. User-Centered
->     Design. \_In \_Bainbridge W (ed), Encyclopedia of Human-Computer
+>     Design. In Bainbridge W (ed), Encyclopedia of Human-Computer
 >     Interaction. Sage Publications, Thousand Oaks.
 > 2.  Preece J, Rogers, Y., & Sharp, H. 2002. Interaction design: Beyond
 >     human-computer interaction. John Wiley & Sons, New York, NY.
@@ -287,16 +287,24 @@ downloading data.
 >     Jansson J, Kau AL, Kelley ST, Kennedy J, Knights D, Koren O, et
 >     al. 2011. Minimum information about a marker gene sequence
 >     (MIMARKS) and minimum information about any (x) sequence (MIxS)
->     specifications. \_Nature Biotechnol. \_29:415-420.
+>     specifications. Nature Biotechnol. 29:415-420.
 > 4.  Taylor CF, Paton NW, Lilley KS, Binz P-A, Julian RK, Jones AR, Zhu
 >     W, Apweiler R, Aebersold R, Deutsch EW, Dunn MJ, Heck AJR, Leitner
 >     A, Macht M, Mann M, Martens L, Neubert TA, Patterson SD, Ping P,
 >     Seymour SL, Souda P, Tsugita A, Vandekerckhove J, Vondriska TM,
 >     Whitelegge JP, Wilkins MR, Xenarios I, Yates JR,
 >     Hermjakob H. 2007. The minimum information about a proteomics
->     experiment (MIAPE). \_Nature Biotechnol. \_25:887-893.
+>     experiment (MIAPE). Nature Biotechnol. 25:887-893.
 > 5.  Sansone S-A, Fan T, Goodacre R, Griffin JL, Hardy NW,
 >     Kaddurah-Daouk R, Kristal BS, Lindon J, Mendes P, Morrison N,
 >     Nikolau B, Robertson D, Sumner LW, Taylor C, van der Werf M, van
 >     Ommen B, Fiehn O, Members MSIB. 2007. The Metabolomics Standards
->     Initiative. \_Nature Biotechnol. \_25:846-848.
+>     Initiative. Nature Biotechnol. 25:846-848.
+> 6.  Buttigieg PL, Morrison N, Smith B, Mungall CJ, Lewis SE, Envo Consortium. 2013. The environment ontology: contextualising biological and biomedical entities. J Biomed Semantics 4:1–9.
+> 7.  Cooper L, Jaiswal P. 2016. The Plant Ontology: a tool for plant genomics. Methods Mol Biol. 1374:89–114. https://doi.org/10.1007/978-1-4939-3167-5_5.
+> 8.  Mungall CJ, Torniai C, Gkoutos GV, et al. 2012. Uberon, an integrative multi-species anatomy ontology. Genome Biol. 13:R5. https://doi.org/10.1186/gb-2012-13-1-r5.
+> 9.  Mukherjee S, Stamatis D, Li CT, Ovchinnikova G, Kandimalla M, Handke V, Reddy A, Ivanova N, Woyke T, Eloe-Fadrosh EA, Chen I-MA, Kyrpides NC, Reddy TBK. 2024. Genomes OnLine Database (GOLD) v.10: new features and updates. Nucleic Acids Res. https://doi.org/10.1093/nar/gkae1000.
+> 10.  Kanehisa M, Goto S. 2000. KEGG: Kyoto Encyclopedia of Genes and Genomes. Nucleic Acids Res. 28:27–30. https://doi.org/10.1093/nar/28.1.27.
+> 11.  Bateman A, Coin L, Durbin R, Finn RD, Hollich V, Griffiths-Jones S, Khanna A, Marshall M, Moxon S, Sonnhammer ELL, Studholme DJ, Yeats C, Eddy SR. 2004. The Pfam protein families database. Nucleic Acids Res. 32:D138–D141. https://doi.org/10.1093/nar/gkh121.
+> 12.  Tatusov RL, Galperin MY, Natale DA, Koonin EV. 2000. The COG database: a tool for genome-scale analysis of protein functions and evolution. Nucleic Acids Res. 28:33. https://doi.org/10.1093/nar/28.1.33.
+> 13.  The Gene Ontology Consortium. 2019. The Gene Ontology resource: 20 years and still GOing strong. Nucleic Acids Res. 47:D330–D338. https://doi.org/10.1093/nar/gky1055.
