@@ -122,7 +122,7 @@ more information about that study and that principal investigator.
 
 [![](../_static/images/howto_guides/portal_guide/instrument_name.png)](../_static/images/howto_guides/portal_guide/instrument_name.png)
 
-[![](../_static/images/howto_guides/portal_guide/data_type.png)](../_static/images/howto_guides/portal_guide/data_type.png)
+[![](../_static/images/howto_guides/portal_guide/data_types.png)](../_static/images/howto_guides/portal_guide/data_types.png)
 
 [![](../_static/images/howto_guides/portal_guide/processing_institution.png)](../_static/images/howto_guides/portal_guide/processing_institution.png)
 
