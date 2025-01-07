@@ -76,4 +76,6 @@ html_logo = "_static/images/nmdc-logo-bg-white.png"
 redirects = {
     "reference/metadata/xylene": "https://w3id.org/nmdc/xylene",  # the latter redirects to: https://microbiomedata.github.io/nmdc-schema/xylene/
     "reference/metadata/*": "https://w3id.org/nmdc/nmdc",
+    # Redirect URL of obsolete combined workflow documentation, to the standalone workflow documentation website.
+    "reference/combined_workflow_docs": "https://nmdc-workflow-documentation.readthedocs.io/",
 }
