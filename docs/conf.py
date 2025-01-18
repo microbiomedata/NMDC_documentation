@@ -99,15 +99,19 @@ redirects = {
     # Redirect local pages for which there is no corresponding page on the remote website. 
     "explanation/publications": "https://docs.microbiomedata.org",
 
-    # Redirect URLs to schema elements' documentation (from back when this local site contained a static copy of schema documentation)
-    # to the w3id URL of that schema element.
+    # Redirect `reference/metadata` to the NMDC Schema documentation via the latter's w3id URL.
     #
     # Examples:
-    # - reference/metadata           -> https://w3id.org/nmdc
-    # - reference/metadata/study_set -> https://w3id.org/nmdc/study_set
+    # - reference/metadata           -> https://w3id.org/nmdc/nmdc
+    # - reference/metadata/study_set -> https://w3id.org/nmdc/nmdc
     #
-    # Reference: https://documatt.com/sphinx-reredirects/usage.html#target-placeholders
+    # Note: Regarding more _granular_ redirecting as described in the documentation of the `sphinx-reredirect` package,
+    #       here https://documatt.com/sphinx-reredirects/usage.html#target-placeholders — in short, it doesn't work.
+    #       There is a bug — described at https://github.com/documatt/sphinx-reredirects/issues/2 — in the package,
+    #       which causes the `$source` variable to contain the entire source path, not just the portion matched by
+    #       the wildcard. Since that functionality does not work, we do a "blanket redirect" of everything under
+    #       `reference/metadata` to the homepage of the schema documentation.
     #
-    "reference/metadata": "https://w3id.org/nmdc",
-    "reference/metadata/*": "https://w3id.org/nmdc/$source",
+    "reference/metadata": "https://w3id.org/nmdc/nmdc",
+    "reference/metadata/*": "https://w3id.org/nmdc/nmdc",
 }
