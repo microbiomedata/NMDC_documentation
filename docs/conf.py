@@ -70,12 +70,44 @@ html_logo = "_static/images/nmdc-logo-bg-white.png"
 
 # -- Redirects ------------------------------------------
 
-# Redirect old schema documentation URLs to the schema documentation
-# that is automatically kept in sync with the schema.
+# Redirect from local pages to the corresponding pages, if any, on the
+# centralized documentation website hosted at `https://docs.microbiomedata.org`.
+# If there is no corresponding page, redirect to the home page of that website.
+#
 # Reference: https://pypi.org/project/sphinx-reredirects/
+#
 redirects = {
-    "reference/metadata/xylene": "https://w3id.org/nmdc/xylene",  # the latter redirects to: https://microbiomedata.github.io/nmdc-schema/xylene/
-    "reference/metadata/*": "https://w3id.org/nmdc/nmdc",
-    # Redirect URL of obsolete combined workflow documentation, to the standalone workflow documentation website.
-    "reference/combined_workflow_docs": "https://nmdc-workflow-documentation.readthedocs.io/",
+    # Redirect both the local homepage and overview page, to the remote homepage.
+    "index": "https://docs.microbiomedata.org/",
+    "overview/nmdc_overview.html": "https://docs.microbiomedata.org/",
+
+    # Redirect the diataxis-influenced stuff to the corresponding pages on the remote website.
+    "explanation/community_conversations": "https://docs.microbiomedata.org/explanation/community_conversations",
+    "explanation/fair_data": "https://docs.microbiomedata.org/explanation/fair_data",    
+    "howto_guides/api_gui": "https://docs.microbiomedata.org/howto_guides/api_gui",
+    "howto_guides/data_plan": "https://docs.microbiomedata.org/howto_guides/data_plan",
+    "howto_guides/globus": "https://docs.microbiomedata.org/howto_guides/globus",
+    "howto_guides/portal_guide": "https://docs.microbiomedata.org/howto_guides/portal_guide",
+    "howto_guides/run_workflows": "https://docs.microbiomedata.org/howto_guides/run_workflows",
+    "howto_guides/submit2nmdc": "https://docs.microbiomedata.org/howto_guides/submit2nmdc",
+    "reference/data_portal": "https://docs.microbiomedata.org/reference/data_portal",
+    "tutorials/nav_data_portal": "https://docs.microbiomedata.org/tutorials/nav_data_portal",
+    "tutorials/prepare_metadata": "https://docs.microbiomedata.org/tutorials/prepare_metadata",
+    "tutorials/run_workflows": "https://docs.microbiomedata.org/tutorials/run_workflows",
+    "tutorials/submission_portal": "https://docs.microbiomedata.org/tutorials/submission_portal",
+
+    # Redirect local pages for which there is no corresponding page on the remote website. 
+    "explanation/publications": "https://docs.microbiomedata.org",
+
+    # Redirect URLs to schema elements' documentation (from back when this local site contained a static copy of schema documentation)
+    # to the w3id URL of that schema element.
+    #
+    # Examples:
+    # - reference/metadata           -> https://w3id.org/nmdc
+    # - reference/metadata/study_set -> https://w3id.org/nmdc/study_set
+    #
+    # Reference: https://documatt.com/sphinx-reredirects/usage.html#target-placeholders
+    #
+    "reference/metadata": "https://w3id.org/nmdc",
+    "reference/metadata/*": "https://w3id.org/nmdc/$source",
 }
