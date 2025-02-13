@@ -1,31 +1,6 @@
-> [!NOTE]
-> **ADRs are now being recorded in the [`issues` repository](https://github.com/microbiomedata/issues/tree/main/decisions) instead of this repository.**
+# ~NMDC_documentation~
 
-# NMDC_documentation
-Compile documentation for NMDC workflows, schemas/ metadata, and portal
-
-NMDC Schema
-https://microbiomedata.github.io/nmdc-schema/
-
-NMDC Workflows ReadtheDocs
-https://nmdc-workflow-documentation.readthedocs.io/en/latest/chapters/overview.html
-
-NMDC Data Portal User Guide ReadtheDocs
-https://the-nmdc-portal-user-guide.readthedocs.io/en/latest/
-
-## Link Checking
-
-Checking for dead links will happen automatically as a GitHub Action on pull requests
-or commits to `main`. Link checking is done using [lychee](https://github.com/lycheeverse/lychee).
-
-If you have installed lychee locally, you can run:
-
-```shell
-lychee ./docs --format markdown --output ./lychee.md
-```
-
-Alternatively you can run via Docker:
-
-```shell
-docker run --init --rm -it -v `pwd`:/input -w "/input" lycheeverse/lychee /input/docs --format markdown --output /input/lychee.md
-```
+> [!IMPORTANT]  
+> **This repository is no longer being updated.** It has been superseded by the `content/home/src` directory of the [docs](https://github.com/microbiomedata/docs/tree/main/content/home/src) repository.
+>
+> Looking for ADRs? Those are in the `decisions` directory of the [issues](https://github.com/microbiomedata/issues/tree/main/decisions) repository.
