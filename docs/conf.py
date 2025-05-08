@@ -82,6 +82,15 @@ redirects = {
     "overview/nmdc_overview.html": "https://docs.microbiomedata.org/",
 
     # Redirect the diataxis-influenced stuff to the corresponding pages on the remote website.
+    #
+    # Example: To tell Sphinx we want it to redirect visitors
+    #          from the URL, https://nmdc-documentation.readthedocs.io/en/latest/reference/combined_workflow_docs.html,
+    #          to the URL, https://docs.microbiomedata.org/workflows,
+    #          we add the following key-value pair to this dictionary:
+    #          ```
+    #          "reference/combined_workflow_docs": "https://docs.microbiomedata.org/workflows",
+    #          ```
+    #
     "explanation/community_conversations": "https://docs.microbiomedata.org/explanation/community_conversations",
     "explanation/fair_data": "https://docs.microbiomedata.org/explanation/fair_data",    
     "howto_guides/api_gui": "https://docs.microbiomedata.org/howto_guides/api_gui",
@@ -90,6 +99,7 @@ redirects = {
     "howto_guides/portal_guide": "https://docs.microbiomedata.org/howto_guides/portal_guide",
     "howto_guides/run_workflows": "https://docs.microbiomedata.org/howto_guides/run_workflows",
     "howto_guides/submit2nmdc": "https://docs.microbiomedata.org/howto_guides/submit2nmdc",
+    "reference/combined_workflow_docs": "https://docs.microbiomedata.org/workflows",
     "reference/data_portal": "https://docs.microbiomedata.org/reference/data_portal",
     "tutorials/nav_data_portal": "https://docs.microbiomedata.org/tutorials/nav_data_portal",
     "tutorials/prepare_metadata": "https://docs.microbiomedata.org/tutorials/prepare_metadata",
